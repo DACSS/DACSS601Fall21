@@ -1,6 +1,6 @@
 ---
 title: "Joe Davis"
-image: "~/DACSS601Fall21/images/students/Joe-Davis.jpg"
+image: "/DACSS601Fall21/images/students/Joe-Davis.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/joe-davis-8a170596/"
