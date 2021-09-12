@@ -1,0 +1,17 @@
+---
+title: "Joe Davis"
+image: "../images/students/Joe-Davis.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/joe-davis-8a170596/"
+  - label: Twitter
+    url: "https://twitter.com/doeyjavis"
+  - label: GitHub
+    url: "https://github.com/DACSSJoe"
+  - label: Email
+    url: "mailto:josephd@umass.edu"
+output:
+  postcards::jolla_blue
+---
+ 
+Grew up in Eau Claire, WI and moved to Minneapolis for college and they haven't been able to get rid of me yet. Applied to the DACSS program to expand the tools available to me in my work, trying to advanced progressive causes and candidates. My wife's name is also Joey. We are called the Joeys. Though it is often confusing, and why I now go by Joe, it's not as weird as it seems I swear.
