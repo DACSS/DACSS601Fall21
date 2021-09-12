@@ -25,7 +25,8 @@ Icon?
 
 # RStudio files
 *.Rproj
-.user/
+.user
+.Rproj.user/
 
 # produced vignettes
 vignettes/*.html
