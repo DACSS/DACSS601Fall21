@@ -46,3 +46,4 @@ vignettes/*.pdf
 # Environment Variables
 .Renviron
 .env
+docs/
