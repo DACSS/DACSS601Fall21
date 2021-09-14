@@ -1,0 +1,18 @@
+---
+title: "Eliza Geeslin"
+image: "Eliza.jpg"
+color1: "#5A59A3"
+color2: "#C66060"
+angle: 130
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/eliza-geeslin/"
+  - label: GitHub
+    url: "https://github.com/elizageeslin"S
+  - label: Email
+    url: "mailto:egeeslin@umass.edu"
+output:
+  postcards::onofre
+---
+
+Eliza is a part-time DACSS student. She works for Cambridge-based HubSpot on the People Analytics team where she focuses on data enrichment and connecting the dots between process, systems, and analysis. She recently moved (back) to her hometown, Brooklyn, and spends her free time knitting and watching bad reality TV.
