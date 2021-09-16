@@ -1,15 +1,14 @@
 ---
-title: "Let's try a blog, shall we?"
-description: Homework 1, trying to get a blog up without breaking the whole class website.
+title: Let's try a blog, shall we?
+description: Homework 1, trying to get a blog up without breaking the whole class
+  website.
 author: Joe Davis
 date: 09-14-2021
-categories:
-  -homework 1
-  -Joe Davis
+categories: -homework 1 -Joe Davis
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
