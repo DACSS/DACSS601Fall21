@@ -8,7 +8,7 @@ links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/eliza-geeslin/"
   - label: GitHub
-    url: "https://github.com/elizageeslin"S
+    url: "https://github.com/elizageeslin"
   - label: Email
     url: "mailto:egeeslin@umass.edu"
 output:
