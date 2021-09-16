@@ -1,6 +1,6 @@
 ---
 title: "Molly Hackbarth"
-image: "images\students\images\IMG_0994.JPS"
+image: "IMG_0994.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/mollyhackbarth/"
