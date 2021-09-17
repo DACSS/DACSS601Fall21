@@ -1,0 +1,48 @@
+---
+title: "HW#2 - Getting familiar with the US public schools data set"
+description: |
+  Using the public school characteristic dataset collected in the 2017-2018 school year
+author: Brittany Kenison
+date: 09-16-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+## Introduction
+
+Let's get familiar with the data set by looking at the a few records:
+
+
+```{r publicschool}
+#read data from public school characteristics file
+psc <- read_csv("Public_School_Characteristics_2017-18.csv")
+
+#display the first 4 rows of data
+head(psc)
+```
+
+## Rows and Columns
+Hmm.  That looks like a lot of data.  How many rows and columns are here?
+
+```{r dimensions}
+dim(psc)
+```
+
+## Column Names
+
+Finally, the column names may help us understand the types of information collected. 
+
+```{r columnnames}
+colnames(psc)
+```
+
+## The End
+Now that we are more familiar with the date set, the next blog post will start to wrangle the data for our eventual analysis. 
