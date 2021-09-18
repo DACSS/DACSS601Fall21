@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/about.html</loc>
-    <lastmod>2021-09-15T19:17:52-04:00</lastmod>
+    <lastmod>2021-09-15T19:57:24-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/</loc>
-    <lastmod>2021-09-15T19:17:53-04:00</lastmod>
+    <lastmod>2021-09-15T19:57:25-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/instructor.html</loc>
-    <lastmod>2021-09-15T19:17:53-04:00</lastmod>
+    <lastmod>2021-09-15T19:57:27-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/students.html</loc>
-    <lastmod>2021-09-15T19:17:53-04:00</lastmod>
+    <lastmod>2021-09-15T19:57:25-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/syllabus.html</loc>
-    <lastmod>2021-09-15T19:17:53-04:00</lastmod>
+    <lastmod>2021-09-15T19:57:25-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/</loc>
+    <lastmod>2021-09-15T21:29:33-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/welcome/</loc>
-    <lastmod>2021-09-15T19:17:52-04:00</lastmod>
+    <lastmod>2021-09-15T21:29:37-04:00</lastmod>
   </url>
 </urlset>
