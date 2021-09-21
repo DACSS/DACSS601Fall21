@@ -32,6 +32,35 @@ Below you will find how to do basic math **addition, subtraction, multiplication
 5+4+3*14-2/2
 ```
 
+### Logical Data
+
+You can also use logic for data! This uses the **==, for equals, > greater than, < less than, and >= equal or greater or <= less than or equal to** signs!
+
+```{r logic}
+4==5
+2==2
+3>5
+10>5
+15>=15
+1<=2
+```
+
+
+### Assigning Data 
+
+You can also assign values to variables. 
+
+```{r assigning data}
+
+#create a variable x 
+
+x <- 3
+
+x+5
+
+x*x
+
+```
 ### Reading Data into R
 
 You can also read and plot data into R! 
@@ -50,6 +79,16 @@ library(datasets)
 head(iris)
 ```
 
+
+### Vectoring Data
+
+To vector data you must use **c() and <-**. Here is a quick set up of if you wanted to find the median of yards ran if it was multipled by 100. 
+
+```{r vector}
+yards <- c(12,50,100,22)
+
+run_yards <- yards*100
+```
 
 Distill is a publication format for scientific and technical writing, native to the web.
 

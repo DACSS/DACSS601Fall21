@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["homework-1_files/anchor-4.2.2/anchor.min.js","homework-1_files/bowser-1.9.3/bowser.min.js","homework-1_files/distill-2.2.21/template.v2.js","homework-1_files/figure-html5/readr-1.png","homework-1_files/header-attrs-2.10/header-attrs.js","homework-1_files/jquery-1.11.3/jquery.min.js","homework-1_files/popper-2.6.0/popper.min.js","homework-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","homework-1_files/tippy-6.2.7/tippy-light-border.css","homework-1_files/tippy-6.2.7/tippy.css","homework-1_files/tippy-6.2.7/tippy.umd.min.js","homework-1_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["homework-1_files/anchor-4.2.2/anchor.min.js","homework-1_files/bowser-1.9.3/bowser.min.js","homework-1_files/distill-2.2.21/template.v2.js","homework-1_files/figure-html5/readr-1.png","homework-1_files/header-attrs-2.10/header-attrs.js","homework-1_files/header-attrs-2.11/header-attrs.js","homework-1_files/jquery-1.11.3/jquery.min.js","homework-1_files/jquery-3.6.0/jquery-3.6.0.js","homework-1_files/jquery-3.6.0/jquery-3.6.0.min.js","homework-1_files/jquery-3.6.0/jquery-3.6.0.min.map","homework-1_files/popper-2.6.0/popper.min.js","homework-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","homework-1_files/tippy-6.2.7/tippy-light-border.css","homework-1_files/tippy-6.2.7/tippy.css","homework-1_files/tippy-6.2.7/tippy.umd.min.js","homework-1_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1434,8 +1434,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="homework-1_files/header-attrs-2.10/header-attrs.js"></script>
-  <script src="homework-1_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="homework-1_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="homework-1_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="homework-1_files/popper-2.6.0/popper.min.js"></script>
   <link href="homework-1_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="homework-1_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1509,6 +1509,58 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <pre><code>[1] 50</code></pre>
 </div>
+<h3 id="logical-data">Logical Data</h3>
+<p>You can also use logic for data! This uses the <strong>==, for equals, &gt; greater than, &lt; less than, and &gt;= equal or greater or &lt;= less than or equal to</strong> signs!</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>4</span><span class='op'>==</span><span class='fl'>5</span>
+</code></pre>
+</div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>2</span><span class='op'>==</span><span class='fl'>2</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>3</span><span class='op'>&gt;</span><span class='fl'>5</span>
+</code></pre>
+</div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>10</span><span class='op'>&gt;</span><span class='fl'>5</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>15</span><span class='op'>&gt;=</span><span class='fl'>15</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span><span class='op'>&lt;=</span><span class='fl'>2</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+</div>
+<h3 id="assigning-data">Assigning Data</h3>
+<p>You can also assign values to variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#create a variable x </span>
+
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
+
+<span class='va'>x</span><span class='op'>+</span><span class='fl'>5</span>
+</code></pre>
+</div>
+<pre><code>[1] 8</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span><span class='op'>*</span><span class='va'>x</span>
+</code></pre>
+</div>
+<pre><code>[1] 9</code></pre>
+</div>
 <h3 id="reading-data-into-r">Reading Data into R</h3>
 <p>You can also read and plot data into R!</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1535,9 +1587,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 5          5.0         3.6          1.4         0.2  setosa
 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 </div>
+<h3 id="vectoring-data">Vectoring Data</h3>
+<p>To vector data you must use <strong>c() and &lt;-</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>yards</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12</span>,<span class='fl'>50</span>,<span class='fl'>100</span>,<span class='fl'>22</span><span class='op'>)</span>
+
+<span class='va'>run_yards</span> <span class='op'>&lt;-</span> <span class='va'>yards</span><span class='op'>*</span><span class='fl'>100</span>
+
+<span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>run_yards</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 3600</code></pre>
+</div>
 <p>Distill is a publication format for scientific and technical writing, native to the web.</p>
 <p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
