@@ -82,7 +82,7 @@ head(iris)
 
 ### Vectoring Data
 
-To vector data you must use **c() and <-**. Here is a quick set up of if you wanted to find the median of yards ran if it was multipled by 100. 
+To vector data you must use **c() and <-**. Here is a quick set up of if you wanted to find the median of yards ran if it was multiplied by 100. 
 
 ```{r vector}
 yards <- c(12,50,100,22)
