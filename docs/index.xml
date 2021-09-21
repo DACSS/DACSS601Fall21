@@ -12,7 +12,15 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>blog post 1: reading in data</title>
+      <dc:creator>Claire Battaglia</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data</link>
+      <description>practicing the unsexy first step of data analysis</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data</guid>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Let's try a blog, shall we?</title>
       <dc:creator>Joe Davis</dc:creator>
@@ -21,6 +29,7 @@
       <category>-homework 1 -Joe Davis</category>
       <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we</guid>
       <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/lets-try-a-blog-shall-we_files/figure-html5/some basic graphs of that data-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Welcome to DACSS 601</title>
