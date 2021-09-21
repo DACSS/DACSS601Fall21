@@ -1,0 +1,70 @@
+---
+title: 'blog post 1: reading in data'
+description: |
+  practicing the unsexy first step of data analysis
+author: Claire Battaglia
+date: 09-15-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(readxl)
+```
+
+### reading in the data
+
+The first step in any project is going to be reading in the data. It's not glamorous but without it we'd be stuck trying to make sense of a messy spreadsheet forever. For this first post, I'll use the data set "organiceggpoultry.xls."
+
+```{R read in the data}
+# set working directory
+setwd("../../_data")
+
+# assign data to variable
+cogEggs <- read_excel("organiceggpoultry.xls")
+```
+
+### understanding its shape
+
+Once we've read the data in, we'll use a few commands to get a birds-eye view of what we're looking at. Getting the dimensions is a good place to start.
+
+```{R get dimensions}
+# get dimensions
+dim(cogEggs)
+```
+
+This means that there are 124 **rows** and 11 **columns**. In other words, there are 11 **variables** and 124 **observances**.
+
+Next, let's preview the data set.
+
+```{R preview data set}
+# preview first 5 rows
+head(cogEggs)
+```
+*yikes!*
+
+Using the colnames() function will show us the names of all 11 columns, which may help us better understand what we're looking at.
+
+```{R get column names}
+# get column names
+colnames(cogEggs)
+```
+
+Something tells me that these are not actually the names of the columns.
+
+### selecting specific columns
+
+Selecting a specific column to preview might help us understand what the column names *should* be.
+
+```{R}
+# preview first 5 rows of column 2
+head(select(cogEggs, "...2"))
+```
+
+*nope!* This data set is going to need some work. More next week!
