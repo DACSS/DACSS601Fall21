@@ -1,13 +1,13 @@
 ---
-title: "Homework 2"
+title: Homework 2
 description: |
   Homework 2 - Reading and pulling data.
 author: Molly Hackbarth
 date: 09-16-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 

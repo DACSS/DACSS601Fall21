@@ -1,0 +1,33 @@
+---
+title: "Brittany Kenison"
+image: "images/students/Brittany.jpg"
+#image: "../images/students/Brittany.jpg"
+
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/brittanykenison/"
+  - label: GitHub
+    url: "https://github.com/brittany-kenison/"
+  - label: Email
+    url: "mailto:bkenison@umass.edu"
+output:
+  postcards::trestles
+draft: true
+---
+
+## Bio 
+
+Brittany Kenison has been told she is a nerd and she remembers a day when it was not compliment. During the day, she is a Business/Systems Analyst for the Oregon Longitudinal Data Collaborative in the Higher Education agency for the State of Oregon. When not working to improvement data systems and processes, she enjoys reading books by female authors, trying new recipes, hiking nearby trails, and other granola-like Pacific Northwest activities with her family. 
+
+## Education
+
+**University of Massachusetts**  |  Amherst, MA
+
+Master's in Data Analytics and Computational Social Science  |  *Spring of 2023*
+
+**Oregon Institute of Technology**  |  Portland, OR
+
+B.S in Information Technology: Business/Systems Analysis  |  June 2014
+
+## Research Interests
+Brittany would like to better understand GIS to understand what her husband (who has 20+ years experience) is talking about. Also, and more importantly, is to incorporate mapping skills with public policy to prepare for the impacts of climate change and how state government can implement and support anti-racist policies. 

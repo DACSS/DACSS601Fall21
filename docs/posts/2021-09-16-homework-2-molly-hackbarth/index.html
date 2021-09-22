@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+<title>DACSS 601 Fall 2021: Homework 2</title>
+
+<meta property="description" itemprop="description" content="Homework 2 - Reading and pulling data."/>
+
+<link rel="canonical" href="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"/>
+<link rel="icon" type="image/png" href="../../images/DACSS_Round_Network.png"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2021-09-16"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-09-16"/>
+<meta name="article:author" content="Molly Hackbarth"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="DACSS 601 Fall 2021: Homework 2"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Homework 2 - Reading and pulling data."/>
+<meta property="og:url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="DACSS 601 Fall 2021"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="DACSS 601 Fall 2021: Homework 2"/>
+<meta property="twitter:description" content="Homework 2 - Reading and pulling data."/>
+<meta property="twitter:url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/"/>
+<meta property="twitter:site" content="@UMassDACSS"/>
+<meta property="twitter:creator" content="@UMassDACSS"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="DACSS 601 Fall 2021: Homework 2"/>
+<meta name="citation_fulltext_html_url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/"/>
+<meta name="citation_fulltext_world_readable" content=""/>
+<meta name="citation_online_date" content="2021/09/16"/>
+<meta name="citation_publication_date" content="2021/09/16"/>
+<meta name="citation_author" content="Molly Hackbarth"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","draft","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC"]},{"type":"character","attributes":{},"value":["Homework 2"]},{"type":"character","attributes":{},"value":["Homework 2 - Reading and pulling data."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Molly Hackbarth"]}]}]},{"type":"character","attributes":{},"value":["09-16-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/"]},{"type":"character","attributes":{},"value":["https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["homework-2_files/anchor-4.2.2/anchor.min.js","homework-2_files/bowser-1.9.3/bowser.min.js","homework-2_files/distill-2.2.21/template.v2.js","homework-2_files/figure-html5/plotting-1.png","homework-2_files/header-attrs-2.10/header-attrs.js","homework-2_files/header-attrs-2.11/header-attrs.js","homework-2_files/jquery-1.11.3/jquery.min.js","homework-2_files/jquery-3.6.0/jquery-3.6.0.js","homework-2_files/jquery-3.6.0/jquery-3.6.0.min.js","homework-2_files/jquery-3.6.0/jquery-3.6.0.min.map","homework-2_files/pagedtable-1.1/css/pagedtable.css","homework-2_files/pagedtable-1.1/js/pagedtable.js","homework-2_files/popper-2.6.0/popper.min.js","homework-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","homework-2_files/tippy-6.2.7/tippy-light-border.css","homework-2_files/tippy-6.2.7/tippy.css","homework-2_files/tippy-6.2.7/tippy.umd.min.js","homework-2_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+<meta name="distill:offset" content="../.."/>
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      tolerance: 5,
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #0F2E3D;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+  min-width: 150px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative; min-height: 500px; }
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+/* adjust viewport for navbar height */
+/* helps vertically center bootstrap (non-distill) content */
+.min-vh-100 {
+  min-height: calc(100vh - 100px) !important;
+}
+
+</style>
+
+<script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+d-byline .byline {
+  grid-template-columns: 2fr 2fr;
+}
+
+d-byline .byline h3 {
+  margin-block-start: 1.5em;
+}
+
+d-byline .byline .authors-affiliations h3 {
+  margin-block-start: 0.5em;
+}
+
+.authors-affiliations .orcid-id {
+  width: 16px;
+  height:16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  padding-bottom: 2px;
+}
+
+d-title .dt-tags {
+  margin-top: 1em;
+  grid-column: text;
+}
+
+.dt-tags .dt-tag {
+  text-decoration: none;
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0em 0.4em;
+  margin-right: 0.5em;
+  margin-bottom: 0.4em;
+  font-size: 70%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+d-article table.gt_table td,
+d-article table.gt_table th {
+  border-bottom: none;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-top: 2.5rem;
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article h2 {
+  margin: 1rem 0 1.5rem 0;
+}
+
+d-article h3 {
+  margin-top: 1.5rem;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+/* Tweak code blocks */
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: auto;
+}
+
+d-article div.sourceCode {
+  background-color: white;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+d-article pre {
+  font-size: 12px;
+  color: black;
+  background: none;
+  margin-top: 0;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+d-article pre a {
+  border-bottom: none;
+}
+
+d-article pre a:hover {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+d-article details {
+  grid-column: text;
+  margin-bottom: 0.8em;
+}
+
+@media(min-width: 768px) {
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: visible !important;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+d-article pre {
+  font-size: 14px;
+}
+
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for d-contents */
+
+.d-contents {
+  grid-column: text;
+  color: rgba(0,0,0,0.8);
+  font-size: 0.9em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-left: 0.25em;
+  justify-self: start;
+}
+
+@media(min-width: 1000px) {
+  .d-contents.d-contents-float {
+    height: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
+    padding-right: 3em;
+    padding-left: 2em;
+  }
+}
+
+.d-contents nav h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.d-contents li {
+  list-style-type: none
+}
+
+.d-contents nav > ul {
+  padding-left: 0;
+}
+
+.d-contents ul {
+  padding-left: 1em
+}
+
+.d-contents nav ul li {
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+.d-contents nav a {
+  font-size: 13px;
+  border-bottom: none;
+  text-decoration: none
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.d-contents nav a:hover {
+  text-decoration: underline solid rgba(0, 0, 0, 0.6)
+}
+
+.d-contents nav > ul > li > a {
+  font-weight: 600;
+}
+
+.d-contents nav > ul > li > ul {
+  font-weight: inherit;
+}
+
+.d-contents nav > ul > li > ul > li {
+  margin-top: 0.2em;
+}
+
+
+.d-contents nav ul {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.d-article-with-toc h2:nth-child(2) {
+  margin-top: 0;
+}
+
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+/* Citations */
+
+d-article .citation {
+  color: inherit;
+  cursor: inherit;
+}
+
+div.hanging-indent{
+  margin-left: 1em; text-indent: -1em;
+}
+
+/* Citation hover box */
+
+.tippy-box[data-theme~=light-border] {
+  background-color: rgba(250, 250, 250, 0.95);
+}
+
+.tippy-content > p {
+  margin-bottom: 0;
+  padding: 2px;
+}
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Include appendix styles here so they can be overridden */
+
+d-appendix {
+  contain: layout style;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-top: 60px;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+d-appendix h3 {
+  grid-column: page-start / text-start;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+d-appendix h3 + * {
+  margin-top: 1em;
+}
+
+d-appendix ol {
+  padding: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  d-appendix ol {
+    padding: 0 0 0 30px;
+    margin-left: -30px;
+  }
+}
+
+d-appendix li {
+  margin-bottom: 1em;
+}
+
+d-appendix a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+d-appendix > * {
+  grid-column: text;
+}
+
+d-appendix > d-footnote-list,
+d-appendix > d-citation-list,
+d-appendix > distill-appendix {
+  grid-column: screen;
+}
+
+/* Include footnote styles here so they can be overridden */
+
+d-footnote-list {
+  contain: layout style;
+}
+
+d-footnote-list > * {
+  grid-column: text;
+}
+
+d-footnote-list a.footnote-backlink {
+  color: rgba(0,0,0,0.3);
+  padding-left: 0.5em;
+}
+
+
+
+/* Anchor.js */
+
+.anchorjs-link {
+  /*transition: all .25s linear; */
+  text-decoration: none;
+  border-bottom: none;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+/* Styles for listing layout (hide title) */
+.layout-listing d-title, .layout-listing .d-title {
+  display: none;
+}
+
+/* Styles for posts lists (not auto-injected) */
+
+
+.posts-with-sidebar {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.posts-list .description h2,
+.posts-list .description p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.posts-list .description h2 {
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.posts-list h2.post-tag {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 12px;
+}
+.posts-list {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.posts-list .post-preview {
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 24px 0;
+}
+
+.post-preview-last {
+  border-bottom: none !important;
+}
+
+.posts-list .posts-list-caption {
+  grid-column: screen;
+  font-weight: 400;
+}
+
+.posts-list .post-preview h2 {
+  margin: 0 0 6px 0;
+  line-height: 1.2em;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.posts-list .post-preview p {
+  margin: 0 0 12px 0;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+
+.posts-list .post-preview .thumbnail {
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  position: relative;
+  max-width: 500px;
+}
+.posts-list .post-preview img {
+  width: 100%;
+  display: block;
+}
+
+.posts-list .metadata {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin-bottom: 18px;
+}
+
+.posts-list .metadata > * {
+  display: inline-block;
+}
+
+.posts-list .metadata .publishedDate {
+  margin-right: 2em;
+}
+
+.posts-list .metadata .dt-authors {
+  display: block;
+  margin-top: 0.3em;
+  margin-right: 2em;
+}
+
+.posts-list .dt-tags {
+  display: block;
+  line-height: 1em;
+}
+
+.posts-list .dt-tags .dt-tag {
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0.3em 0.4em;
+  margin-right: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 60%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.posts-list img {
+  opacity: 1;
+}
+
+.posts-list img[data-src] {
+  opacity: 0;
+}
+
+.posts-more {
+  clear: both;
+}
+
+
+.posts-sidebar {
+  font-size: 16px;
+}
+
+.posts-sidebar h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.categories ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories li {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+.categories li>a {
+  border-bottom: none;
+}
+
+.categories li>a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.categories .active {
+  font-weight: 600;
+}
+
+.categories .category-count {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+@media(min-width: 768px) {
+  .posts-list .post-preview h2 {
+    font-size: 26px;
+  }
+  .posts-list .post-preview .thumbnail {
+    float: right;
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .posts-list .post-preview .description {
+    float: left;
+    width: 45%;
+  }
+  .posts-list .post-preview .metadata {
+    float: left;
+    width: 20%;
+    margin-top: 8px;
+  }
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+  .posts-with-sidebar .posts-list {
+    float: left;
+    width: 75%;
+  }
+  .posts-with-sidebar .posts-sidebar {
+    float: right;
+    width: 20%;
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.downlevel .posts-list .post-preview {
+  color: inherit;
+}
+
+
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // add anchors
+  if (window.anchors) {
+    window.anchors.options.placement = 'left';
+    window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+  }
+
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  // move refs into #references-listing
+  $('#references-listing').replaceWith($('#refs'));
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-contents a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('details, div.sourceCode, pre, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // remove code block used to force  highlighting css
+  $('.distill-force-highlighting-css').parent().remove();
+
+  // remove empty line numbers inserted by pandoc when using a
+  // custom syntax highlighting theme
+  $('code.sourceCode a:empty').remove();
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // article with toc class
+    $('.d-contents').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // add orcid ids
+    $('.authors-affiliations').find('.author').each(function(i, el) {
+      var orcid_id = front_matter.authors[i].orcidID;
+      if (orcid_id) {
+        var a = $('<a></a>');
+        a.attr('href', 'https://orcid.org/' + orcid_id);
+        var img = $('<img></img>');
+        img.addClass('orcid-id');
+        img.attr('alt', 'ORCID ID');
+        img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+        a.append(img);
+        $(this).append(a);
+      }
+    });
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // remove d-appendix and d-footnote-list local styles
+    $('d-appendix > style:first-child').remove();
+    $('d-footnote-list > style:first-child').remove();
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // hoverable references
+    $('span.citation[data-cites]').each(function() {
+      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      window.tippy(this, {
+        allowHTML: true,
+        content: refHtml,
+        maxWidth: 500,
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start'
+      });
+    });
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-contents').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      2.5rem;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #881c1c;
+  --header-color:    #63666a;
+  --body-color:      #63666a;
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --title-font:      'Open Sans', sans-serif;
+  --heading-font:    'Open Sans', sans-serif;
+  --mono-font:       'Open Sans', sans-serif;
+  --body-font:       'Open Sans', sans-serif;
+  --navbar-font:     'Open Sans', sans-serif;
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+.posts-with-sidebar .posts-list {
+      width: 80%;
+}
+
+.posts-with-sidebar .posts-sidebar {
+      width: 16%;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size: 20px;
+  --text-size: 18px;
+  --hover-color:      white;
+  --bkgd-color:       #881c1c;
+}
+
+.distill-site-footer {
+  --text-color:       white;
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #881c1c;
+}
+
+.footer-center {
+  grid-column-start: middle-start /  text-end;
+  grid-row: 1 / 2;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below */
+
+/* Logo sizing */
+.logo img {
+  padding-bottom: 3px;
+  margin-bottom: 0px;
+  padding-right: 0px;
+  vertical-align: unset;
+}
+
+/* Categories / labels */
+.dt-tag {
+  color: #881c1c !important;
+}
+
+/* Navbar right links */
+.nav-right a {
+  font-size: 16px;
+}
+
+/* PDF on syllabus page */
+embed[type="application/pdf"] {
+  height: 800px;
+  width: 700px;
+}
+
+/* Index page title (coursename) */
+
+d-title h1{
+  text-align: left;
+  font-variant: small-caps;
+  margin-top: .5rem;
+  margin-bottom: .25rem;
+  font-size: 2rem;
+  color: #881c1c;
+  line-height: 1.1 !important;
+  /* font-weight: 200; */
+}
+
+.index-title h1{
+  text-align: center;
+  font-variant: small-caps;
+  margin-top: .5rem;
+  margin-bottom: .25rem;
+  font-size: 2rem;
+  color: #881c1c;
+  line-height: 1.1 !important;
+  /* font-weight: 200; */
+}
+
+/* Index page subtitle (semester) */
+d-title h2 {
+  text-align:left;
+  font-variant: small-caps;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  padding-bottom: 0rem;
+  color: #881c1c;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+d-article h2 {
+  text-align:left;
+  font-variant: small-caps;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+.index-title h2{
+  text-align: center;
+  font-variant: small-caps;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  padding-bottom: 0rem;
+  color: #881c1c;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+/* Size of user images */
+.rounded-circle {
+  height: unset;
+  width: unset;
+  border-radius: unset;
+}
+
+/* Footer social media icons */
+.social-media-icons .footer {
+  margin-right: 5px;
+}
+
+/* 
+  Remove weird formating with footer icons in posts
+  Note: not supported for Safari browsers.
+*/
+.fa-placeholder {
+  all: unset;
+}
+
+/* Align navbar button on top right side (only applies for mobile) */
+.nav-toggle {
+  padding-top: 10px !important;
+}
+
+/* remove image on mobile */
+
+.image-hide{}
+
+@media screen and (max-width: 520px) {
+    .image-hide {
+      display: none;
+    }
+    .title {
+      font-size: 14px !important;
+    }
+    .distill-site-header {
+      --title-size: 14px; 
+    }
+    .distill-site-header .title {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    .d-title h1{
+      font-size: 22px;
+    }
+    .d-title h2{
+      font-size: 16px;
+    }
+    .index-title {
+      margin-bottom: 30px;
+    }
+    .index-title h1{
+      font-size: 22px;
+    }
+    .index-title h2{
+      font-size: 16px;
+    }
+    .d-article div {
+      margin-top:20px;
+      margin-bottom:20px;
+    }
+    .posts-list .posts-list-caption {
+      margin: 0;
+    }
+    .posts-list {
+      margin-top: 20px;
+    }
+    .posts-list .post-preview p{
+      font-size:12;
+    }
+    /* Fix padding for posts */
+    .posts-container {
+      padding-right: 0%;
+    }
+    /* DACSS footer image */
+    #dacss-footer {
+      width: 70%;
+    }
+    /* 'Student Submissions text in index */
+    .posts-list-caption {
+      font-size: 18px;
+    }
+    .nav-right a {
+      text-align: center !important;
+    }
+    /* PDF on syllabus page */
+    embed[type="application/pdf"] {
+      height: 400px;
+      width: 500px;
+    }
+  }
+
+@media screen and (max-width: 360px) {
+  .title {
+    font-size: 12px !important;
+  }
+  .distill-site-header {
+    --title-size: 12px; 
+  }
+  .distill-site-header .title {
+      padding-left: 2px;
+      padding-right: 2px;
+  }
+  .index-title {
+      margin-bottom: 30px;
+  }
+  /* Fix padding for posts */
+  .posts-container {
+      padding-right: 0%;
+  }
+  /* DACSS footer image */
+  #dacss-footer {
+      width: 70%;
+  }
+  /* 'Student Submissions text in index */
+  .posts-list-caption {
+      font-size: 18px;
+  }
+  /* PDF on syllabus page */
+  embed[type="application/pdf"] {
+    height: 400px;
+    width: 300px;
+  }
+}
+
+</style>
+<style type="text/css">
+/* base style */
+
+/* FONT FAMILIES */
+
+:root {
+  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.posts-list .post-preview p,
+.posts-list .description p {
+  font-family: var(--body-font), var(--body-default);
+}
+
+h1, h2, h3, h4, h5, h6,
+.posts-list .post-preview h2,
+.posts-list .description h2 {
+  font-family: var(--heading-font), var(--heading-default);
+}
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: var(--mono-font), var(--mono-default);
+}
+
+
+/*-- TITLE --*/
+d-title h1,
+.posts-list > h1 {
+  color: var(--title-color, black);
+}
+
+d-title h1 {
+  font-size: var(--title-size, 50px);
+}
+
+/*-- HEADERS --*/
+d-article h1,
+d-article h2,
+d-article h3,
+d-article h4,
+d-article h5,
+d-article h6 {
+  color: var(--header-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- BODY --*/
+d-article > p,  /* only text inside of <p> tags */
+d-article > ul, /* lists */
+d-article > ol {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+  font-size: var(--body-size, 1.06rem);
+}
+
+
+/*-- CODE --*/
+d-article div.sourceCode code,
+d-article pre code {
+  font-size: var(--code-size, 14px);
+}
+
+/*-- ASIDE --*/
+d-article aside {
+  font-size: var(--aside-size, 12px);
+  color: var(--aside-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- FIGURE CAPTIONS --*/
+figure .caption,
+figure figcaption,
+.figure .caption {
+  font-size: var(--fig-cap-size, 13px);
+  color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- METADATA --*/
+d-byline h3 {
+  font-size: var(--heading-size, 0.6rem);
+  color: var(--heading-color, rgba(0, 0, 0, 0.5));
+}
+
+d-byline {
+  font-size: var(--body-size, 0.8rem);
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+d-byline a,
+d-article d-byline a {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- TABLE OF CONTENTS --*/
+.d-contents nav h3 {
+  font-size: var(--heading-size, 18px);
+}
+
+.d-contents nav a {
+  font-size: var(--contents-size, 13px);
+}
+
+/*-- APPENDIX --*/
+d-appendix h3 {
+  font-size: var(--heading-size, 15px);
+  color: var(--heading-color, rgba(0, 0, 0, 0.65));
+}
+
+d-appendix {
+  font-size: var(--text-size, 0.8em);
+  color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+d-appendix d-footnote-list a.footnote-backlink {
+  color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+.distill-site-header .title {
+  font-size: var(--title-size, 18px);
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a,
+.nav-dropdown .nav-dropbtn {
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.nav-dropdown .nav-dropbtn {
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  font-size: var(--text-size, 15px);
+}
+
+.distill-site-header a:hover,
+.nav-dropdown:hover .nav-dropbtn {
+  color: var(--hover-color, white);
+}
+
+.distill-site-header {
+  font-size: var(--text-size, 15px);
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer {
+  font-size: var(--text-size, 15px);
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer a:hover {
+  color: var(--hover-color, white);
+}</style>
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.10/header-attrs.js"></script>
+  <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+  <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Homework 2","description":"Homework 2 - Reading and pulling data.","authors":[{"author":"Molly Hackbarth","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-16T00:00:00.000-04:00","citationText":"Hackbarth, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="https://www.umass.edu">
+<img src="../../images/UMass White Workmark Horiz.png" alt="Logo"/>
+</a>
+<a href="../../index.html" class="title">DACSS 601 Fall 2021</a>
+</div>
+<div class="nav-right">
+<a href="../../about.html">About</a>
+<a href="../../syllabus.html">Syllabus</a>
+<a href="../../students.html">Students</a>
+<a href="https://github.com/mrolfe/DACSS601Fall21.git">
+<i class="fab fa-github-alt fa-1x" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Homework 2</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Homework 2 - Reading and pulling data.</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Molly Hackbarth
+  
+<br/>09-16-2021
+</div>
+
+<div class="d-article">
+<h1 id="reading-data-into-r">Reading Data into R</h1>
+<p>You can read data into R through a couple of methods. The first method is to use the library(datasets) function which will allow you to call dataset from the library. This is often seen using the dataset <em>iris</em> in examples. If you call table(iris) it will load most of the iris dataset.</p>
+<blockquote>
+<p>library(datasets)<br> table(iris)</p>
+</blockquote>
+<h2 id="reading-data-into-r-through-your-own-datasets">Reading Data into R through your own datasets</h2>
+<p>Reading your own dataset into R is a different process. In order to do this you must pull it from your <strong>working directory.</strong> To find your this directory you can use the getwd() function. <em>If you’re confused about what a working directory is, it is a directory is your computer file folders (i.e. Downloads, Documents, etc.), and when R is running it’s working in one of these folders. Hence the name <strong>working directory</strong>.</em></p>
+<blockquote>
+<p>library(tidyverse)<br> library(readxl)<br> StateCounty2012 &lt;- read_excel("/_data/StateCounty2012.xls")<br> View(StateCounty2012)</p>
+</blockquote>
+<h2 id="you-can-also-use-here">You can also use HERE</h2>
+<p>You can also use HERE to make links easier. <em>you can read more about HERE here: <a href="https://github.com/jennybc/here_here#" class="uri">https://github.com/jennybc/here_here#</a></em> One reason to use HERE is it allows you to bypass the issue of setwd(), allowing you to change your working directory file, which can cause issues! <strong>A relative path to the project root directory will always be created using here().</strong></p>
+<blockquote>
+<p>library(here) library(tidyverse) <br> library(readxl)<br> StateCounty2012 &lt;- read_excel(here("_data“,”StateCounty2012.xls"))<br> View(StateCounty2012)’</p>
+</blockquote>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>If you are having trouble reading a file make sure to check knit and then go to the knit directory and check Project Directory!</li>
+<li>if you are having trouble viewing the worksheet when you are knitting it on a mac you may need to download xquartz found here: <a href="https://www.xquartz.org/" class="uri">https://www.xquartz.org/</a></li>
+<li>To render a file you may need to use ../_data/StateCounty2012.xls however when you submit it to github you’ll want to remove the periods to show it as /_data/StateCounty2012.xls so that will work on the instructor’s computer.</li>
+<li>If you have the more subfolders to get to your file in HERE, you would add them before the worksheet/image/project. (i.e. here(“images”, “best-dogs”, “goodestboy.jpg”))</li>
+<li>A great rundown on how HERE works is here: <a href="http://jenrichmond.rbind.io/post/how-to-use-the-here-package/" class="uri">http://jenrichmond.rbind.io/post/how-to-use-the-here-package/</a></li>
+</ul>
+<h2 id="preview-the-data">Preview the data</h2>
+<h3 id="an-example-of-untidy-data">An example of untidy data</h3>
+<p>Using head() you can preview the data. You will notice that it’s not very tidy.</p>
+<blockquote>
+<p>library(here)<br> library(readxl)<br> StateCounty2012 &lt;- read_excel(here("_data“,”StateCounty2012.xls"))<br> head(StateCounty2012)</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 6 x 6
+  `TOTAL RAILROAD EMPLOYMENT BY STA~ ...2    ...3  ...4    ...5  ...6 
+  &lt;chr&gt;                              &lt;chr&gt;   &lt;lgl&gt; &lt;chr&gt;   &lt;lgl&gt; &lt;chr&gt;
+1 CALENDAR YEAR 2012                 &lt;NA&gt;    NA    &lt;NA&gt;    NA    &lt;NA&gt; 
+2 &lt;NA&gt;                               &lt;NA&gt;    NA    &lt;NA&gt;    NA    &lt;NA&gt; 
+3 &lt;NA&gt;                               STATE   NA    COUNTY  NA    TOTAL
+4 &lt;NA&gt;                               AE      NA    APO     NA    2    
+5 &lt;NA&gt;                               AE Tot~ NA    &lt;NA&gt;    NA    2    
+6 &lt;NA&gt;                               AK      NA    ANCHOR~ NA    7    </code></pre>
+</div>
+<h3 id="an-example-of-tidy-data">An example of tidy data</h3>
+<p>Here is an example of tidy data.</p>
+<blockquote>
+<p>library(here)<br> library(readr)<br> Eggs &lt;- read_csv(here("_data“,”eggs_tidy.csv"))<br> head(Eggs)</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 6 x 6
+  month     year large_half_dozen large_dozen extra_large_half_dozen
+  &lt;chr&gt;    &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
+1 January   2004             126         230                    132 
+2 February  2004             128.        226.                   134.
+3 March     2004             131         225                    137 
+4 April     2004             131         225                    137 
+5 May       2004             131         225                    137 
+6 June      2004             134.        231.                   137 
+# ... with 1 more variable: extra_large_dozen &lt;dbl&gt;</code></pre>
+</div>
+<h3 id="tibble">Tibble</h3>
+<p>You can also use tibble directly, which is part of tidyverse, to create a table for your data.</p>
+<blockquote>
+<p>library(tidyverse)<br> library(here)<br> Eggs &lt;- read_csv(here("_data“,”eggs_tidy.csv"))<br> as_tibble(Eggs)</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 120 x 6
+   month      year large_half_dozen large_dozen extra_large_half_dozen
+   &lt;chr&gt;     &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 January    2004             126         230                    132 
+ 2 February   2004             128.        226.                   134.
+ 3 March      2004             131         225                    137 
+ 4 April      2004             131         225                    137 
+ 5 May        2004             131         225                    137 
+ 6 June       2004             134.        231.                   137 
+ 7 July       2004             134.        234.                   137 
+ 8 August     2004             134.        234.                   137 
+ 9 September  2004             130.        234.                   136.
+10 October    2004             128.        234.                   136.
+# ... with 110 more rows, and 1 more variable:
+#   extra_large_dozen &lt;dbl&gt;</code></pre>
+</div>
+<h2 id="using-kable">Using Kable</h2>
+<p>If you would like to show the full data table you can using kable. Below you will see the kable version for StateCounty2012 and Eggs.</p>
+<blockquote>
+<p>kable(Eggs, caption = “Here is the tidy data of Eggs”)<br> kable(StateCounty2012, caption = “Here is the untidy data of StateCounty2012”)</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:kable">Table 1: </span>Here is the tidy data of Eggs</caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 5%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 27%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">month</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">large_half_dozen</th>
+<th style="text-align: right;">large_dozen</th>
+<th style="text-align: right;">extra_large_half_dozen</th>
+<th style="text-align: right;">extra_large_dozen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">January</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">126.0</td>
+<td style="text-align: right;">230.00</td>
+<td style="text-align: right;">132.0</td>
+<td style="text-align: right;">230.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">February</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">128.5</td>
+<td style="text-align: right;">226.25</td>
+<td style="text-align: right;">134.5</td>
+<td style="text-align: right;">230.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">March</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">131.0</td>
+<td style="text-align: right;">225.00</td>
+<td style="text-align: right;">137.0</td>
+<td style="text-align: right;">230.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">April</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">131.0</td>
+<td style="text-align: right;">225.00</td>
+<td style="text-align: right;">137.0</td>
+<td style="text-align: right;">234.5</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:kable">Table 1: </span>Here is the untidy data of StateCounty2012</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">TOTAL RAILROAD EMPLOYMENT BY STATE AND COUNTY</th>
+<th style="text-align: left;">…2</th>
+<th style="text-align: left;">…3</th>
+<th style="text-align: left;">…4</th>
+<th style="text-align: left;">…5</th>
+<th style="text-align: left;">…6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CALENDAR YEAR 2012</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">STATE</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">COUNTY</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">TOTAL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">AE</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">APO</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="using-rmarkdown">Using rmarkdown</h2>
+<p>You can use rmarkdown for paged tables.</p>
+<blockquote>
+<p>library(rmarkdown)<br> paged_table(Eggs)&lt;br. paged_table(StateCounty2012)</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["month"],"name":[1],"type":["chr"],"align":["left"]},{"label":["year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["large_half_dozen"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["large_dozen"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["extra_large_half_dozen"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["extra_large_dozen"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"January","2":"2004","3":"126.000","4":"230.000","5":"132.000","6":"230.000"},{"1":"February","2":"2004","3":"128.500","4":"226.250","5":"134.500","6":"230.000"},{"1":"March","2":"2004","3":"131.000","4":"225.000","5":"137.000","6":"230.000"},{"1":"April","2":"2004","3":"131.000","4":"225.000","5":"137.000","6":"234.500"},{"1":"May","2":"2004","3":"131.000","4":"225.000","5":"137.000","6":"236.000"},{"1":"June","2":"2004","3":"133.500","4":"231.375","5":"137.000","6":"241.000"},{"1":"July","2":"2004","3":"133.500","4":"233.500","5":"137.000","6":"241.000"},{"1":"August","2":"2004","3":"133.500","4":"233.500","5":"137.000","6":"241.000"},{"1":"September","2":"2004","3":"129.750","4":"233.500","5":"135.875","6":"241.000"},{"1":"October","2":"2004","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"November","2":"2004","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"December","2":"2004","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"January","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"February","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"March","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"April","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"May","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"June","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"July","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"August","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"September","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"October","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"November","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"December","2":"2005","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"January","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"February","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.000"},{"1":"March","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.375"},{"1":"April","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"May","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"June","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"July","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"August","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"September","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"October","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"November","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"December","2":"2006","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"January","2":"2007","3":"128.500","4":"233.500","5":"135.500","6":"241.500"},{"1":"February","2":"2007","3":"131.125","4":"236.125","5":"138.125","6":"244.125"},{"1":"March","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"April","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"May","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"June","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"July","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"August","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"September","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"October","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"November","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"December","2":"2007","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"January","2":"2008","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"February","2":"2008","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"March","2":"2008","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"April","2":"2008","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"May","2":"2008","3":"132.000","4":"237.000","5":"139.000","6":"245.000"},{"1":"June","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"July","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"August","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"September","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"October","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"November","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"December","2":"2008","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"January","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"February","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"March","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"April","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"May","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"June","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"July","2":"2009","3":"174.500","4":"277.500","5":"185.500","6":"285.500"},{"1":"August","2":"2009","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"September","2":"2009","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"October","2":"2009","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"November","2":"2009","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"December","2":"2009","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"January","2":"2010","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"February","2":"2010","3":"174.500","4":"271.500","5":"185.500","6":"285.500"},{"1":"March","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"April","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"May","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"June","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"July","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"August","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"September","2":"2010","3":"174.500","4":"268.000","5":"185.500","6":"285.500"},{"1":"October","2":"2010","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"November","2":"2010","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"December","2":"2010","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"January","2":"2011","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"February","2":"2011","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"March","2":"2011","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"April","2":"2011","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"May","2":"2011","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"June","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"July","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"August","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"September","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"October","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"November","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"December","2":"2011","3":"174.500","4":"270.000","5":"185.500","6":"285.500"},{"1":"January","2":"2012","3":"174.500","4":"267.500","5":"185.500","6":"285.500"},{"1":"February","2":"2012","3":"174.500","4":"267.500","5":"185.500","6":"288.500"},{"1":"March","2":"2012","3":"174.500","4":"267.500","5":"185.500","6":"288.500"},{"1":"April","2":"2012","3":"174.500","4":"267.500","5":"185.500","6":"288.500"},{"1":"May","2":"2012","3":"173.250","4":"267.500","5":"185.500","6":"288.500"},{"1":"June","2":"2012","3":"173.250","4":"267.500","5":"185.500","6":"288.500"},{"1":"July","2":"2012","3":"173.250","4":"267.500","5":"185.500","6":"288.500"},{"1":"August","2":"2012","3":"173.250","4":"267.500","5":"185.500","6":"288.500"},{"1":"September","2":"2012","3":"173.250","4":"267.500","5":"185.500","6":"288.500"},{"1":"October","2":"2012","3":"173.250","4":"267.500","5":"185.500","6":"288.500"},{"1":"November","2":"2012","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"December","2":"2012","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"January","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"February","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"March","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"April","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"May","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"June","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"July","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"August","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"September","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"October","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"November","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"},{"1":"December","2":"2013","3":"178.000","4":"267.500","5":"188.130","6":"290.000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["TOTAL RAILROAD EMPLOYMENT BY STATE AND COUNTY"],"name":[1],"type":["chr"],"align":["left"]},{"label":["...2"],"name":[2],"type":["chr"],"align":["left"]},{"label":["...3"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["...4"],"name":[4],"type":["chr"],"align":["left"]},{"label":["...5"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["...6"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"CALENDAR YEAR 2012","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA"},{"1":"NA","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA"},{"1":"NA","2":"STATE","3":"NA","4":"COUNTY","5":"NA","6":"TOTAL"},{"1":"NA","2":"AE","3":"NA","4":"APO","5":"NA","6":"2"},{"1":"NA","2":"AE Total1","3":"NA","4":"NA","5":"NA","6":"2"},{"1":"NA","2":"AK","3":"NA","4":"ANCHORAGE","5":"NA","6":"7"},{"1":"NA","2":"AK","3":"NA","4":"FAIRBANKS NORTH STAR","5":"NA","6":"2"},{"1":"NA","2":"AK","3":"NA","4":"JUNEAU","5":"NA","6":"3"},{"1":"NA","2":"AK","3":"NA","4":"MATANUSKA-SUSITNA","5":"NA","6":"2"},{"1":"NA","2":"AK","3":"NA","4":"SITKA","5":"NA","6":"1"},{"1":"NA","2":"AK","3":"NA","4":"SKAGWAY MUNICIPALITY","5":"NA","6":"88"},{"1":"NA","2":"AK Total","3":"NA","4":"NA","5":"NA","6":"103"},{"1":"NA","2":"AL","3":"NA","4":"AUTAUGA","5":"NA","6":"102"},{"1":"NA","2":"AL","3":"NA","4":"BALDWIN","5":"NA","6":"143"},{"1":"NA","2":"AL","3":"NA","4":"BARBOUR","5":"NA","6":"1"},{"1":"NA","2":"AL","3":"NA","4":"BIBB","5":"NA","6":"25"},{"1":"NA","2":"AL","3":"NA","4":"BLOUNT","5":"NA","6":"154"},{"1":"NA","2":"AL","3":"NA","4":"BULLOCK","5":"NA","6":"13"},{"1":"NA","2":"AL","3":"NA","4":"BUTLER","5":"NA","6":"29"},{"1":"NA","2":"AL","3":"NA","4":"CALHOUN","5":"NA","6":"45"},{"1":"NA","2":"AL","3":"NA","4":"CHAMBERS","5":"NA","6":"13"},{"1":"NA","2":"AL","3":"NA","4":"CHEROKEE","5":"NA","6":"9"},{"1":"NA","2":"AL","3":"NA","4":"CHILTON","5":"NA","6":"72"},{"1":"NA","2":"AL","3":"NA","4":"CHOCTAW","5":"NA","6":"7"},{"1":"NA","2":"AL","3":"NA","4":"CLARKE","5":"NA","6":"26"},{"1":"NA","2":"AL","3":"NA","4":"CLAY","5":"NA","6":"10"},{"1":"NA","2":"AL","3":"NA","4":"CLEBURNE","5":"NA","6":"7"},{"1":"NA","2":"AL","3":"NA","4":"COFFEE","5":"NA","6":"14"},{"1":"NA","2":"AL","3":"NA","4":"COLBERT","5":"NA","6":"199"},{"1":"NA","2":"AL","3":"NA","4":"CONECUH","5":"NA","6":"11"},{"1":"NA","2":"AL","3":"NA","4":"COOSA","5":"NA","6":"5"},{"1":"NA","2":"AL","3":"NA","4":"COVINGTON","5":"NA","6":"12"},{"1":"NA","2":"AL","3":"NA","4":"CRENSHAW","5":"NA","6":"5"},{"1":"NA","2":"AL","3":"NA","4":"CULLMAN","5":"NA","6":"129"},{"1":"NA","2":"AL","3":"NA","4":"DALE","5":"NA","6":"11"},{"1":"NA","2":"AL","3":"NA","4":"DALLAS","5":"NA","6":"122"},{"1":"NA","2":"AL","3":"NA","4":"DEKALB","5":"NA","6":"33"},{"1":"NA","2":"AL","3":"NA","4":"ELMORE","5":"NA","6":"116"},{"1":"NA","2":"AL","3":"NA","4":"ESCAMBIA","5":"NA","6":"47"},{"1":"NA","2":"AL","3":"NA","4":"ETOWAH","5":"NA","6":"78"},{"1":"NA","2":"AL","3":"NA","4":"FAYETTE","5":"NA","6":"3"},{"1":"NA","2":"AL","3":"NA","4":"FRANKLIN","5":"NA","6":"40"},{"1":"NA","2":"AL","3":"NA","4":"GENEVA","5":"NA","6":"8"},{"1":"NA","2":"AL","3":"NA","4":"GREENE","5":"NA","6":"7"},{"1":"NA","2":"AL","3":"NA","4":"HALE","5":"NA","6":"8"},{"1":"NA","2":"AL","3":"NA","4":"HENRY","5":"NA","6":"1"},{"1":"NA","2":"AL","3":"NA","4":"HOUSTON","5":"NA","6":"46"},{"1":"NA","2":"AL","3":"NA","4":"JACKSON","5":"NA","6":"55"},{"1":"NA","2":"AL","3":"NA","4":"JEFFERSON","5":"NA","6":"990"},{"1":"NA","2":"AL","3":"NA","4":"LAMAR","5":"NA","6":"25"},{"1":"NA","2":"AL","3":"NA","4":"LAUDERDALE","5":"NA","6":"117"},{"1":"NA","2":"AL","3":"NA","4":"LAWRENCE","5":"NA","6":"11"},{"1":"NA","2":"AL","3":"NA","4":"LEE","5":"NA","6":"46"},{"1":"NA","2":"AL","3":"NA","4":"LIMESTONE","5":"NA","6":"7"},{"1":"NA","2":"AL","3":"NA","4":"LOWNDES","5":"NA","6":"7"},{"1":"NA","2":"AL","3":"NA","4":"MACON","5":"NA","6":"6"},{"1":"NA","2":"AL","3":"NA","4":"MADISON","5":"NA","6":"29"},{"1":"NA","2":"AL","3":"NA","4":"MARENGO","5":"NA","6":"16"},{"1":"NA","2":"AL","3":"NA","4":"MARION","5":"NA","6":"17"},{"1":"NA","2":"AL","3":"NA","4":"MARSHALL","5":"NA","6":"29"},{"1":"NA","2":"AL","3":"NA","4":"MOBILE","5":"NA","6":"331"},{"1":"NA","2":"AL","3":"NA","4":"MONROE","5":"NA","6":"43"},{"1":"NA","2":"AL","3":"NA","4":"MONTGOMERY","5":"NA","6":"102"},{"1":"NA","2":"AL","3":"NA","4":"MORGAN","5":"NA","6":"42"},{"1":"NA","2":"AL","3":"NA","4":"PERRY","5":"NA","6":"4"},{"1":"NA","2":"AL","3":"NA","4":"PICKENS","5":"NA","6":"24"},{"1":"NA","2":"AL","3":"NA","4":"PIKE","5":"NA","6":"19"},{"1":"NA","2":"AL","3":"NA","4":"RANDOLPH","5":"NA","6":"39"},{"1":"NA","2":"AL","3":"NA","4":"RUSSELL","5":"NA","6":"38"},{"1":"NA","2":"AL","3":"NA","4":"SHELBY","5":"NA","6":"158"},{"1":"NA","2":"AL","3":"NA","4":"ST CLAIR","5":"NA","6":"162"},{"1":"NA","2":"AL","3":"NA","4":"SUMTER","5":"NA","6":"9"},{"1":"NA","2":"AL","3":"NA","4":"TALLADEGA","5":"NA","6":"42"},{"1":"NA","2":"AL","3":"NA","4":"TALLAPOOSA","5":"NA","6":"19"},{"1":"NA","2":"AL","3":"NA","4":"TUSCALOOSA","5":"NA","6":"60"},{"1":"NA","2":"AL","3":"NA","4":"WALKER","5":"NA","6":"192"},{"1":"NA","2":"AL","3":"NA","4":"WASHINGTON","5":"NA","6":"11"},{"1":"NA","2":"AL","3":"NA","4":"WILCOX","5":"NA","6":"11"},{"1":"NA","2":"AL","3":"NA","4":"WINSTON","5":"NA","6":"45"},{"1":"NA","2":"AL Total","3":"NA","4":"NA","5":"NA","6":"4257"},{"1":"NA","2":"AP","3":"NA","4":"APO","5":"NA","6":"1"},{"1":"NA","2":"AP Total1","3":"NA","4":"NA","5":"NA","6":"1"},{"1":"NA","2":"AR","3":"NA","4":"ARKANSAS","5":"NA","6":"11"},{"1":"NA","2":"AR","3":"NA","4":"ASHLEY","5":"NA","6":"18"},{"1":"NA","2":"AR","3":"NA","4":"BAXTER","5":"NA","6":"25"},{"1":"NA","2":"AR","3":"NA","4":"BENTON","5":"NA","6":"35"},{"1":"NA","2":"AR","3":"NA","4":"BOONE","5":"NA","6":"5"},{"1":"NA","2":"AR","3":"NA","4":"BRADLEY","5":"NA","6":"8"},{"1":"NA","2":"AR","3":"NA","4":"CALHOUN","5":"NA","6":"5"},{"1":"NA","2":"AR","3":"NA","4":"CHICOT","5":"NA","6":"3"},{"1":"NA","2":"AR","3":"NA","4":"CLARK","5":"NA","6":"40"},{"1":"NA","2":"AR","3":"NA","4":"CLAY","5":"NA","6":"13"},{"1":"NA","2":"AR","3":"NA","4":"CLEBURNE","5":"NA","6":"8"},{"1":"NA","2":"AR","3":"NA","4":"CLEVELAND","5":"NA","6":"79"},{"1":"NA","2":"AR","3":"NA","4":"COLUMBIA","5":"NA","6":"5"},{"1":"NA","2":"AR","3":"NA","4":"CONWAY","5":"NA","6":"19"},{"1":"NA","2":"AR","3":"NA","4":"CRAIGHEAD","5":"NA","6":"61"},{"1":"NA","2":"AR","3":"NA","4":"CRAWFORD","5":"NA","6":"55"},{"1":"NA","2":"AR","3":"NA","4":"CRITTENDEN","5":"NA","6":"48"},{"1":"NA","2":"AR","3":"NA","4":"CROSS","5":"NA","6":"30"},{"1":"NA","2":"AR","3":"NA","4":"DALLAS","5":"NA","6":"12"},{"1":"NA","2":"AR","3":"NA","4":"DESHA","5":"NA","6":"15"},{"1":"NA","2":"AR","3":"NA","4":"DREW","5":"NA","6":"34"},{"1":"NA","2":"AR","3":"NA","4":"FAULKNER","5":"NA","6":"289"},{"1":"NA","2":"AR","3":"NA","4":"FRANKLIN","5":"NA","6":"5"},{"1":"NA","2":"AR","3":"NA","4":"FULTON","5":"NA","6":"54"},{"1":"NA","2":"AR","3":"NA","4":"GARLAND","5":"NA","6":"68"},{"1":"NA","2":"AR","3":"NA","4":"GRANT","5":"NA","6":"167"},{"1":"NA","2":"AR","3":"NA","4":"GREENE","5":"NA","6":"15"},{"1":"NA","2":"AR","3":"NA","4":"HEMPSTEAD","5":"NA","6":"6"},{"1":"NA","2":"AR","3":"NA","4":"HOT SPRING","5":"NA","6":"79"},{"1":"NA","2":"AR","3":"NA","4":"HOWARD","5":"NA","6":"37"},{"1":"NA","2":"AR","3":"NA","4":"INDEPENDENCE","5":"NA","6":"32"},{"1":"NA","2":"AR","3":"NA","4":"IZARD","5":"NA","6":"4"},{"1":"NA","2":"AR","3":"NA","4":"JACKSON","5":"NA","6":"13"},{"1":"NA","2":"AR","3":"NA","4":"JEFFERSON","5":"NA","6":"361"},{"1":"NA","2":"AR","3":"NA","4":"JOHNSON","5":"NA","6":"7"},{"1":"NA","2":"AR","3":"NA","4":"LAFAYETTE","5":"NA","6":"11"},{"1":"NA","2":"AR","3":"NA","4":"LAWRENCE","5":"NA","6":"32"},{"1":"NA","2":"AR","3":"NA","4":"LEE","5":"NA","6":"3"},{"1":"NA","2":"AR","3":"NA","4":"LINCOLN","5":"NA","6":"54"},{"1":"NA","2":"AR","3":"NA","4":"LITTLE RIVER","5":"NA","6":"22"},{"1":"NA","2":"AR","3":"NA","4":"LOGAN","5":"NA","6":"4"},{"1":"NA","2":"AR","3":"NA","4":"LONOKE","5":"NA","6":"330"},{"1":"NA","2":"AR","3":"NA","4":"MADISON","5":"NA","6":"7"},{"1":"NA","2":"AR","3":"NA","4":"MARION","5":"NA","6":"8"},{"1":"NA","2":"AR","3":"NA","4":"MILLER","5":"NA","6":"10"},{"1":"NA","2":"AR","3":"NA","4":"MISSISSIPPI","5":"NA","6":"18"},{"1":"NA","2":"AR","3":"NA","4":"MONROE","5":"NA","6":"7"},{"1":"NA","2":"AR","3":"NA","4":"MONTGOMERY","5":"NA","6":"2"},{"1":"NA","2":"AR","3":"NA","4":"NEVADA","5":"NA","6":"15"},{"1":"NA","2":"AR","3":"NA","4":"NEWTON","5":"NA","6":"1"},{"1":"NA","2":"AR","3":"NA","4":"OUACHITA","5":"NA","6":"15"},{"1":"NA","2":"AR","3":"NA","4":"PERRY","5":"NA","6":"22"},{"1":"NA","2":"AR","3":"NA","4":"PHILLIPS","5":"NA","6":"11"},{"1":"NA","2":"AR","3":"NA","4":"PIKE","5":"NA","6":"10"},{"1":"NA","2":"AR","3":"NA","4":"POINSETT","5":"NA","6":"4"},{"1":"NA","2":"AR","3":"NA","4":"POLK","5":"NA","6":"17"},{"1":"NA","2":"AR","3":"NA","4":"POPE","5":"NA","6":"31"},{"1":"NA","2":"AR","3":"NA","4":"PRAIRIE","5":"NA","6":"5"},{"1":"NA","2":"AR","3":"NA","4":"PULASKI","5":"NA","6":"972"},{"1":"NA","2":"AR","3":"NA","4":"RANDOLPH","5":"NA","6":"19"},{"1":"NA","2":"AR","3":"NA","4":"SALINE","5":"NA","6":"262"},{"1":"NA","2":"AR","3":"NA","4":"SCOTT","5":"NA","6":"3"},{"1":"NA","2":"AR","3":"NA","4":"SEBASTIAN","5":"NA","6":"43"},{"1":"NA","2":"AR","3":"NA","4":"SEVIER","5":"NA","6":"50"},{"1":"NA","2":"AR","3":"NA","4":"SHARP","5":"NA","6":"20"},{"1":"NA","2":"AR","3":"NA","4":"ST FRANCIS","5":"NA","6":"16"},{"1":"NA","2":"AR","3":"NA","4":"STONE","5":"NA","6":"2"},{"1":"NA","2":"AR","3":"NA","4":"UNION","5":"NA","6":"20"},{"1":"NA","2":"AR","3":"NA","4":"VAN BUREN","5":"NA","6":"2"},{"1":"NA","2":"AR","3":"NA","4":"WASHINGTON","5":"NA","6":"46"},{"1":"NA","2":"AR","3":"NA","4":"WHITE","5":"NA","6":"102"},{"1":"NA","2":"AR","3":"NA","4":"YELL","5":"NA","6":"9"},{"1":"NA","2":"AR Total","3":"NA","4":"NA","5":"NA","6":"3871"},{"1":"NA","2":"AZ","3":"NA","4":"APACHE","5":"NA","6":"270"},{"1":"NA","2":"AZ","3":"NA","4":"COCHISE","5":"NA","6":"60"},{"1":"NA","2":"AZ","3":"NA","4":"COCONINO","5":"NA","6":"268"},{"1":"NA","2":"AZ","3":"NA","4":"GILA","5":"NA","6":"37"},{"1":"NA","2":"AZ","3":"NA","4":"GRAHAM","5":"NA","6":"48"},{"1":"NA","2":"AZ","3":"NA","4":"GREENLEE","5":"NA","6":"3"},{"1":"NA","2":"AZ","3":"NA","4":"LA PAZ","5":"NA","6":"10"},{"1":"NA","2":"AZ","3":"NA","4":"MARICOPA","5":"NA","6":"462"},{"1":"NA","2":"AZ","3":"NA","4":"MOHAVE","5":"NA","6":"407"},{"1":"NA","2":"AZ","3":"NA","4":"NAVAJO","5":"NA","6":"510"},{"1":"NA","2":"AZ","3":"NA","4":"PIMA","5":"NA","6":"749"},{"1":"NA","2":"AZ","3":"NA","4":"PINAL","5":"NA","6":"154"},{"1":"NA","2":"AZ","3":"NA","4":"SANTA CRUZ","5":"NA","6":"18"},{"1":"NA","2":"AZ","3":"NA","4":"YAVAPAI","5":"NA","6":"63"},{"1":"NA","2":"AZ","3":"NA","4":"YUMA","5":"NA","6":"94"},{"1":"NA","2":"AZ Total","3":"NA","4":"NA","5":"NA","6":"3153"},{"1":"NA","2":"CA","3":"NA","4":"ALAMEDA","5":"NA","6":"346"},{"1":"NA","2":"CA","3":"NA","4":"AMADOR","5":"NA","6":"9"},{"1":"NA","2":"CA","3":"NA","4":"BUTTE","5":"NA","6":"69"},{"1":"NA","2":"CA","3":"NA","4":"CALAVERAS","5":"NA","6":"30"},{"1":"NA","2":"CA","3":"NA","4":"COLUSA","5":"NA","6":"2"},{"1":"NA","2":"CA","3":"NA","4":"CONTRA COSTA","5":"NA","6":"348"},{"1":"NA","2":"CA","3":"NA","4":"EL DORADO","5":"NA","6":"103"},{"1":"NA","2":"CA","3":"NA","4":"FRESNO","5":"NA","6":"341"},{"1":"NA","2":"CA","3":"NA","4":"GLENN","5":"NA","6":"4"},{"1":"NA","2":"CA","3":"NA","4":"HUMBOLDT","5":"NA","6":"2"},{"1":"NA","2":"CA","3":"NA","4":"IMPERIAL","5":"NA","6":"65"},{"1":"NA","2":"CA","3":"NA","4":"KERN","5":"NA","6":"500"},{"1":"NA","2":"CA","3":"NA","4":"KINGS","5":"NA","6":"21"},{"1":"NA","2":"CA","3":"NA","4":"LAKE","5":"NA","6":"2"},{"1":"NA","2":"CA","3":"NA","4":"LASSEN","5":"NA","6":"14"},{"1":"NA","2":"CA","3":"NA","4":"LOS ANGELES","5":"NA","6":"2545"},{"1":"NA","2":"CA","3":"NA","4":"MADERA","5":"NA","6":"39"},{"1":"NA","2":"CA","3":"NA","4":"MARIN","5":"NA","6":"12"},{"1":"NA","2":"CA","3":"NA","4":"MARIPOSA","5":"NA","6":"4"},{"1":"NA","2":"CA","3":"NA","4":"MENDOCINO","5":"NA","6":"6"},{"1":"NA","2":"CA","3":"NA","4":"MERCED","5":"NA","6":"59"},{"1":"NA","2":"CA","3":"NA","4":"MODOC","5":"NA","6":"3"},{"1":"NA","2":"CA","3":"NA","4":"MONO","5":"NA","6":"1"},{"1":"NA","2":"CA","3":"NA","4":"MONTEREY","5":"NA","6":"29"},{"1":"NA","2":"CA","3":"NA","4":"NAPA","5":"NA","6":"17"},{"1":"NA","2":"CA","3":"NA","4":"NEVADA","5":"NA","6":"36"},{"1":"NA","2":"CA","3":"NA","4":"ORANGE","5":"NA","6":"460"},{"1":"NA","2":"CA","3":"NA","4":"PLACER","5":"NA","6":"539"},{"1":"NA","2":"CA","3":"NA","4":"PLUMAS","5":"NA","6":"84"},{"1":"NA","2":"CA","3":"NA","4":"RIVERSIDE","5":"NA","6":"1567"},{"1":"NA","2":"CA","3":"NA","4":"SACRAMENTO","5":"NA","6":"738"},{"1":"NA","2":"CA","3":"NA","4":"SAN BENITO","5":"NA","6":"13"},{"1":"NA","2":"CA","3":"NA","4":"SAN BERNARDINO","5":"NA","6":"2888"},{"1":"NA","2":"CA","3":"NA","4":"SAN DIEGO","5":"NA","6":"206"},{"1":"NA","2":"CA","3":"NA","4":"SAN FRANCISCO","5":"NA","6":"61"},{"1":"NA","2":"CA","3":"NA","4":"SAN JOAQUIN","5":"NA","6":"474"},{"1":"NA","2":"CA","3":"NA","4":"SAN LUIS OBISPO","5":"NA","6":"98"},{"1":"NA","2":"CA","3":"NA","4":"SAN MATEO","5":"NA","6":"80"},{"1":"NA","2":"CA","3":"NA","4":"SANTA BARBARA","5":"NA","6":"36"},{"1":"NA","2":"CA","3":"NA","4":"SANTA CLARA","5":"NA","6":"244"},{"1":"NA","2":"CA","3":"NA","4":"SANTA CRUZ","5":"NA","6":"44"},{"1":"NA","2":"CA","3":"NA","4":"SHASTA","5":"NA","6":"69"},{"1":"NA","2":"CA","3":"NA","4":"SIERRA","5":"NA","6":"2"},{"1":"NA","2":"CA","3":"NA","4":"SISKIYOU","5":"NA","6":"83"},{"1":"NA","2":"CA","3":"NA","4":"SOLANO","5":"NA","6":"221"},{"1":"NA","2":"CA","3":"NA","4":"SONOMA","5":"NA","6":"38"},{"1":"NA","2":"CA","3":"NA","4":"STANISLAUS","5":"NA","6":"195"},{"1":"NA","2":"CA","3":"NA","4":"SUTTER","5":"NA","6":"54"},{"1":"NA","2":"CA","3":"NA","4":"TEHAMA","5":"NA","6":"10"},{"1":"NA","2":"CA","3":"NA","4":"TRINITY","5":"NA","6":"2"},{"1":"NA","2":"CA","3":"NA","4":"TULARE","5":"NA","6":"97"},{"1":"NA","2":"CA","3":"NA","4":"TUOLUMNE","5":"NA","6":"9"},{"1":"NA","2":"CA","3":"NA","4":"VENTURA","5":"NA","6":"68"},{"1":"NA","2":"CA","3":"NA","4":"YOLO","5":"NA","6":"62"},{"1":"NA","2":"CA","3":"NA","4":"YUBA","5":"NA","6":"88"},{"1":"NA","2":"CA Total","3":"NA","4":"NA","5":"NA","6":"13137"},{"1":"NA","2":"CO","3":"NA","4":"ADAMS","5":"NA","6":"553"},{"1":"NA","2":"CO","3":"NA","4":"ALAMOSA","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"ARAPAHOE","5":"NA","6":"128"},{"1":"NA","2":"CO","3":"NA","4":"ARCHULETA","5":"NA","6":"2"},{"1":"NA","2":"CO","3":"NA","4":"BACA","5":"NA","6":"3"},{"1":"NA","2":"CO","3":"NA","4":"BENT","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"BOULDER","5":"NA","6":"71"},{"1":"NA","2":"CO","3":"NA","4":"BROOMFIELD","5":"NA","6":"42"},{"1":"NA","2":"CO","3":"NA","4":"CHAFFEE","5":"NA","6":"6"},{"1":"NA","2":"CO","3":"NA","4":"CHEYENNE","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"CLEAR CREEK","5":"NA","6":"2"},{"1":"NA","2":"CO","3":"NA","4":"CONEJOS","5":"NA","6":"6"},{"1":"NA","2":"CO","3":"NA","4":"COSTILLA","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"CROWLEY","5":"NA","6":"7"},{"1":"NA","2":"CO","3":"NA","4":"CUSTER","5":"NA","6":"3"},{"1":"NA","2":"CO","3":"NA","4":"DELTA","5":"NA","6":"16"},{"1":"NA","2":"CO","3":"NA","4":"DENVER","5":"NA","6":"503"},{"1":"NA","2":"CO","3":"NA","4":"DOLORES","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"DOUGLAS","5":"NA","6":"112"},{"1":"NA","2":"CO","3":"NA","4":"EAGLE","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"EL PASO","5":"NA","6":"129"},{"1":"NA","2":"CO","3":"NA","4":"ELBERT","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"FREMONT","5":"NA","6":"28"},{"1":"NA","2":"CO","3":"NA","4":"GARFIELD","5":"NA","6":"13"},{"1":"NA","2":"CO","3":"NA","4":"GILPIN","5":"NA","6":"5"},{"1":"NA","2":"CO","3":"NA","4":"GRAND","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"GUNNISON","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"HUERFANO","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"JEFFERSON","5":"NA","6":"267"},{"1":"NA","2":"CO","3":"NA","4":"KIOWA","5":"NA","6":"3"},{"1":"NA","2":"CO","3":"NA","4":"KIT CARSON","5":"NA","6":"2"},{"1":"NA","2":"CO","3":"NA","4":"LA PLATA","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"LAKE","5":"NA","6":"2"},{"1":"NA","2":"CO","3":"NA","4":"LARIMER","5":"NA","6":"159"},{"1":"NA","2":"CO","3":"NA","4":"LAS ANIMAS","5":"NA","6":"77"},{"1":"NA","2":"CO","3":"NA","4":"LINCOLN","5":"NA","6":"5"},{"1":"NA","2":"CO","3":"NA","4":"LOGAN","5":"NA","6":"137"},{"1":"NA","2":"CO","3":"NA","4":"MESA","5":"NA","6":"252"},{"1":"NA","2":"CO","3":"NA","4":"MOFFAT","5":"NA","6":"6"},{"1":"NA","2":"CO","3":"NA","4":"MONTEZUMA","5":"NA","6":"2"},{"1":"NA","2":"CO","3":"NA","4":"MONTROSE","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"MORGAN","5":"NA","6":"34"},{"1":"NA","2":"CO","3":"NA","4":"OTERO","5":"NA","6":"141"},{"1":"NA","2":"CO","3":"NA","4":"PARK","5":"NA","6":"12"},{"1":"NA","2":"CO","3":"NA","4":"PHILLIPS","5":"NA","6":"4"},{"1":"NA","2":"CO","3":"NA","4":"PITKIN","5":"NA","6":"1"},{"1":"NA","2":"CO","3":"NA","4":"PROWERS","5":"NA","6":"26"},{"1":"NA","2":"CO","3":"NA","4":"PUEBLO","5":"NA","6":"526"},{"1":"NA","2":"CO","3":"NA","4":"RIO GRANDE","5":"NA","6":"10"},{"1":"NA","2":"CO","3":"NA","4":"ROUTT","5":"NA","6":"30"},{"1":"NA","2":"CO","3":"NA","4":"SAGUACHE","5":"NA","6":"2"},{"1":"NA","2":"CO","3":"NA","4":"SEDGWICK","5":"NA","6":"16"},{"1":"NA","2":"CO","3":"NA","4":"SUMMIT","5":"NA","6":"6"},{"1":"NA","2":"CO","3":"NA","4":"TELLER","5":"NA","6":"6"},{"1":"NA","2":"CO","3":"NA","4":"WASHINGTON","5":"NA","6":"3"},{"1":"NA","2":"CO","3":"NA","4":"WELD","5":"NA","6":"223"},{"1":"NA","2":"CO","3":"NA","4":"YUMA","5":"NA","6":"3"},{"1":"NA","2":"CO Total","3":"NA","4":"NA","5":"NA","6":"3650"},{"1":"NA","2":"CT","3":"NA","4":"FAIRFIELD","5":"NA","6":"486"},{"1":"NA","2":"CT","3":"NA","4":"HARTFORD","5":"NA","6":"113"},{"1":"NA","2":"CT","3":"NA","4":"LITCHFIELD","5":"NA","6":"57"},{"1":"NA","2":"CT","3":"NA","4":"MIDDLESEX","5":"NA","6":"137"},{"1":"NA","2":"CT","3":"NA","4":"NEW HAVEN","5":"NA","6":"1561"},{"1":"NA","2":"CT","3":"NA","4":"NEW LONDON","5":"NA","6":"146"},{"1":"NA","2":"CT","3":"NA","4":"TOLLAND","5":"NA","6":"26"},{"1":"NA","2":"CT","3":"NA","4":"WINDHAM","5":"NA","6":"66"},{"1":"NA","2":"CT Total","3":"NA","4":"NA","5":"NA","6":"2592"},{"1":"NA","2":"DC","3":"NA","4":"WASHINGTON DC","5":"NA","6":"279"},{"1":"NA","2":"DC Total","3":"NA","4":"NA","5":"NA","6":"279"},{"1":"NA","2":"DE","3":"NA","4":"KENT","5":"NA","6":"158"},{"1":"NA","2":"DE","3":"NA","4":"NEW CASTLE","5":"NA","6":"1275"},{"1":"NA","2":"DE","3":"NA","4":"SUSSEX","5":"NA","6":"62"},{"1":"NA","2":"DE Total","3":"NA","4":"NA","5":"NA","6":"1495"},{"1":"NA","2":"FL","3":"NA","4":"ALACHUA","5":"NA","6":"22"},{"1":"NA","2":"FL","3":"NA","4":"BAKER","5":"NA","6":"81"},{"1":"NA","2":"FL","3":"NA","4":"BAY","5":"NA","6":"45"},{"1":"NA","2":"FL","3":"NA","4":"BRADFORD","5":"NA","6":"20"},{"1":"NA","2":"FL","3":"NA","4":"BREVARD","5":"NA","6":"33"},{"1":"NA","2":"FL","3":"NA","4":"BROWARD","5":"NA","6":"294"},{"1":"NA","2":"FL","3":"NA","4":"CALHOUN","5":"NA","6":"1"},{"1":"NA","2":"FL","3":"NA","4":"CHARLOTTE","5":"NA","6":"10"},{"1":"NA","2":"FL","3":"NA","4":"CITRUS","5":"NA","6":"23"},{"1":"NA","2":"FL","3":"NA","4":"CLAY","5":"NA","6":"636"},{"1":"NA","2":"FL","3":"NA","4":"COLLIER","5":"NA","6":"14"},{"1":"NA","2":"FL","3":"NA","4":"COLUMBIA","5":"NA","6":"35"},{"1":"NA","2":"FL","3":"NA","4":"DESOTO","5":"NA","6":"9"},{"1":"NA","2":"FL","3":"NA","4":"DIXIE","5":"NA","6":"2"},{"1":"NA","2":"FL","3":"NA","4":"DUVAL","5":"NA","6":"3073"},{"1":"NA","2":"FL","3":"NA","4":"ESCAMBIA","5":"NA","6":"124"},{"1":"NA","2":"FL","3":"NA","4":"FLAGLER","5":"NA","6":"29"},{"1":"NA","2":"FL","3":"NA","4":"FRANKLIN","5":"NA","6":"2"},{"1":"NA","2":"FL","3":"NA","4":"GADSDEN","5":"NA","6":"5"},{"1":"NA","2":"FL","3":"NA","4":"GILCHRIST","5":"NA","6":"1"},{"1":"NA","2":"FL","3":"NA","4":"GLADES","5":"NA","6":"5"},{"1":"NA","2":"FL","3":"NA","4":"GULF","5":"NA","6":"6"},{"1":"NA","2":"FL","3":"NA","4":"HAMILTON","5":"NA","6":"11"},{"1":"NA","2":"FL","3":"NA","4":"HARDEE","5":"NA","6":"2"},{"1":"NA","2":"FL","3":"NA","4":"HENDRY","5":"NA","6":"1"},{"1":"NA","2":"FL","3":"NA","4":"HERNANDO","5":"NA","6":"30"},{"1":"NA","2":"FL","3":"NA","4":"HIGHLANDS","5":"NA","6":"15"},{"1":"NA","2":"FL","3":"NA","4":"HILLSBOROUGH","5":"NA","6":"387"},{"1":"NA","2":"FL","3":"NA","4":"HOLMES","5":"NA","6":"6"},{"1":"NA","2":"FL","3":"NA","4":"INDIAN RIVER","5":"NA","6":"12"},{"1":"NA","2":"FL","3":"NA","4":"JACKSON","5":"NA","6":"12"},{"1":"NA","2":"FL","3":"NA","4":"JEFFERSON","5":"NA","6":"3"},{"1":"NA","2":"FL","3":"NA","4":"LAFAYETTE","5":"NA","6":"5"},{"1":"NA","2":"FL","3":"NA","4":"LAKE","5":"NA","6":"77"},{"1":"NA","2":"FL","3":"NA","4":"LEE","5":"NA","6":"43"},{"1":"NA","2":"FL","3":"NA","4":"LEON","5":"NA","6":"21"},{"1":"NA","2":"FL","3":"NA","4":"LEVY","5":"NA","6":"6"},{"1":"NA","2":"FL","3":"NA","4":"LIBERTY","5":"NA","6":"1"},{"1":"NA","2":"FL","3":"NA","4":"MADISON","5":"NA","6":"1"},{"1":"NA","2":"FL","3":"NA","4":"MANATEE","5":"NA","6":"23"},{"1":"NA","2":"FL","3":"NA","4":"MARION","5":"NA","6":"48"},{"1":"NA","2":"FL","3":"NA","4":"MARTIN","5":"NA","6":"9"},{"1":"NA","2":"FL","3":"NA","4":"MIAMI-DADE","5":"NA","6":"346"},{"1":"NA","2":"FL","3":"NA","4":"MONROE","5":"NA","6":"7"},{"1":"NA","2":"FL","3":"NA","4":"NASSAU","5":"NA","6":"242"},{"1":"NA","2":"FL","3":"NA","4":"OKALOOSA","5":"NA","6":"6"},{"1":"NA","2":"FL","3":"NA","4":"OKEECHOBEE","5":"NA","6":"12"},{"1":"NA","2":"FL","3":"NA","4":"ORANGE","5":"NA","6":"101"},{"1":"NA","2":"FL","3":"NA","4":"OSCEOLA","5":"NA","6":"30"},{"1":"NA","2":"FL","3":"NA","4":"PALM BEACH","5":"NA","6":"155"},{"1":"NA","2":"FL","3":"NA","4":"PASCO","5":"NA","6":"71"},{"1":"NA","2":"FL","3":"NA","4":"PINELLAS","5":"NA","6":"73"},{"1":"NA","2":"FL","3":"NA","4":"POLK","5":"NA","6":"238"},{"1":"NA","2":"FL","3":"NA","4":"PUTNAM","5":"NA","6":"34"},{"1":"NA","2":"FL","3":"NA","4":"SANTA ROSA","5":"NA","6":"48"},{"1":"NA","2":"FL","3":"NA","4":"SARASOTA","5":"NA","6":"18"},{"1":"NA","2":"FL","3":"NA","4":"SEMINOLE","5":"NA","6":"92"},{"1":"NA","2":"FL","3":"NA","4":"ST JOHNS","5":"NA","6":"449"},{"1":"NA","2":"FL","3":"NA","4":"ST LUCIE","5":"NA","6":"56"},{"1":"NA","2":"FL","3":"NA","4":"SUMTER","5":"NA","6":"36"},{"1":"NA","2":"FL","3":"NA","4":"SUWANNEE","5":"NA","6":"11"},{"1":"NA","2":"FL","3":"NA","4":"TAYLOR","5":"NA","6":"5"},{"1":"NA","2":"FL","3":"NA","4":"UNION","5":"NA","6":"11"},{"1":"NA","2":"FL","3":"NA","4":"VOLUSIA","5":"NA","6":"175"},{"1":"NA","2":"FL","3":"NA","4":"WAKULLA","5":"NA","6":"4"},{"1":"NA","2":"FL","3":"NA","4":"WALTON","5":"NA","6":"3"},{"1":"NA","2":"FL","3":"NA","4":"WASHINGTON","5":"NA","6":"13"},{"1":"NA","2":"FL Total","3":"NA","4":"NA","5":"NA","6":"7419"},{"1":"NA","2":"GA","3":"NA","4":"APPLING","5":"NA","6":"24"},{"1":"NA","2":"GA","3":"NA","4":"ATKINSON","5":"NA","6":"22"},{"1":"NA","2":"GA","3":"NA","4":"BACON","5":"NA","6":"56"},{"1":"NA","2":"GA","3":"NA","4":"BALDWIN","5":"NA","6":"11"},{"1":"NA","2":"GA","3":"NA","4":"BANKS","5":"NA","6":"1"},{"1":"NA","2":"GA","3":"NA","4":"BARROW","5":"NA","6":"32"},{"1":"NA","2":"GA","3":"NA","4":"BARTOW","5":"NA","6":"114"},{"1":"NA","2":"GA","3":"NA","4":"BEN HILL","5":"NA","6":"120"},{"1":"NA","2":"GA","3":"NA","4":"BERRIEN","5":"NA","6":"12"},{"1":"NA","2":"GA","3":"NA","4":"BIBB","5":"NA","6":"304"},{"1":"NA","2":"GA","3":"NA","4":"BLECKLEY","5":"NA","6":"17"},{"1":"NA","2":"GA","3":"NA","4":"BRANTLEY","5":"NA","6":"112"},{"1":"NA","2":"GA","3":"NA","4":"BROOKS","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"BRYAN","5":"NA","6":"95"},{"1":"NA","2":"GA","3":"NA","4":"BULLOCH","5":"NA","6":"42"},{"1":"NA","2":"GA","3":"NA","4":"BURKE","5":"NA","6":"17"},{"1":"NA","2":"GA","3":"NA","4":"BUTTS","5":"NA","6":"23"},{"1":"NA","2":"GA","3":"NA","4":"CALHOUN","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"CAMDEN","5":"NA","6":"41"},{"1":"NA","2":"GA","3":"NA","4":"CANDLER","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"CARROLL","5":"NA","6":"130"},{"1":"NA","2":"GA","3":"NA","4":"CATOOSA","5":"NA","6":"120"},{"1":"NA","2":"GA","3":"NA","4":"CHARLTON","5":"NA","6":"35"},{"1":"NA","2":"GA","3":"NA","4":"CHATHAM","5":"NA","6":"281"},{"1":"NA","2":"GA","3":"NA","4":"CHATTAHOOCHEE","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"CHATTOOGA","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"CHEROKEE","5":"NA","6":"129"},{"1":"NA","2":"GA","3":"NA","4":"CLARKE","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"CLAY","5":"NA","6":"2"},{"1":"NA","2":"GA","3":"NA","4":"CLAYTON","5":"NA","6":"194"},{"1":"NA","2":"GA","3":"NA","4":"CLINCH","5":"NA","6":"16"},{"1":"NA","2":"GA","3":"NA","4":"COBB","5":"NA","6":"661"},{"1":"NA","2":"GA","3":"NA","4":"COFFEE","5":"NA","6":"85"},{"1":"NA","2":"GA","3":"NA","4":"COLQUITT","5":"NA","6":"5"},{"1":"NA","2":"GA","3":"NA","4":"COLUMBIA","5":"NA","6":"89"},{"1":"NA","2":"GA","3":"NA","4":"COOK","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"COWETA","5":"NA","6":"116"},{"1":"NA","2":"GA","3":"NA","4":"CRAWFORD","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"CRISP","5":"NA","6":"12"},{"1":"NA","2":"GA","3":"NA","4":"DADE","5":"NA","6":"31"},{"1":"NA","2":"GA","3":"NA","4":"DAWSON","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"DECATUR","5":"NA","6":"11"},{"1":"NA","2":"GA","3":"NA","4":"DEKALB","5":"NA","6":"315"},{"1":"NA","2":"GA","3":"NA","4":"DODGE","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"DOOLY","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"DOUGHERTY","5":"NA","6":"43"},{"1":"NA","2":"GA","3":"NA","4":"DOUGLAS","5":"NA","6":"282"},{"1":"NA","2":"GA","3":"NA","4":"EARLY","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"EFFINGHAM","5":"NA","6":"130"},{"1":"NA","2":"GA","3":"NA","4":"ELBERT","5":"NA","6":"1"},{"1":"NA","2":"GA","3":"NA","4":"EMANUEL","5":"NA","6":"33"},{"1":"NA","2":"GA","3":"NA","4":"EVANS","5":"NA","6":"5"},{"1":"NA","2":"GA","3":"NA","4":"FANNIN","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"FAYETTE","5":"NA","6":"177"},{"1":"NA","2":"GA","3":"NA","4":"FLOYD","5":"NA","6":"31"},{"1":"NA","2":"GA","3":"NA","4":"FORSYTH","5":"NA","6":"40"},{"1":"NA","2":"GA","3":"NA","4":"FRANKLIN","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"FULTON","5":"NA","6":"878"},{"1":"NA","2":"GA","3":"NA","4":"GILMER","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"GLASCOCK","5":"NA","6":"1"},{"1":"NA","2":"GA","3":"NA","4":"GLYNN","5":"NA","6":"40"},{"1":"NA","2":"GA","3":"NA","4":"GORDON","5":"NA","6":"33"},{"1":"NA","2":"GA","3":"NA","4":"GRADY","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"GREENE","5":"NA","6":"5"},{"1":"NA","2":"GA","3":"NA","4":"GWINNETT","5":"NA","6":"372"},{"1":"NA","2":"GA","3":"NA","4":"HABERSHAM","5":"NA","6":"12"},{"1":"NA","2":"GA","3":"NA","4":"HALL","5":"NA","6":"55"},{"1":"NA","2":"GA","3":"NA","4":"HANCOCK","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"HARALSON","5":"NA","6":"21"},{"1":"NA","2":"GA","3":"NA","4":"HARRIS","5":"NA","6":"37"},{"1":"NA","2":"GA","3":"NA","4":"HART","5":"NA","6":"10"},{"1":"NA","2":"GA","3":"NA","4":"HEARD","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"HENRY","5":"NA","6":"269"},{"1":"NA","2":"GA","3":"NA","4":"HOUSTON","5":"NA","6":"89"},{"1":"NA","2":"GA","3":"NA","4":"IRWIN","5":"NA","6":"24"},{"1":"NA","2":"GA","3":"NA","4":"JACKSON","5":"NA","6":"38"},{"1":"NA","2":"GA","3":"NA","4":"JASPER","5":"NA","6":"13"},{"1":"NA","2":"GA","3":"NA","4":"JEFF DAVIS","5":"NA","6":"12"},{"1":"NA","2":"GA","3":"NA","4":"JEFFERSON","5":"NA","6":"11"},{"1":"NA","2":"GA","3":"NA","4":"JENKINS","5":"NA","6":"17"},{"1":"NA","2":"GA","3":"NA","4":"JOHNSON","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"JONES","5":"NA","6":"42"},{"1":"NA","2":"GA","3":"NA","4":"LAMAR","5":"NA","6":"19"},{"1":"NA","2":"GA","3":"NA","4":"LANIER","5":"NA","6":"10"},{"1":"NA","2":"GA","3":"NA","4":"LAURENS","5":"NA","6":"11"},{"1":"NA","2":"GA","3":"NA","4":"LEE","5":"NA","6":"22"},{"1":"NA","2":"GA","3":"NA","4":"LIBERTY","5":"NA","6":"28"},{"1":"NA","2":"GA","3":"NA","4":"LINCOLN","5":"NA","6":"15"},{"1":"NA","2":"GA","3":"NA","4":"LONG","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"LOWNDES","5":"NA","6":"87"},{"1":"NA","2":"GA","3":"NA","4":"LUMPKIN","5":"NA","6":"2"},{"1":"NA","2":"GA","3":"NA","4":"MACON","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"MADISON","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"MARION","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"MCDUFFIE","5":"NA","6":"32"},{"1":"NA","2":"GA","3":"NA","4":"MCINTOSH","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"MERIWETHER","5":"NA","6":"78"},{"1":"NA","2":"GA","3":"NA","4":"MILLER","5":"NA","6":"2"},{"1":"NA","2":"GA","3":"NA","4":"MITCHELL","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"MONROE","5":"NA","6":"63"},{"1":"NA","2":"GA","3":"NA","4":"MONTGOMERY","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"MORGAN","5":"NA","6":"2"},{"1":"NA","2":"GA","3":"NA","4":"MURRAY","5":"NA","6":"6"},{"1":"NA","2":"GA","3":"NA","4":"MUSCOGEE","5":"NA","6":"84"},{"1":"NA","2":"GA","3":"NA","4":"NEWTON","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"OCONEE","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"OGLETHORPE","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"PAULDING","5":"NA","6":"200"},{"1":"NA","2":"GA","3":"NA","4":"PEACH","5":"NA","6":"47"},{"1":"NA","2":"GA","3":"NA","4":"PICKENS","5":"NA","6":"16"},{"1":"NA","2":"GA","3":"NA","4":"PIERCE","5":"NA","6":"271"},{"1":"NA","2":"GA","3":"NA","4":"PIKE","5":"NA","6":"17"},{"1":"NA","2":"GA","3":"NA","4":"POLK","5":"NA","6":"65"},{"1":"NA","2":"GA","3":"NA","4":"PULASKI","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"PUTNAM","5":"NA","6":"10"},{"1":"NA","2":"GA","3":"NA","4":"RABUN","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"RANDOLPH","5":"NA","6":"12"},{"1":"NA","2":"GA","3":"NA","4":"RICHMOND","5":"NA","6":"206"},{"1":"NA","2":"GA","3":"NA","4":"ROCKDALE","5":"NA","6":"60"},{"1":"NA","2":"GA","3":"NA","4":"SCHLEY","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"SCREVEN","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"SEMINOLE","5":"NA","6":"2"},{"1":"NA","2":"GA","3":"NA","4":"SPALDING","5":"NA","6":"33"},{"1":"NA","2":"GA","3":"NA","4":"STEPHENS","5":"NA","6":"8"},{"1":"NA","2":"GA","3":"NA","4":"STEWART","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"SUMTER","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"TALBOT","5":"NA","6":"13"},{"1":"NA","2":"GA","3":"NA","4":"TATTNALL","5":"NA","6":"4"},{"1":"NA","2":"GA","3":"NA","4":"TAYLOR","5":"NA","6":"11"},{"1":"NA","2":"GA","3":"NA","4":"TELFAIR","5":"NA","6":"5"},{"1":"NA","2":"GA","3":"NA","4":"TERRELL","5":"NA","6":"9"},{"1":"NA","2":"GA","3":"NA","4":"THOMAS","5":"NA","6":"30"},{"1":"NA","2":"GA","3":"NA","4":"TIFT","5":"NA","6":"13"},{"1":"NA","2":"GA","3":"NA","4":"TOOMBS","5":"NA","6":"28"},{"1":"NA","2":"GA","3":"NA","4":"TREUTLEN","5":"NA","6":"1"},{"1":"NA","2":"GA","3":"NA","4":"TROUP","5":"NA","6":"53"},{"1":"NA","2":"GA","3":"NA","4":"TURNER","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"TWIGGS","5":"NA","6":"12"},{"1":"NA","2":"GA","3":"NA","4":"UPSON","5":"NA","6":"18"},{"1":"NA","2":"GA","3":"NA","4":"WALKER","5":"NA","6":"54"},{"1":"NA","2":"GA","3":"NA","4":"WALTON","5":"NA","6":"117"},{"1":"NA","2":"GA","3":"NA","4":"WARE","5":"NA","6":"413"},{"1":"NA","2":"GA","3":"NA","4":"WARREN","5":"NA","6":"8"},{"1":"NA","2":"GA","3":"NA","4":"WASHINGTON","5":"NA","6":"34"},{"1":"NA","2":"GA","3":"NA","4":"WAYNE","5":"NA","6":"94"},{"1":"NA","2":"GA","3":"NA","4":"WEBSTER","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"WHITE","5":"NA","6":"3"},{"1":"NA","2":"GA","3":"NA","4":"WHITFIELD","5":"NA","6":"22"},{"1":"NA","2":"GA","3":"NA","4":"WILCOX","5":"NA","6":"15"},{"1":"NA","2":"GA","3":"NA","4":"WILKES","5":"NA","6":"7"},{"1":"NA","2":"GA","3":"NA","4":"WILKINSON","5":"NA","6":"22"},{"1":"NA","2":"GA","3":"NA","4":"WORTH","5":"NA","6":"11"},{"1":"NA","2":"GA Total","3":"NA","4":"NA","5":"NA","6":"8605"},{"1":"NA","2":"HI","3":"NA","4":"HAWAII","5":"NA","6":"1"},{"1":"NA","2":"HI","3":"NA","4":"HONOLULU","5":"NA","6":"2"},{"1":"NA","2":"HI","3":"NA","4":"KAUAI","5":"NA","6":"1"},{"1":"NA","2":"HI Total","3":"NA","4":"NA","5":"NA","6":"4"},{"1":"NA","2":"IA","3":"NA","4":"ADAIR","5":"NA","6":"5"},{"1":"NA","2":"IA","3":"NA","4":"ADAMS","5":"NA","6":"7"},{"1":"NA","2":"IA","3":"NA","4":"ALLAMAKEE","5":"NA","6":"18"},{"1":"NA","2":"IA","3":"NA","4":"APPANOOSE","5":"NA","6":"13"},{"1":"NA","2":"IA","3":"NA","4":"AUDUBON","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"BENTON","5":"NA","6":"39"},{"1":"NA","2":"IA","3":"NA","4":"BLACK HAWK","5":"NA","6":"116"},{"1":"NA","2":"IA","3":"NA","4":"BOONE","5":"NA","6":"206"},{"1":"NA","2":"IA","3":"NA","4":"BREMER","5":"NA","6":"17"},{"1":"NA","2":"IA","3":"NA","4":"BUCHANAN","5":"NA","6":"35"},{"1":"NA","2":"IA","3":"NA","4":"BUENA VISTA","5":"NA","6":"2"},{"1":"NA","2":"IA","3":"NA","4":"BUTLER","5":"NA","6":"23"},{"1":"NA","2":"IA","3":"NA","4":"CALHOUN","5":"NA","6":"16"},{"1":"NA","2":"IA","3":"NA","4":"CARROLL","5":"NA","6":"38"},{"1":"NA","2":"IA","3":"NA","4":"CASS","5":"NA","6":"13"},{"1":"NA","2":"IA","3":"NA","4":"CEDAR","5":"NA","6":"19"},{"1":"NA","2":"IA","3":"NA","4":"CERRO GORDO","5":"NA","6":"157"},{"1":"NA","2":"IA","3":"NA","4":"CHEROKEE","5":"NA","6":"2"},{"1":"NA","2":"IA","3":"NA","4":"CHICKASAW","5":"NA","6":"7"},{"1":"NA","2":"IA","3":"NA","4":"CLARKE","5":"NA","6":"16"},{"1":"NA","2":"IA","3":"NA","4":"CLAY","5":"NA","6":"2"},{"1":"NA","2":"IA","3":"NA","4":"CLAYTON","5":"NA","6":"24"},{"1":"NA","2":"IA","3":"NA","4":"CLINTON","5":"NA","6":"140"},{"1":"NA","2":"IA","3":"NA","4":"CRAWFORD","5":"NA","6":"8"},{"1":"NA","2":"IA","3":"NA","4":"DALLAS","5":"NA","6":"46"},{"1":"NA","2":"IA","3":"NA","4":"DAVIS","5":"NA","6":"11"},{"1":"NA","2":"IA","3":"NA","4":"DECATUR","5":"NA","6":"9"},{"1":"NA","2":"IA","3":"NA","4":"DELAWARE","5":"NA","6":"18"},{"1":"NA","2":"IA","3":"NA","4":"DES MOINES","5":"NA","6":"179"},{"1":"NA","2":"IA","3":"NA","4":"DICKINSON","5":"NA","6":"2"},{"1":"NA","2":"IA","3":"NA","4":"DUBUQUE","5":"NA","6":"71"},{"1":"NA","2":"IA","3":"NA","4":"EMMET","5":"NA","6":"6"},{"1":"NA","2":"IA","3":"NA","4":"FAYETTE","5":"NA","6":"23"},{"1":"NA","2":"IA","3":"NA","4":"FLOYD","5":"NA","6":"34"},{"1":"NA","2":"IA","3":"NA","4":"FRANKLIN","5":"NA","6":"11"},{"1":"NA","2":"IA","3":"NA","4":"FREMONT","5":"NA","6":"15"},{"1":"NA","2":"IA","3":"NA","4":"GREENE","5":"NA","6":"19"},{"1":"NA","2":"IA","3":"NA","4":"GRUNDY","5":"NA","6":"9"},{"1":"NA","2":"IA","3":"NA","4":"GUTHRIE","5":"NA","6":"10"},{"1":"NA","2":"IA","3":"NA","4":"HAMILTON","5":"NA","6":"31"},{"1":"NA","2":"IA","3":"NA","4":"HANCOCK","5":"NA","6":"10"},{"1":"NA","2":"IA","3":"NA","4":"HARDIN","5":"NA","6":"20"},{"1":"NA","2":"IA","3":"NA","4":"HARRISON","5":"NA","6":"102"},{"1":"NA","2":"IA","3":"NA","4":"HENRY","5":"NA","6":"26"},{"1":"NA","2":"IA","3":"NA","4":"HOWARD","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"HUMBOLDT","5":"NA","6":"17"},{"1":"NA","2":"IA","3":"NA","4":"IDA","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"IOWA","5":"NA","6":"13"},{"1":"NA","2":"IA","3":"NA","4":"JACKSON","5":"NA","6":"26"},{"1":"NA","2":"IA","3":"NA","4":"JASPER","5":"NA","6":"24"},{"1":"NA","2":"IA","3":"NA","4":"JEFFERSON","5":"NA","6":"10"},{"1":"NA","2":"IA","3":"NA","4":"JOHNSON","5":"NA","6":"37"},{"1":"NA","2":"IA","3":"NA","4":"JONES","5":"NA","6":"14"},{"1":"NA","2":"IA","3":"NA","4":"KEOKUK","5":"NA","6":"3"},{"1":"NA","2":"IA","3":"NA","4":"KOSSUTH","5":"NA","6":"5"},{"1":"NA","2":"IA","3":"NA","4":"LEE","5":"NA","6":"204"},{"1":"NA","2":"IA","3":"NA","4":"LINN","5":"NA","6":"146"},{"1":"NA","2":"IA","3":"NA","4":"LOUISA","5":"NA","6":"7"},{"1":"NA","2":"IA","3":"NA","4":"LUCAS","5":"NA","6":"5"},{"1":"NA","2":"IA","3":"NA","4":"LYON","5":"NA","6":"2"},{"1":"NA","2":"IA","3":"NA","4":"MADISON","5":"NA","6":"12"},{"1":"NA","2":"IA","3":"NA","4":"MAHASKA","5":"NA","6":"3"},{"1":"NA","2":"IA","3":"NA","4":"MARION","5":"NA","6":"14"},{"1":"NA","2":"IA","3":"NA","4":"MARSHALL","5":"NA","6":"90"},{"1":"NA","2":"IA","3":"NA","4":"MILLS","5":"NA","6":"96"},{"1":"NA","2":"IA","3":"NA","4":"MITCHELL","5":"NA","6":"15"},{"1":"NA","2":"IA","3":"NA","4":"MONONA","5":"NA","6":"12"},{"1":"NA","2":"IA","3":"NA","4":"MONROE","5":"NA","6":"14"},{"1":"NA","2":"IA","3":"NA","4":"MONTGOMERY","5":"NA","6":"19"},{"1":"NA","2":"IA","3":"NA","4":"MUSCATINE","5":"NA","6":"29"},{"1":"NA","2":"IA","3":"NA","4":"O'BRIEN","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"OSCEOLA","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"PAGE","5":"NA","6":"13"},{"1":"NA","2":"IA","3":"NA","4":"PALO ALTO","5":"NA","6":"2"},{"1":"NA","2":"IA","3":"NA","4":"PLYMOUTH","5":"NA","6":"14"},{"1":"NA","2":"IA","3":"NA","4":"POCAHONTAS","5":"NA","6":"5"},{"1":"NA","2":"IA","3":"NA","4":"POLK","5":"NA","6":"235"},{"1":"NA","2":"IA","3":"NA","4":"POTTAWATTAMIE","5":"NA","6":"609"},{"1":"NA","2":"IA","3":"NA","4":"POWESHIEK","5":"NA","6":"7"},{"1":"NA","2":"IA","3":"NA","4":"RINGGOLD","5":"NA","6":"13"},{"1":"NA","2":"IA","3":"NA","4":"SAC","5":"NA","6":"10"},{"1":"NA","2":"IA","3":"NA","4":"SCOTT","5":"NA","6":"137"},{"1":"NA","2":"IA","3":"NA","4":"SHELBY","5":"NA","6":"12"},{"1":"NA","2":"IA","3":"NA","4":"SIOUX","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"STORY","5":"NA","6":"94"},{"1":"NA","2":"IA","3":"NA","4":"TAMA","5":"NA","6":"20"},{"1":"NA","2":"IA","3":"NA","4":"TAYLOR","5":"NA","6":"3"},{"1":"NA","2":"IA","3":"NA","4":"UNION","5":"NA","6":"70"},{"1":"NA","2":"IA","3":"NA","4":"VAN BUREN","5":"NA","6":"8"},{"1":"NA","2":"IA","3":"NA","4":"WAPELLO","5":"NA","6":"42"},{"1":"NA","2":"IA","3":"NA","4":"WARREN","5":"NA","6":"37"},{"1":"NA","2":"IA","3":"NA","4":"WASHINGTON","5":"NA","6":"10"},{"1":"NA","2":"IA","3":"NA","4":"WAYNE","5":"NA","6":"5"},{"1":"NA","2":"IA","3":"NA","4":"WEBSTER","5":"NA","6":"65"},{"1":"NA","2":"IA","3":"NA","4":"WINNEBAGO","5":"NA","6":"6"},{"1":"NA","2":"IA","3":"NA","4":"WINNESHIEK","5":"NA","6":"1"},{"1":"NA","2":"IA","3":"NA","4":"WOODBURY","5":"NA","6":"155"},{"1":"NA","2":"IA","3":"NA","4":"WORTH","5":"NA","6":"12"},{"1":"NA","2":"IA","3":"NA","4":"WRIGHT","5":"NA","6":"36"},{"1":"NA","2":"IA Total","3":"NA","4":"NA","5":"NA","6":"4019"},{"1":"NA","2":"ID","3":"NA","4":"ADA","5":"NA","6":"81"},{"1":"NA","2":"ID","3":"NA","4":"ADAMS","5":"NA","6":"2"},{"1":"NA","2":"ID","3":"NA","4":"BANNOCK","5":"NA","6":"538"},{"1":"NA","2":"ID","3":"NA","4":"BEAR LAKE","5":"NA","6":"71"},{"1":"NA","2":"ID","3":"NA","4":"BENEWAH","5":"NA","6":"10"},{"1":"NA","2":"ID","3":"NA","4":"BINGHAM","5":"NA","6":"47"},{"1":"NA","2":"ID","3":"NA","4":"BOISE","5":"NA","6":"3"},{"1":"NA","2":"ID","3":"NA","4":"BONNER","5":"NA","6":"40"},{"1":"NA","2":"ID","3":"NA","4":"BONNEVILLE","5":"NA","6":"44"},{"1":"NA","2":"ID","3":"NA","4":"BOUNDARY","5":"NA","6":"44"},{"1":"NA","2":"ID","3":"NA","4":"CANYON","5":"NA","6":"168"},{"1":"NA","2":"ID","3":"NA","4":"CARIBOU","5":"NA","6":"12"},{"1":"NA","2":"ID","3":"NA","4":"CASSIA","5":"NA","6":"16"},{"1":"NA","2":"ID","3":"NA","4":"CLEARWATER","5":"NA","6":"1"},{"1":"NA","2":"ID","3":"NA","4":"CUSTER","5":"NA","6":"1"},{"1":"NA","2":"ID","3":"NA","4":"ELMORE","5":"NA","6":"9"},{"1":"NA","2":"ID","3":"NA","4":"FRANKLIN","5":"NA","6":"20"},{"1":"NA","2":"ID","3":"NA","4":"FREMONT","5":"NA","6":"1"},{"1":"NA","2":"ID","3":"NA","4":"GEM","5":"NA","6":"26"},{"1":"NA","2":"ID","3":"NA","4":"GOODING","5":"NA","6":"4"},{"1":"NA","2":"ID","3":"NA","4":"IDAHO","5":"NA","6":"4"},{"1":"NA","2":"ID","3":"NA","4":"JEFFERSON","5":"NA","6":"6"},{"1":"NA","2":"ID","3":"NA","4":"JEROME","5":"NA","6":"11"},{"1":"NA","2":"ID","3":"NA","4":"KOOTENAI","5":"NA","6":"205"},{"1":"NA","2":"ID","3":"NA","4":"LATAH","5":"NA","6":"11"},{"1":"NA","2":"ID","3":"NA","4":"LEWIS","5":"NA","6":"2"},{"1":"NA","2":"ID","3":"NA","4":"LINCOLN","5":"NA","6":"6"},{"1":"NA","2":"ID","3":"NA","4":"MINIDOKA","5":"NA","6":"32"},{"1":"NA","2":"ID","3":"NA","4":"NEZ PERCE","5":"NA","6":"13"},{"1":"NA","2":"ID","3":"NA","4":"ONEIDA","5":"NA","6":"8"},{"1":"NA","2":"ID","3":"NA","4":"OWYHEE","5":"NA","6":"7"},{"1":"NA","2":"ID","3":"NA","4":"PAYETTE","5":"NA","6":"23"},{"1":"NA","2":"ID","3":"NA","4":"POWER","5":"NA","6":"12"},{"1":"NA","2":"ID","3":"NA","4":"TWIN FALLS","5":"NA","6":"63"},{"1":"NA","2":"ID","3":"NA","4":"VALLEY","5":"NA","6":"1"},{"1":"NA","2":"ID","3":"NA","4":"WASHINGTON","5":"NA","6":"21"},{"1":"NA","2":"ID Total","3":"NA","4":"NA","5":"NA","6":"1563"},{"1":"NA","2":"IL","3":"NA","4":"ADAMS","5":"NA","6":"116"},{"1":"NA","2":"IL","3":"NA","4":"ALEXANDER","5":"NA","6":"2"},{"1":"NA","2":"IL","3":"NA","4":"BOND","5":"NA","6":"23"},{"1":"NA","2":"IL","3":"NA","4":"BOONE","5":"NA","6":"44"},{"1":"NA","2":"IL","3":"NA","4":"BROWN","5":"NA","6":"7"},{"1":"NA","2":"IL","3":"NA","4":"BUREAU","5":"NA","6":"35"},{"1":"NA","2":"IL","3":"NA","4":"CALHOUN","5":"NA","6":"4"},{"1":"NA","2":"IL","3":"NA","4":"CARROLL","5":"NA","6":"96"},{"1":"NA","2":"IL","3":"NA","4":"CASS","5":"NA","6":"66"},{"1":"NA","2":"IL","3":"NA","4":"CHAMPAIGN","5":"NA","6":"131"},{"1":"NA","2":"IL","3":"NA","4":"CHRISTIAN","5":"NA","6":"104"},{"1":"NA","2":"IL","3":"NA","4":"CLARK","5":"NA","6":"24"},{"1":"NA","2":"IL","3":"NA","4":"CLAY","5":"NA","6":"14"},{"1":"NA","2":"IL","3":"NA","4":"CLINTON","5":"NA","6":"38"},{"1":"NA","2":"IL","3":"NA","4":"COLES","5":"NA","6":"42"},{"1":"NA","2":"IL","3":"NA","4":"COOK","5":"NA","6":"8207"},{"1":"NA","2":"IL","3":"NA","4":"CRAWFORD","5":"NA","6":"12"},{"1":"NA","2":"IL","3":"NA","4":"CUMBERLAND","5":"NA","6":"9"},{"1":"NA","2":"IL","3":"NA","4":"DE WITT","5":"NA","6":"46"},{"1":"NA","2":"IL","3":"NA","4":"DEKALB","5":"NA","6":"119"},{"1":"NA","2":"IL","3":"NA","4":"DOUGLAS","5":"NA","6":"60"},{"1":"NA","2":"IL","3":"NA","4":"DUPAGE","5":"NA","6":"837"},{"1":"NA","2":"IL","3":"NA","4":"DUPAGEE","5":"NA","6":"45"},{"1":"NA","2":"IL","3":"NA","4":"EDGAR","5":"NA","6":"12"},{"1":"NA","2":"IL","3":"NA","4":"EDWARDS","5":"NA","6":"4"},{"1":"NA","2":"IL","3":"NA","4":"EFFINGHAM","5":"NA","6":"33"},{"1":"NA","2":"IL","3":"NA","4":"FAYETTE","5":"NA","6":"32"},{"1":"NA","2":"IL","3":"NA","4":"FORD","5":"NA","6":"23"},{"1":"NA","2":"IL","3":"NA","4":"FRANKLIN","5":"NA","6":"39"},{"1":"NA","2":"IL","3":"NA","4":"FULTON","5":"NA","6":"56"},{"1":"NA","2":"IL","3":"NA","4":"GALLATIN","5":"NA","6":"7"},{"1":"NA","2":"IL","3":"NA","4":"GREENE","5":"NA","6":"13"},{"1":"NA","2":"IL","3":"NA","4":"GRUNDY","5":"NA","6":"83"},{"1":"NA","2":"IL","3":"NA","4":"HAMILTON","5":"NA","6":"19"},{"1":"NA","2":"IL","3":"NA","4":"HANCOCK","5":"NA","6":"127"},{"1":"NA","2":"IL","3":"NA","4":"HARDIN","5":"NA","6":"1"},{"1":"NA","2":"IL","3":"NA","4":"HENDERSON","5":"NA","6":"100"},{"1":"NA","2":"IL","3":"NA","4":"HENRY","5":"NA","6":"74"},{"1":"NA","2":"IL","3":"NA","4":"IROQUOIS","5":"NA","6":"87"},{"1":"NA","2":"IL","3":"NA","4":"JACKSON","5":"NA","6":"37"},{"1":"NA","2":"IL","3":"NA","4":"JASPER","5":"NA","6":"4"},{"1":"NA","2":"IL","3":"NA","4":"JEFFERSON","5":"NA","6":"72"},{"1":"NA","2":"IL","3":"NA","4":"JERSEY","5":"NA","6":"14"},{"1":"NA","2":"IL","3":"NA","4":"JO DAVIESS","5":"NA","6":"14"},{"1":"NA","2":"IL","3":"NA","4":"JOHNSON","5":"NA","6":"26"},{"1":"NA","2":"IL","3":"NA","4":"KANE","5":"NA","6":"577"},{"1":"NA","2":"IL","3":"NA","4":"KANKAKEE","5":"NA","6":"289"},{"1":"NA","2":"IL","3":"NA","4":"KENDALL","5":"NA","6":"122"},{"1":"NA","2":"IL","3":"NA","4":"KNOX","5":"NA","6":"885"},{"1":"NA","2":"IL","3":"NA","4":"LA SALLE","5":"NA","6":"132"},{"1":"NA","2":"IL","3":"NA","4":"LAKE","5":"NA","6":"340"},{"1":"NA","2":"IL","3":"NA","4":"LAWRENCE","5":"NA","6":"6"},{"1":"NA","2":"IL","3":"NA","4":"LEE","5":"NA","6":"40"},{"1":"NA","2":"IL","3":"NA","4":"LIVINGSTON","5":"NA","6":"12"},{"1":"NA","2":"IL","3":"NA","4":"LOGAN","5":"NA","6":"16"},{"1":"NA","2":"IL","3":"NA","4":"MACON","5":"NA","6":"425"},{"1":"NA","2":"IL","3":"NA","4":"MACOUPIN","5":"NA","6":"79"},{"1":"NA","2":"IL","3":"NA","4":"MADISON","5":"NA","6":"427"},{"1":"NA","2":"IL","3":"NA","4":"MARION","5":"NA","6":"261"},{"1":"NA","2":"IL","3":"NA","4":"MARSHALL","5":"NA","6":"10"},{"1":"NA","2":"IL","3":"NA","4":"MASON","5":"NA","6":"23"},{"1":"NA","2":"IL","3":"NA","4":"MASSAC","5":"NA","6":"9"},{"1":"NA","2":"IL","3":"NA","4":"MCDONOUGH","5":"NA","6":"53"},{"1":"NA","2":"IL","3":"NA","4":"MCHENRY","5":"NA","6":"273"},{"1":"NA","2":"IL","3":"NA","4":"MCLEAN","5":"NA","6":"45"},{"1":"NA","2":"IL","3":"NA","4":"MENARD","5":"NA","6":"10"},{"1":"NA","2":"IL","3":"NA","4":"MERCER","5":"NA","6":"18"},{"1":"NA","2":"IL","3":"NA","4":"MONROE","5":"NA","6":"122"},{"1":"NA","2":"IL","3":"NA","4":"MONTGOMERY","5":"NA","6":"38"},{"1":"NA","2":"IL","3":"NA","4":"MORGAN","5":"NA","6":"43"},{"1":"NA","2":"IL","3":"NA","4":"MOULTRIE","5":"NA","6":"49"},{"1":"NA","2":"IL","3":"NA","4":"OGLE","5":"NA","6":"75"},{"1":"NA","2":"IL","3":"NA","4":"PEORIA","5":"NA","6":"130"},{"1":"NA","2":"IL","3":"NA","4":"PERRY","5":"NA","6":"20"},{"1":"NA","2":"IL","3":"NA","4":"PIATT","5":"NA","6":"54"},{"1":"NA","2":"IL","3":"NA","4":"PIKE","5":"NA","6":"50"},{"1":"NA","2":"IL","3":"NA","4":"POPE","5":"NA","6":"1"},{"1":"NA","2":"IL","3":"NA","4":"PULASKI","5":"NA","6":"7"},{"1":"NA","2":"IL","3":"NA","4":"PUTNAM","5":"NA","6":"5"},{"1":"NA","2":"IL","3":"NA","4":"RANDOLPH","5":"NA","6":"68"},{"1":"NA","2":"IL","3":"NA","4":"RICHLAND","5":"NA","6":"9"},{"1":"NA","2":"IL","3":"NA","4":"ROCK ISLAND","5":"NA","6":"94"},{"1":"NA","2":"IL","3":"NA","4":"SALINE","5":"NA","6":"11"},{"1":"NA","2":"IL","3":"NA","4":"SANGAMON","5":"NA","6":"114"},{"1":"NA","2":"IL","3":"NA","4":"SCHUYLER","5":"NA","6":"32"},{"1":"NA","2":"IL","3":"NA","4":"SCOTT","5":"NA","6":"15"},{"1":"NA","2":"IL","3":"NA","4":"SHELBY","5":"NA","6":"45"},{"1":"NA","2":"IL","3":"NA","4":"ST CLAIR","5":"NA","6":"495"},{"1":"NA","2":"IL","3":"NA","4":"STARK","5":"NA","6":"5"},{"1":"NA","2":"IL","3":"NA","4":"STEPHENSON","5":"NA","6":"33"},{"1":"NA","2":"IL","3":"NA","4":"TAZEWELL","5":"NA","6":"71"},{"1":"NA","2":"IL","3":"NA","4":"UNION","5":"NA","6":"41"},{"1":"NA","2":"IL","3":"NA","4":"VERMILION","5":"NA","6":"178"},{"1":"NA","2":"IL","3":"NA","4":"WABASH","5":"NA","6":"14"},{"1":"NA","2":"IL","3":"NA","4":"WARREN","5":"NA","6":"188"},{"1":"NA","2":"IL","3":"NA","4":"WASHINGTON","5":"NA","6":"29"},{"1":"NA","2":"IL","3":"NA","4":"WAYNE","5":"NA","6":"18"},{"1":"NA","2":"IL","3":"NA","4":"WHITE","5":"NA","6":"16"},{"1":"NA","2":"IL","3":"NA","4":"WHITESIDE","5":"NA","6":"124"},{"1":"NA","2":"IL","3":"NA","4":"WILL","5":"NA","6":"1784"},{"1":"NA","2":"IL","3":"NA","4":"WILLIAMSON","5":"NA","6":"53"},{"1":"NA","2":"IL","3":"NA","4":"WINNEBAGO","5":"NA","6":"76"},{"1":"NA","2":"IL","3":"NA","4":"WOODFORD","5":"NA","6":"14"},{"1":"NA","2":"IL Total","3":"NA","4":"NA","5":"NA","6":"19131"},{"1":"NA","2":"IN","3":"NA","4":"ADAMS","5":"NA","6":"11"},{"1":"NA","2":"IN","3":"NA","4":"ALLEN","5":"NA","6":"536"},{"1":"NA","2":"IN","3":"NA","4":"BARTHOLOMEW","5":"NA","6":"12"},{"1":"NA","2":"IN","3":"NA","4":"BENTON","5":"NA","6":"6"},{"1":"NA","2":"IN","3":"NA","4":"BLACKFORD","5":"NA","6":"24"},{"1":"NA","2":"IN","3":"NA","4":"BOONE","5":"NA","6":"22"},{"1":"NA","2":"IN","3":"NA","4":"BROWN","5":"NA","6":"7"},{"1":"NA","2":"IN","3":"NA","4":"CARROLL","5":"NA","6":"26"},{"1":"NA","2":"IN","3":"NA","4":"CASS","5":"NA","6":"35"},{"1":"NA","2":"IN","3":"NA","4":"CLARK","5":"NA","6":"131"},{"1":"NA","2":"IN","3":"NA","4":"CLAY","5":"NA","6":"28"},{"1":"NA","2":"IN","3":"NA","4":"CLINTON","5":"NA","6":"28"},{"1":"NA","2":"IN","3":"NA","4":"CRAWFORD","5":"NA","6":"21"},{"1":"NA","2":"IN","3":"NA","4":"DAVIESS","5":"NA","6":"35"},{"1":"NA","2":"IN","3":"NA","4":"DEARBORN","5":"NA","6":"50"},{"1":"NA","2":"IN","3":"NA","4":"DECATUR","5":"NA","6":"7"},{"1":"NA","2":"IN","3":"NA","4":"DEKALB","5":"NA","6":"118"},{"1":"NA","2":"IN","3":"NA","4":"DELAWARE","5":"NA","6":"125"},{"1":"NA","2":"IN","3":"NA","4":"DUBOIS","5":"NA","6":"35"},{"1":"NA","2":"IN","3":"NA","4":"ELKHART","5":"NA","6":"306"},{"1":"NA","2":"IN","3":"NA","4":"FAYETTE","5":"NA","6":"19"},{"1":"NA","2":"IN","3":"NA","4":"FLOYD","5":"NA","6":"85"},{"1":"NA","2":"IN","3":"NA","4":"FOUNTAIN","5":"NA","6":"21"},{"1":"NA","2":"IN","3":"NA","4":"FRANKLIN","5":"NA","6":"10"},{"1":"NA","2":"IN","3":"NA","4":"FULTON","5":"NA","6":"8"},{"1":"NA","2":"IN","3":"NA","4":"GIBSON","5":"NA","6":"153"},{"1":"NA","2":"IN","3":"NA","4":"GRANT","5":"NA","6":"39"},{"1":"NA","2":"IN","3":"NA","4":"GREENE","5":"NA","6":"72"},{"1":"NA","2":"IN","3":"NA","4":"HAMILTON","5":"NA","6":"63"},{"1":"NA","2":"IN","3":"NA","4":"HANCOCK","5":"NA","6":"60"},{"1":"NA","2":"IN","3":"NA","4":"HARRISON","5":"NA","6":"147"},{"1":"NA","2":"IN","3":"NA","4":"HENDRICKS","5":"NA","6":"229"},{"1":"NA","2":"IN","3":"NA","4":"HENRY","5":"NA","6":"35"},{"1":"NA","2":"IN","3":"NA","4":"HOWARD","5":"NA","6":"34"},{"1":"NA","2":"IN","3":"NA","4":"HUNTINGTON","5":"NA","6":"66"},{"1":"NA","2":"IN","3":"NA","4":"JACKSON","5":"NA","6":"11"},{"1":"NA","2":"IN","3":"NA","4":"JASPER","5":"NA","6":"80"},{"1":"NA","2":"IN","3":"NA","4":"JAY","5":"NA","6":"18"},{"1":"NA","2":"IN","3":"NA","4":"JEFFERSON","5":"NA","6":"10"},{"1":"NA","2":"IN","3":"NA","4":"JENNINGS","5":"NA","6":"13"},{"1":"NA","2":"IN","3":"NA","4":"JOHNSON","5":"NA","6":"165"},{"1":"NA","2":"IN","3":"NA","4":"KNOX","5":"NA","6":"16"},{"1":"NA","2":"IN","3":"NA","4":"KOSCIUSKO","5":"NA","6":"30"},{"1":"NA","2":"IN","3":"NA","4":"LAGRANGE","5":"NA","6":"16"},{"1":"NA","2":"IN","3":"NA","4":"LAKE","5":"NA","6":"1999"},{"1":"NA","2":"IN","3":"NA","4":"LAPORTE","5":"NA","6":"360"},{"1":"NA","2":"IN","3":"NA","4":"LAPORTEE","5":"NA","6":"24"},{"1":"NA","2":"IN","3":"NA","4":"LAWRENCE","5":"NA","6":"16"},{"1":"NA","2":"IN","3":"NA","4":"MADISON","5":"NA","6":"70"},{"1":"NA","2":"IN","3":"NA","4":"MARION","5":"NA","6":"703"},{"1":"NA","2":"IN","3":"NA","4":"MARSHALL","5":"NA","6":"40"},{"1":"NA","2":"IN","3":"NA","4":"MARTIN","5":"NA","6":"3"},{"1":"NA","2":"IN","3":"NA","4":"MIAMI","5":"NA","6":"146"},{"1":"NA","2":"IN","3":"NA","4":"MONROE","5":"NA","6":"27"},{"1":"NA","2":"IN","3":"NA","4":"MONTGOMERY","5":"NA","6":"30"},{"1":"NA","2":"IN","3":"NA","4":"MORGAN","5":"NA","6":"105"},{"1":"NA","2":"IN","3":"NA","4":"NEWTON","5":"NA","6":"18"},{"1":"NA","2":"IN","3":"NA","4":"NOBLE","5":"NA","6":"59"},{"1":"NA","2":"IN","3":"NA","4":"OHIO","5":"NA","6":"5"},{"1":"NA","2":"IN","3":"NA","4":"ORANGE","5":"NA","6":"7"},{"1":"NA","2":"IN","3":"NA","4":"OWEN","5":"NA","6":"19"},{"1":"NA","2":"IN","3":"NA","4":"PARKE","5":"NA","6":"10"},{"1":"NA","2":"IN","3":"NA","4":"PERRY","5":"NA","6":"7"},{"1":"NA","2":"IN","3":"NA","4":"PIKE","5":"NA","6":"27"},{"1":"NA","2":"IN","3":"NA","4":"PORTER","5":"NA","6":"550"},{"1":"NA","2":"IN","3":"NA","4":"POSEY","5":"NA","6":"41"},{"1":"NA","2":"IN","3":"NA","4":"PULASKI","5":"NA","6":"11"},{"1":"NA","2":"IN","3":"NA","4":"PUTNAM","5":"NA","6":"41"},{"1":"NA","2":"IN","3":"NA","4":"RANDOLPH","5":"NA","6":"23"},{"1":"NA","2":"IN","3":"NA","4":"RIPLEY","5":"NA","6":"8"},{"1":"NA","2":"IN","3":"NA","4":"RUSH","5":"NA","6":"7"},{"1":"NA","2":"IN","3":"NA","4":"SCOTT","5":"NA","6":"10"},{"1":"NA","2":"IN","3":"NA","4":"SHELBY","5":"NA","6":"43"},{"1":"NA","2":"IN","3":"NA","4":"SPENCER","5":"NA","6":"23"},{"1":"NA","2":"IN","3":"NA","4":"ST JOSEPH","5":"NA","6":"258"},{"1":"NA","2":"IN","3":"NA","4":"STARKE","5":"NA","6":"58"},{"1":"NA","2":"IN","3":"NA","4":"STEUBEN","5":"NA","6":"45"},{"1":"NA","2":"IN","3":"NA","4":"SULLIVAN","5":"NA","6":"34"},{"1":"NA","2":"IN","3":"NA","4":"TIPPECANOE","5":"NA","6":"118"},{"1":"NA","2":"IN","3":"NA","4":"TIPTON","5":"NA","6":"14"},{"1":"NA","2":"IN","3":"NA","4":"UNION","5":"NA","6":"7"},{"1":"NA","2":"IN","3":"NA","4":"VANDERBURGH","5":"NA","6":"221"},{"1":"NA","2":"IN","3":"NA","4":"VERMILLION","5":"NA","6":"23"},{"1":"NA","2":"IN","3":"NA","4":"VIGO","5":"NA","6":"103"},{"1":"NA","2":"IN","3":"NA","4":"WABASH","5":"NA","6":"30"},{"1":"NA","2":"IN","3":"NA","4":"WARREN","5":"NA","6":"8"},{"1":"NA","2":"IN","3":"NA","4":"WARRICK","5":"NA","6":"82"},{"1":"NA","2":"IN","3":"NA","4":"WASHINGTON","5":"NA","6":"29"},{"1":"NA","2":"IN","3":"NA","4":"WAYNE","5":"NA","6":"12"},{"1":"NA","2":"IN","3":"NA","4":"WELLS","5":"NA","6":"39"},{"1":"NA","2":"IN","3":"NA","4":"WHITE","5":"NA","6":"23"},{"1":"NA","2":"IN","3":"NA","4":"WHITLEY","5":"NA","6":"38"},{"1":"NA","2":"IN Total","3":"NA","4":"NA","5":"NA","6":"8537"},{"1":"NA","2":"KS","3":"NA","4":"ALLEN","5":"NA","6":"16"},{"1":"NA","2":"KS","3":"NA","4":"ANDERSON","5":"NA","6":"12"},{"1":"NA","2":"KS","3":"NA","4":"ATCHISON","5":"NA","6":"42"},{"1":"NA","2":"KS","3":"NA","4":"BARBER","5":"NA","6":"11"},{"1":"NA","2":"KS","3":"NA","4":"BARTON","5":"NA","6":"22"},{"1":"NA","2":"KS","3":"NA","4":"BOURBON","5":"NA","6":"47"},{"1":"NA","2":"KS","3":"NA","4":"BROWN","5":"NA","6":"14"},{"1":"NA","2":"KS","3":"NA","4":"BUTLER","5":"NA","6":"76"},{"1":"NA","2":"KS","3":"NA","4":"CHASE","5":"NA","6":"11"},{"1":"NA","2":"KS","3":"NA","4":"CHAUTAUQUA","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"CHEROKEE","5":"NA","6":"38"},{"1":"NA","2":"KS","3":"NA","4":"CLAY","5":"NA","6":"5"},{"1":"NA","2":"KS","3":"NA","4":"CLOUD","5":"NA","6":"14"},{"1":"NA","2":"KS","3":"NA","4":"COFFEY","5":"NA","6":"10"},{"1":"NA","2":"KS","3":"NA","4":"COMANCHE","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"COWLEY","5":"NA","6":"94"},{"1":"NA","2":"KS","3":"NA","4":"CRAWFORD","5":"NA","6":"205"},{"1":"NA","2":"KS","3":"NA","4":"DECATUR","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"DICKINSON","5":"NA","6":"138"},{"1":"NA","2":"KS","3":"NA","4":"DONIPHAN","5":"NA","6":"24"},{"1":"NA","2":"KS","3":"NA","4":"DOUGLAS","5":"NA","6":"126"},{"1":"NA","2":"KS","3":"NA","4":"EDWARDS","5":"NA","6":"4"},{"1":"NA","2":"KS","3":"NA","4":"ELK","5":"NA","6":"7"},{"1":"NA","2":"KS","3":"NA","4":"ELLIS","5":"NA","6":"12"},{"1":"NA","2":"KS","3":"NA","4":"ELLSWORTH","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"FINNEY","5":"NA","6":"9"},{"1":"NA","2":"KS","3":"NA","4":"FORD","5":"NA","6":"22"},{"1":"NA","2":"KS","3":"NA","4":"FRANKLIN","5":"NA","6":"72"},{"1":"NA","2":"KS","3":"NA","4":"GEARY","5":"NA","6":"24"},{"1":"NA","2":"KS","3":"NA","4":"GRAY","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"GREELEY","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"GREENWOOD","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"HAMILTON","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"HARPER","5":"NA","6":"14"},{"1":"NA","2":"KS","3":"NA","4":"HARVEY","5":"NA","6":"153"},{"1":"NA","2":"KS","3":"NA","4":"HASKELL","5":"NA","6":"19"},{"1":"NA","2":"KS","3":"NA","4":"HODGEMAN","5":"NA","6":"4"},{"1":"NA","2":"KS","3":"NA","4":"JACKSON","5":"NA","6":"56"},{"1":"NA","2":"KS","3":"NA","4":"JEFFERSON","5":"NA","6":"122"},{"1":"NA","2":"KS","3":"NA","4":"JEWELL","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"JOHNSON","5":"NA","6":"1286"},{"1":"NA","2":"KS","3":"NA","4":"KINGMAN","5":"NA","6":"12"},{"1":"NA","2":"KS","3":"NA","4":"KIOWA","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"LABETTE","5":"NA","6":"88"},{"1":"NA","2":"KS","3":"NA","4":"LEAVENWORTH","5":"NA","6":"232"},{"1":"NA","2":"KS","3":"NA","4":"LINCOLN","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"LINN","5":"NA","6":"31"},{"1":"NA","2":"KS","3":"NA","4":"LOGAN","5":"NA","6":"6"},{"1":"NA","2":"KS","3":"NA","4":"LYON","5":"NA","6":"91"},{"1":"NA","2":"KS","3":"NA","4":"MARION","5":"NA","6":"46"},{"1":"NA","2":"KS","3":"NA","4":"MARSHALL","5":"NA","6":"233"},{"1":"NA","2":"KS","3":"NA","4":"MCPHERSON","5":"NA","6":"34"},{"1":"NA","2":"KS","3":"NA","4":"MEADE","5":"NA","6":"5"},{"1":"NA","2":"KS","3":"NA","4":"MIAMI","5":"NA","6":"113"},{"1":"NA","2":"KS","3":"NA","4":"MITCHELL","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"MONTGOMERY","5":"NA","6":"111"},{"1":"NA","2":"KS","3":"NA","4":"MORRIS","5":"NA","6":"54"},{"1":"NA","2":"KS","3":"NA","4":"NEMAHA","5":"NA","6":"22"},{"1":"NA","2":"KS","3":"NA","4":"NEOSHO","5":"NA","6":"16"},{"1":"NA","2":"KS","3":"NA","4":"NORTON","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"OSAGE","5":"NA","6":"73"},{"1":"NA","2":"KS","3":"NA","4":"OSBORNE","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"OTTAWA","5":"NA","6":"12"},{"1":"NA","2":"KS","3":"NA","4":"PAWNEE","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"PHILLIPS","5":"NA","6":"25"},{"1":"NA","2":"KS","3":"NA","4":"POTTAWATOMIE","5":"NA","6":"17"},{"1":"NA","2":"KS","3":"NA","4":"PRATT","5":"NA","6":"34"},{"1":"NA","2":"KS","3":"NA","4":"RAWLINS","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"RENO","5":"NA","6":"67"},{"1":"NA","2":"KS","3":"NA","4":"REPUBLIC","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"RICE","5":"NA","6":"7"},{"1":"NA","2":"KS","3":"NA","4":"RILEY","5":"NA","6":"30"},{"1":"NA","2":"KS","3":"NA","4":"ROOKS","5":"NA","6":"9"},{"1":"NA","2":"KS","3":"NA","4":"RUSH","5":"NA","6":"10"},{"1":"NA","2":"KS","3":"NA","4":"RUSSELL","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"SALINE","5":"NA","6":"107"},{"1":"NA","2":"KS","3":"NA","4":"SCOTT","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"SEDGWICK","5":"NA","6":"325"},{"1":"NA","2":"KS","3":"NA","4":"SEWARD","5":"NA","6":"12"},{"1":"NA","2":"KS","3":"NA","4":"SHAWNEE","5":"NA","6":"856"},{"1":"NA","2":"KS","3":"NA","4":"SHERMAN","5":"NA","6":"9"},{"1":"NA","2":"KS","3":"NA","4":"SMITH","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"STAFFORD","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"STANTON","5":"NA","6":"1"},{"1":"NA","2":"KS","3":"NA","4":"STEVENS","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"SUMNER","5":"NA","6":"168"},{"1":"NA","2":"KS","3":"NA","4":"THOMAS","5":"NA","6":"3"},{"1":"NA","2":"KS","3":"NA","4":"TREGO","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"WABAUNSEE","5":"NA","6":"21"},{"1":"NA","2":"KS","3":"NA","4":"WALLACE","5":"NA","6":"9"},{"1":"NA","2":"KS","3":"NA","4":"WASHINGTON","5":"NA","6":"22"},{"1":"NA","2":"KS","3":"NA","4":"WICHITA","5":"NA","6":"2"},{"1":"NA","2":"KS","3":"NA","4":"WILSON","5":"NA","6":"4"},{"1":"NA","2":"KS","3":"NA","4":"WOODSON","5":"NA","6":"7"},{"1":"NA","2":"KS","3":"NA","4":"WYANDOTTE","5":"NA","6":"415"},{"1":"NA","2":"KS Total","3":"NA","4":"NA","5":"NA","6":"6092"},{"1":"NA","2":"KY","3":"NA","4":"ADAIR","5":"NA","6":"1"},{"1":"NA","2":"KY","3":"NA","4":"ALLEN","5":"NA","6":"5"},{"1":"NA","2":"KY","3":"NA","4":"ANDERSON","5":"NA","6":"5"},{"1":"NA","2":"KY","3":"NA","4":"BALLARD","5":"NA","6":"7"},{"1":"NA","2":"KY","3":"NA","4":"BARREN","5":"NA","6":"5"},{"1":"NA","2":"KY","3":"NA","4":"BATH","5":"NA","6":"3"},{"1":"NA","2":"KY","3":"NA","4":"BELL","5":"NA","6":"27"},{"1":"NA","2":"KY","3":"NA","4":"BOONE","5":"NA","6":"236"},{"1":"NA","2":"KY","3":"NA","4":"BOURBON","5":"NA","6":"8"},{"1":"NA","2":"KY","3":"NA","4":"BOYD","5":"NA","6":"232"},{"1":"NA","2":"KY","3":"NA","4":"BOYLE","5":"NA","6":"62"},{"1":"NA","2":"KY","3":"NA","4":"BRACKEN","5":"NA","6":"11"},{"1":"NA","2":"KY","3":"NA","4":"BREATHITT","5":"NA","6":"36"},{"1":"NA","2":"KY","3":"NA","4":"BRECKINRIDGE","5":"NA","6":"14"},{"1":"NA","2":"KY","3":"NA","4":"BULLITT","5":"NA","6":"125"},{"1":"NA","2":"KY","3":"NA","4":"BUTLER","5":"NA","6":"1"},{"1":"NA","2":"KY","3":"NA","4":"CALDWELL","5":"NA","6":"29"},{"1":"NA","2":"KY","3":"NA","4":"CALLOWAY","5":"NA","6":"4"},{"1":"NA","2":"KY","3":"NA","4":"CAMPBELL","5":"NA","6":"79"},{"1":"NA","2":"KY","3":"NA","4":"CARLISLE","5":"NA","6":"7"},{"1":"NA","2":"KY","3":"NA","4":"CARROLL","5":"NA","6":"19"},{"1":"NA","2":"KY","3":"NA","4":"CARTER","5":"NA","6":"54"},{"1":"NA","2":"KY","3":"NA","4":"CASEY","5":"NA","6":"18"},{"1":"NA","2":"KY","3":"NA","4":"CHRISTIAN","5":"NA","6":"15"},{"1":"NA","2":"KY","3":"NA","4":"CLARK","5":"NA","6":"6"},{"1":"NA","2":"KY","3":"NA","4":"CLAY","5":"NA","6":"7"},{"1":"NA","2":"KY","3":"NA","4":"CRITTENDEN","5":"NA","6":"1"},{"1":"NA","2":"KY","3":"NA","4":"CUMBERLAND","5":"NA","6":"1"},{"1":"NA","2":"KY","3":"NA","4":"DAVIESS","5":"NA","6":"31"},{"1":"NA","2":"KY","3":"NA","4":"EDMONSON","5":"NA","6":"5"},{"1":"NA","2":"KY","3":"NA","4":"ELLIOTT","5":"NA","6":"1"},{"1":"NA","2":"KY","3":"NA","4":"ESTILL","5":"NA","6":"42"},{"1":"NA","2":"KY","3":"NA","4":"FAYETTE","5":"NA","6":"58"},{"1":"NA","2":"KY","3":"NA","4":"FLEMING","5":"NA","6":"9"},{"1":"NA","2":"KY","3":"NA","4":"FLOYD","5":"NA","6":"84"},{"1":"NA","2":"KY","3":"NA","4":"FRANKLIN","5":"NA","6":"5"},{"1":"NA","2":"KY","3":"NA","4":"FULTON","5":"NA","6":"4"},{"1":"NA","2":"KY","3":"NA","4":"GALLATIN","5":"NA","6":"8"},{"1":"NA","2":"KY","3":"NA","4":"GARRARD","5":"NA","6":"8"},{"1":"NA","2":"KY","3":"NA","4":"GRANT","5":"NA","6":"91"},{"1":"NA","2":"KY","3":"NA","4":"GRAVES","5":"NA","6":"24"},{"1":"NA","2":"KY","3":"NA","4":"GRAYSON","5":"NA","6":"11"},{"1":"NA","2":"KY","3":"NA","4":"GREEN","5":"NA","6":"4"},{"1":"NA","2":"KY","3":"NA","4":"GREENUP","5":"NA","6":"483"},{"1":"NA","2":"KY","3":"NA","4":"HANCOCK","5":"NA","6":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<h2 id="editing-a-file">Editing a file</h2>
+<p>To edit data you can install editData (install.packages(“editData”)). You can read more about it here: <a href="https://cran.r-project.org/web/packages/editData/vignettes/editData.html" class="uri">https://cran.r-project.org/web/packages/editData/vignettes/editData.html</a></p>
+<blockquote>
+<p>require(editData)<br> tibble(StateCounty2012)<br> result &lt;- editData(StateCounty2012)</p>
+</blockquote>
+<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
+<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="disqus-comments">
+      <i class="fas fa-comments"></i>
+      &nbsp;
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-09-16-homework-2-molly-hackbarth/">Comment on this article</span>
+    </span>
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=Homework%202&amp;url=https%3A%2F%2Fmrolfe.github.io%2FDACSS601Fall21%2Fposts%2F2021-09-16-homework-2-molly-hackbarth%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmrolfe.github.io%2FDACSS601Fall21%2Fposts%2F2021-09-16-homework-2-molly-hackbarth%2F&amp;title=Homework%202">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </span>
+  </p>
+  <script id="dsq-count-scr" src="https://dacss-course-github.disqus.com/count.js" async></script>
+  <div id="disqus_thread" class="hidden"></div>
+  <script type="text/javascript" cookie-consent="functionality">
+var disqus_config = function () {
+  this.page.url = 'https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/';
+  this.page.identifier = 'posts/2021-09-16-homework-2-molly-hackbarth/';
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://dacss-course-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="reuse">Reuse</h3>
+  <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Hackbarth (2021, Sept. 16). DACSS 601 Fall 2021: Homework 2. Retrieved from https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{hackbarth2021homework,
+  author = {Hackbarth, Molly},
+  title = {DACSS 601 Fall 2021: Homework 2},
+  url = {https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/},
+  year = {2021}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+  <!-- DACSS wordmark -->
+  <div class="footer-center">
+    <a href="https://www.umass.edu/sbs/dacss">
+      <img src="../../images/white-dacss-wordmark.png" alt="UMass Amherst DACSS" width="30%" id="dacss-footer"/>
+    </a>
+  </div>
+  <!-- Social media icons -->
+  <div class="container">
+    <div class="social-media-icons">
+      <a href="https://twitter.com/UMassDACSS" target="_blank" title="Twitter" class="footer fa fa-twitter"/>
+      <a href="https://bit.ly/3cMIlIK" target="_blank" title="Facebook" class="footer fa fa-facebook"/>
+      <a href="https://bit.ly/2PymwUp" target="_blank" title="LinkedIn" class="footer fa fa-linkedin"/>
+      <a href="https://www.instagram.com/umassdacss/?hl=en" target="_blank" title="Instagram" class="footer fa fa-instagram"/>
+      <a class="fa fa-placeholder"/>
+    </div>
+  </div>
+</div>
+<!--/radix_placeholder_navigation_after_body-->
+
+
+</body>
+
+</html>

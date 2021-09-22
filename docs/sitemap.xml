@@ -2,30 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/about.html</loc>
-    <lastmod>2021-09-15T19:57:24-04:00</lastmod>
+    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/</loc>
-    <lastmod>2021-09-15T19:57:25-04:00</lastmod>
+    <lastmod>2021-09-22T11:52:07-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/instructor.html</loc>
-    <lastmod>2021-09-15T19:57:27-04:00</lastmod>
+    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/students.html</loc>
-    <lastmod>2021-09-15T19:57:25-04:00</lastmod>
+    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/syllabus.html</loc>
-    <lastmod>2021-09-15T19:57:25-04:00</lastmod>
+    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-examining-characteristics-of-public-schools/</loc>
+    <lastmod>2021-09-22T12:04:24-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/</loc>
+    <lastmod>2021-09-22T12:04:34-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data/</loc>
+    <lastmod>2021-09-22T12:04:19-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-homework-1-molly-hackbarth/</loc>
+    <lastmod>2021-09-22T12:04:27-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/</loc>
-    <lastmod>2021-09-15T21:29:33-04:00</lastmod>
+    <lastmod>2021-09-22T12:04:31-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/welcome/</loc>
-    <lastmod>2021-09-15T21:29:37-04:00</lastmod>
+    <lastmod>2021-09-22T12:04:38-04:00</lastmod>
   </url>
 </urlset>

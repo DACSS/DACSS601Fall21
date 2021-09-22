@@ -1,14 +1,14 @@
 ---
-title: "Homework 1"
+title: Homework 1
 description: |
   Homework 1 - basics of R.
-author: 
+author:
 - name: Molly Hackbarth
 date: 09-15-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 
