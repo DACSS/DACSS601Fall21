@@ -42,9 +42,12 @@ The built-in datasets are great for practice. However, most data and analysis is
 ```{r read_animal}
 library(here)
 # using the absolute path to read in csv file
-animal_weights_absolute <- as_tibble(read_csv("C:/Users/ajb22/Documents/school/dacss_601/DACSS601Fall21/_data/animal_weight.csv"))
+animal_weights_absolute <- as_tibble(read_csv(
+"C:/Users/ajb22/Documents/school/dacss_601/DACSS601Fall21/_data/animal_weight.csv"))
+
 #using relative path to read in the csv file
 animal_weights_relative <- as_tibble(read_csv("../../_data/animal_weight.csv"))
+
 #using here to get relative path to read in csv file
 animal_weights_here <- as_tibble(read_csv(here("_data", "animal_weight.csv")))
 
@@ -54,8 +57,9 @@ We can also write in a data set into the tibble framework.
 
 ```{r write_tibble, results = 'asis'}
 # we created a data set with that shows a sample of all the different data types you can write into a csv file
-my_dataset <- read_csv("'fox', 3, 12.45, TRUE, 2010-01-01\n'hound', 5, 32.45, FALSE, 2010-01-01", 
-                       col_names = c("string", "integer", "decimals", "logical", "dates"))
+my_dataset <- read_csv(
+"'fox', 3, 12.45, TRUE, 2010-01-01\n'hound', 5, 32.45, FALSE, 2010-01-01", 
+col_names = c("string", "integer", "decimals", "logical", "dates"))
 
 ```
 **Data Manipulation**
@@ -114,14 +118,37 @@ gss_cat %>% count(race)
 gss_cat %>% ggplot(aes(x = rincome)) + geom_bar() + coord_flip() 
 
 # after we change factor codes 
-gss_cat %>% mutate(rincome = fct_recode(rincome, "Less than $1000" = "Lt $1000")) %>%  mutate(rincome = fct_recode(rincome, "NA" = "Not applicable", "NA" = "Don't know", "NA" = "No answer", "NA" = "gRefused")) %>% ggplot(aes(x = rincome)) + geom_bar() + coord_flip() 
+gss_cat %>% 
+mutate(rincome = fct_recode(rincome, 
+                              "Less than $1000" = "Lt $1000")) %>%
+  mutate(rincome = fct_recode(rincome, 
+                              "NA" = "Not applicable", 
+                              "NA" = "Don't know", 
+                              "NA" = "No answer", 
+                              "NA" = "gRefused")) %>% 
+ggplot(aes(x = rincome)) + geom_bar() + coord_flip() 
 
 # can lump the small factors together and remove the "Not applicable", "Don't know", "No answer", "Refused" responses
 gss_cat %>% count(rincome)
+
 # first filter out the unwanted responses 
-gss_cat %>% filter(!rincome %in% c("Not applicable", "Don't know", "No answer", "Refused")) %>% count(rincome)
- # lump groups outside the largest 8
-gss_cat %>% filter(!rincome %in% c("Not applicable", "Don't know", "No answer", "Refused")) %>% mutate(rincome = fct_lump(rincome, n=8))  %>% count(rincome) 
+gss_cat %>% 
+filter(!rincome %in% 
+           c("Not applicable", 
+             "Don't know", 
+             "No answer", 
+             "Refused")) %>% 
+count(rincome)
+
+# lump groups outside the largest 8
+gss_cat %>% 
+filter(!rincome %in% 
+         c("Not applicable", 
+           "Don't know", 
+           "No answer", 
+           "Refused")) %>% 
+mutate(rincome = fct_lump(rincome, n=8))  %>% 
+count(rincome) 
 
 ```
 
