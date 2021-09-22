@@ -1,0 +1,146 @@
+---
+title: "Bird Analysis"
+author: "John C. Manyiel"
+date: "9/22/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r setup,include=FALSE} 
+knitr::opts_chunk$set(
+    echo=TRUE,  
+    message=FALSE, 
+    error=FALSE, 
+    warning=FALSE, 
+    comment=NA,
+  
+    collapse=TRUE, 
+
+    
+    out.width = "100%"
+    )
+```
+
+
+Quick Help
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+
+
+```{r setup,include=FALSE} 
+knitr::opts_chunk$set(
+    message=FALSE, 
+    error=FALSE, 
+    warning=FALSE, 
+    comment=NA,
+    echo=TRUE,
+    collapse=TRUE, 
+    out.width = "100%"
+    )
+```
+
+
+Load packages
+
+```{r }
+library(rprojroot)
+#root<-has_file(".ROS-Examples-root")$make_fix_file()
+library(rstanarm)
+library(arm)
+library(ggplot2)
+library(bayesplot)
+library(tidyverse)
+library(stringr)
+library(pdftools)
+library(stringr)
+library(xlsx)
+theme_set(bayesplot::theme_default(base_family = "sans"))
+```
+
+
+Load Data
+
+
+```{r}
+
+
+
+df <- read.csv("Z://Development/DatumAnalyticConsulting/DACSS601Fall21/_data/birds.csv")
+
+head(df)
+
+```
+
+Learn & Explore the data set
+
+Understandin
+
+```{r}
+
+df_sum <-  summary(df)
+
+df_sum
+
+
+
+```
+```{r}
+
+dfdetails<-  str(df)
+
+dfdetails
+```
+
+Select random from Bird Data
+
+
+```{r}
+
+
+df_smaple <-  sample_frac(df, 0.1)
+view(df_smaple)
+
+
+```
+
+
+
+Data Transformation & Wrangling: discorvered that we would need to transform the data before. 
+
+```{r}
+df1 <-  as_tibble(df)  %>%   
+              group_by(Area) %>% 
+  
+                 filter( 
+                        Area =="Northern America" | 
+                        Area == "United States of America" |
+                        Area == "Canada"| Area == "Mexico"|
+                        Area == "American Samoa" |
+                        Area  == "United States Virgin Islands" ) %>% summarise(sum(Value))
+df1
+
+```
+
+
+Notice that North America value is combination of all the states. I would need to transform the data further. 
