@@ -1,6 +1,6 @@
 ---
 title: "Tyler Paske"
-image: "Tyler Paske-Copy.jpg"
+image: "images/students/Tyler_Paske.jpg"
 links:
   - label: LinkedIn
     url: "https://linkedin.com/TylerPaske"
@@ -11,7 +11,7 @@ links:
   - label: Email
     url: "tpaske@umass.edu"
 output:
-  postcards::Tyler 
+  postcards::jolla 
 ---
  
 With a background of Operations Management at a Tax Consulting Firm I'm looking to expand my knowledge and skills to a closer understanding of data manipulation
