@@ -12,7 +12,40 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>HW#2 - Getting familiar with the US public schools data set</title>
+      <dc:creator>Brittany Kenison</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-examining-characteristics-of-public-schools</link>
+      <description>Using the public school characteristic dataset collected in the 2017-2018 school year</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-examining-characteristics-of-public-schools</guid>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Homework 2</title>
+      <dc:creator>Molly Hackbarth</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth</link>
+      <description>Homework 2 - Reading and pulling data.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth</guid>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>blog post 1: reading in data</title>
+      <dc:creator>Claire Battaglia</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data</link>
+      <description>practicing the unsexy first step of data analysis</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data</guid>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Homework 1</title>
+      <dc:creator>Molly Hackbarth</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-homework-1-molly-hackbarth</link>
+      <description>Homework 1 - basics of R.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-homework-1-molly-hackbarth</guid>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-homework-1-molly-hackbarth/homework-1_files/figure-html5/readr-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Let's try a blog, shall we?</title>
       <dc:creator>Joe Davis</dc:creator>

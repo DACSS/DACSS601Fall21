@@ -1,0 +1,17 @@
+---
+title: "Megan Georges"
+image: "/users/Megan_G.jpg"
+links:
+  - label: LinkedIn
+    url: "https://linkedin.com/"
+  - label: Twitter
+    url: "https://twitter.com/"
+  - label: GitHub
+    url: "https://github.com/mrgeorges21/"
+  - label: Email
+    url: "mailto:mrgeorges@umass.edu"
+output:
+  postcards::jolla_blue
+---
+ 
+Born and raised in Massachusetts. I studied Criminal Justice at the University of New Haven and played soccer there too! I'm interested in research that influences policy and advances social justice. My dog is my best friend. 
