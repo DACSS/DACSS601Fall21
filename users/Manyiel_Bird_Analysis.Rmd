@@ -1,5 +1,5 @@
 ---
-title: "Birds Analysis"
+title: "HW2 - Birds Analysis"
 author: "John C. Manyiel"
 date: "9/15/2021"
 output:
@@ -49,7 +49,7 @@ Load Data
 
 
 
-df <- read.csv("Z://Development/DatumAnalyticConsulting/DACSS601Fall21/_data/birds.csv")
+df <- read.csv("Z:/Development/DatumAnalyticConsulting/DACSS601Fall21/_data/birds.csv")
 
 head(df)
 
