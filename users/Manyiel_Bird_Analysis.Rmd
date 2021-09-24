@@ -38,6 +38,7 @@ library(stringr)
 library(pdftools)
 library(stringr)
 library(xlsx)
+library(dbplyr)
 theme_set(bayesplot::theme_default(base_family = "sans"))
 ```
 
@@ -88,7 +89,8 @@ head(df_smaple[1:5])
 
 
 
-Data Transformation & Wrangling: discorvered that we would need to transform the data before. 
+Data Transformation & Wrangling: discorvered that we would need to 
+transform the data before. 
 
 ```{r}
 df1 <-  as_tibble(df)  %>%   
@@ -102,12 +104,13 @@ df1 <-  as_tibble(df)  %>%
                         Area == "American Samoa" |
                         Area  == "United States Virgin Islands" 
                         ) %>% summarise(sum(Value))
-df1
+arrange(df1,desc(`sum(Value)`))
 
 ```
 
 
-Notice that North America value is combination of all the states. I would need to transform the data further. 
+Notice that North America value is combination of all the states. 
+I would need to transform the data further. 
 
 
 

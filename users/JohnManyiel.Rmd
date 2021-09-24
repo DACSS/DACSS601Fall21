@@ -1,0 +1,43 @@
+---
+title: "John CM Manyiel"
+image: "..//images/students/manyiel.jpeg"
+#image: "../images/students/manyiel.jpg"
+
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/john-m-03177914/"
+  - label: GitHub
+    url: "https://github.com/manyiel"
+  - label: Email
+    url: "mailto:jmanyiel@umass.edu"
+output:
+  postcards::trestles
+draft: true
+---
+
+## Bio 
+
+John Manyiel is artistic in the heart. To give credit to that, John tried many sorts of things, and sometimes, he gets it or moves on until the interest switches back again and tries one more and again-persistent.
+John has a noticeable and extreme social with open arms.
+
+Professional, John is an engaged Business Consulting at Anthem/Beacon who loves to make things easier for colleagues and others across departments. Recently, John completed five market analyses to help his colleagues resolve some of the team's issues.
+
+John is not afraid to take a challenge even if it cost failure. He is always looking for that grain of courage and faith to make things moving for everyone, such as automating some of the complex analysis from the ground up using R to SQL and then Power BI.  
+
+Years before discovering the power of Object-Oriented programming such as Python and R, John was a super excel user but would like to leave it behind cordially.
+We had that love affair with Excel hanging out with brother VBA  and sister formula till midnight. Things changed when John met the power of Python & R, which transformed him to the world beyond the wall and learned more about the Wilders package of R. 
+
+John is open to learning, criticism, and, above all, garner a new set of skills that can uniquely identify him in the next undertaking.
+
+## Education
+
+**University of Massachusetts**  |  Amherst, MA
+
+Master's in Data Analytics and Computational Social Science  |  *Spring of 2023*
+
+**University of Massachusetts**  |  Boston, MA
+
+B.A in Economics & Minor in Political Science.
+
+## Research Interests
+John would love to understand the relation between political conflict and economic growth in Sub-Sahara Africa and beyond with focus on human development. That would need more grips on GIS and Satellite technology. Help ravaging countries and developed world finding better future for the younger generation and encourage them to invest locally. 
