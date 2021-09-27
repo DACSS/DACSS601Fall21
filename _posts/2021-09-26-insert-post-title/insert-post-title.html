@@ -86,31 +86,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Tyler Paske HW#2</title>
+  <title>[HW3 Data Wrangling]</title>
 
-  <meta property="description" itemprop="description" content="My attempt to post reading in eggs data"/>
+  <meta property="description" itemprop="description" content="In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions."/>
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-09-18"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-09-18"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-09-26"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-26"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Tyler Paske HW#2"/>
+  <meta property="og:title" content="[HW3 Data Wrangling]"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="My attempt to post reading in eggs data"/>
+  <meta property="og:description" content="In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Tyler Paske HW#2"/>
-  <meta property="twitter:description" content="My attempt to post reading in eggs data"/>
+  <meta property="twitter:title" content="[HW3 Data Wrangling]"/>
+  <meta property="twitter:description" content="In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","Your Name","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["Tyler Paske HW#2"]},{"type":"character","attributes":{},"value":["My attempt to post reading in eggs data\n"]},{"type":"character","attributes":{},"value":["Tyler Paske"]},{"type":"character","attributes":{},"value":["09-18-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","Your Name","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["[HW3 Data Wrangling]"]},{"type":"character","attributes":{},"value":["In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions.\n"]},{"type":"character","attributes":{},"value":["Tyler Paske"]},{"type":"character","attributes":{},"value":["09-26-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1454,7 +1454,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tyler Paske HW#2","description":"My attempt to post reading in eggs data","authors":[],"publishedDate":"2021-09-18T00:00:00.000-05:00"}
+{"title":"[HW3 Data Wrangling]","description":"In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions.","authors":[],"publishedDate":"2021-09-26T00:00:00.000-05:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1464,16 +1464,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Tyler Paske HW#2</h1>
+<h1>[HW3 Data Wrangling]</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>My attempt to post reading in eggs data</p></p>
+<p><p>In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions.</p></p>
 </div>
 
 
 <div class="d-article">
-<h2 id="attached-is-the-eggs-data">Attached is the eggs data</h2>
-<p>A tibble: 120 x 6 month year large_half_dozen large_dozen extra_large_half_dozen extra_large_dozen <chr> <dbl> <dbl> <dbl> <dbl> <dbl> 1 January 2004 126 230 132 230 2 February 2004 128. 226. 134. 230 3 March 2004 131 225 137 230 4 April 2004 131 225 137 234. 5 May 2004 131 225 137 236 6 June 2004 134. 231. 137 241 7 July 2004 134. 234. 137 241 8 August 2004 134. 234. 137 241 9 September 2004 130. 234. 136. 241 10 October 2004 128. 234. 136. 241 # … with 110 more rows</p>
+<p>[Eggs Data]</p>
+<p>A tibble: 120 x 6 month year large_half_dozen large_dozen extra_large_half_dozen extra_large_dozen <chr> <dbl> <dbl> <dbl> <dbl> <dbl> 1 January 2004 126 230 132 230 2 February 2004 128. 226. 134. 230 3 March 2004 131 225 137 230 4 April 2004 131 225 137 234. 5 May 2004 131 225 137 236 6 June 2004 134. 231. 137 241 7 July 2004 134. 234. 137 241 8 August 2004 134. 234. 137 241 9 September 2004 130. 234. 136. 241 10 October 2004 128. 234. 136. 241 #… with 110 more rows</p>
+<p>[Rows: 120 Columns: 6]</p>
+<p>******************************Manipulating the Data with dplyr**************************</p>
+<p>SELECT “Retrieving the data we want to use”</p>
+<p>A tibble: 120 x 2 year extra_large_dozen <dbl> <dbl> 1 2004 230 2 2004 230 3 2004 230 4 2004 234. 5 2004 236 6 2004 241 7 2004 241 8 2004 241 9 2004 241 10 2004 241 # … with 110 more rows</p>
+<p>FILTER</p>
+<p>ARRANGE</p>
+<p>SUMMARISE</p>
 <p>Distill is a publication format for scientific and technical writing, native to the web.</p>
 <p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
