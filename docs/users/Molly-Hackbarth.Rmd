@@ -1,0 +1,18 @@
+---
+title: "Molly Hackbarth"
+image: "IMG_0994.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/mollyhackbarth/"
+  - label: GitHub
+    url: "https://github.com/mollyhackbarth/"
+  - label: Email
+    url: "mailto:mhackbarth@umass.edu"
+output:
+  postcards::jolla
+---
+I am a researcher with a BA in Sociology/Anthropology. I am currently working towards a masters in Data Analytics and Computational Social Science. <br>
+
+I have strong research interests in people analytics, sociology, and social media. <br>
+
+My hobbies include cooking, baking, and watching sports! 

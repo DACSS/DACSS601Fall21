@@ -1,0 +1,21 @@
+---
+title: "**Claire Battaglia**"
+image: "Claire.jpeg"
+color1: "#5A59A3"
+color2: "#C66060"
+angle: 130
+links:
+  - label: Email
+    url: "mailto:cbattaglia@umass.edu"
+  - label: Github
+    url: "https://github.com/clairebattaglia"
+output:
+  postcards::onofre
+---
+Everything begins with food—from our individual health to the health of our communities and of the land that feeds us. **I craft data-driven policy to effect change within our food system.**
+
+Based in Missoula, Montana, I spend my free time trail running with my German Wirehaired Pointer, climbing peaks, and just generally playing outside.
+
+*“Put more simply, to do better, we must have a way of distinguishing better from worse.”*
+
+Alice Rivlin, *Systematic Thinking for Social Action*
