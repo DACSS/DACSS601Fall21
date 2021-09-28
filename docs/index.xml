@@ -14,6 +14,14 @@
     <generator>Distill</generator>
     <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>HW1</title>
+      <dc:creator>Justin Flattery</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw2-justin</link>
+      <description>Reading in blogpost data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw2-justin</guid>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>[HW3 Data Wrangling]</title>
       <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-insert-post-title</link>
       <description>In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions.</description>
