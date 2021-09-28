@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #20794d; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,14 +77,13 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.sc { color: #20794d; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
-
 
   <!--radix_placeholder_meta_tags-->
 <title>DACSS 601 Fall 2021: Let's try a blog, shall we?</title>
@@ -105,14 +104,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Homework 1, trying to get a blog up without breaking the whole class website."/>
 <meta property="og:url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/"/>
+<meta property="og:image" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/lets-try-a-blog-shall-we_files/figure-html5/some basic graphs of that data-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="DACSS 601 Fall 2021"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="DACSS 601 Fall 2021: Let&#39;s try a blog, shall we?"/>
 <meta property="twitter:description" content="Homework 1, trying to get a blog up without breaking the whole class website."/>
 <meta property="twitter:url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/"/>
+<meta property="twitter:image" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/lets-try-a-blog-shall-we_files/figure-html5/some basic graphs of that data-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
 <meta property="twitter:site" content="@UMassDACSS"/>
 <meta property="twitter:creator" content="@UMassDACSS"/>
 
@@ -1626,10 +1631,7 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refs = $(this).attr('data-cites').split(" ");
-      var refHtml = refs.map(function(ref) {
-        return "<p>" + $('#ref-' + ref).html() + "</p>";
-      }).join("\n");
+      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -2328,7 +2330,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.9.4/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.10/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2515,27 +2517,26 @@ var disqus_config = function () {
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<!--radix_placeholder_navigation_after_body--><html><body>
+<!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<!-- DACSS wordmark -->
-<div class="footer-center">
-<a href="https://www.umass.edu/sbs/dacss">
-  <img src="../../images/white-dacss-wordmark.png" alt="UMass Amherst DACSS" width="30%" id="dacss-footer"></a>
-</div>
-<!-- Social media icons -->
-<div class="container">
-  <div class="social-media-icons">
-    <a href="https://twitter.com/UMassDACSS" target="_blank" title="Twitter" class="footer fa fa-twitter"></a>
-    <a href="https://bit.ly/3cMIlIK" target="_blank" title="Facebook" class="footer fa fa-facebook"></a>
-    <a href="https://bit.ly/2PymwUp" target="_blank" title="LinkedIn" class="footer fa fa-linkedin"></a>
-    <a href="https://www.instagram.com/umassdacss/?hl=en" target="_blank" title="Instagram" class="footer fa fa-instagram"></a>
-    <a class="fa fa-placeholder"></a>
+  <!-- DACSS wordmark -->
+  <div class="footer-center">
+    <a href="https://www.umass.edu/sbs/dacss">
+      <img src="../../images/white-dacss-wordmark.png" alt="UMass Amherst DACSS" width="30%" id="dacss-footer"/>
+    </a>
+  </div>
+  <!-- Social media icons -->
+  <div class="container">
+    <div class="social-media-icons">
+      <a href="https://twitter.com/UMassDACSS" target="_blank" title="Twitter" class="footer fa fa-twitter"/>
+      <a href="https://bit.ly/3cMIlIK" target="_blank" title="Facebook" class="footer fa fa-facebook"/>
+      <a href="https://bit.ly/2PymwUp" target="_blank" title="LinkedIn" class="footer fa fa-linkedin"/>
+      <a href="https://www.instagram.com/umassdacss/?hl=en" target="_blank" title="Instagram" class="footer fa fa-instagram"/>
+      <a class="fa fa-placeholder"/>
+    </div>
   </div>
 </div>
-</div>
 <!--/radix_placeholder_navigation_after_body-->
-</body></html>
 
 
 </body>

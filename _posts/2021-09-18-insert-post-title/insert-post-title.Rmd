@@ -1,13 +1,13 @@
 ---
-title: "Tyler Paske HW#2"
+title: Tyler Paske HW#2
 description: |
   My attempt to post reading in eggs data
 Your Name: Tyler Paske
 date: 09-18-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 ## Attached is the eggs data
 
