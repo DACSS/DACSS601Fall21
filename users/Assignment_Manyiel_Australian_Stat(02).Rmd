@@ -1,0 +1,263 @@
+---
+title: "HW2 - Australia Stats Data"
+author: "John C. Manyiel"
+date: "9/25/2021"
+output:
+  distill::distill_article:
+    self_contained: no
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+  draft: yes
+---
+
+
+
+```{r setup,include=FALSE} 
+knitr::opts_chunk$set(
+    message=FALSE, 
+    error=FALSE, 
+    warning=FALSE, 
+    comment=NA,
+    echo=TRUE,
+    collapse=TRUE, 
+    out.width = "100%"
+    )
+```
+
+
+Load packages
+
+```{r}
+#library(rprojroot)
+library(readxl)
+library(rmarkdown)
+library(ggplot2)
+library(rvest)
+library(tibble)
+library(lubridate)
+library(tidyverse)
+library(stringr)
+library(pdftools)
+library(xlsx)
+library(dbplyr)
+library(knitr)
+theme_set(bayesplot::theme_default(base_family = "sans"))
+```
+
+
+## Read in the data set
+
+
+```{r}
+
+file_location <- file.path("/../Development",
+                           "DatumAnalyticConsulting",
+                           "DACSS601Fall21",
+                           "_data",
+                           "australian_marriage_law_postal_survey_2017_-_response_final.xls")
+obs_count <-read_excel(
+                path = file_location, 
+                range = "Table 2!A8:P183", 
+                col_names = c("area",
+                              "Yes",
+                              "Yes pct",
+                              "No",
+                                     "No pct",
+                                     "Response Total",
+                                     "Response Total pct",
+                                     "blank",
+                                     "Response clear",
+                                     "Response clear pst",
+                                     "Response not clear(b)",
+                                     "Response not clear(b) pct",
+                                     "Non-responding",
+                                     "Non-responding pct",
+                                     "Eligible Total",
+                                     "Eligible Total pct"))
+
+
+head(obs_count)
+
+```
+## Transfor Data Set
+
+Subset by Division and add Division column with row value "New South Wales"
+
+
+```{r}
+
+
+NewSouthWales<-  obs_count[2:48,] %>% as_tibble() %>% 
+                                         mutate(Division = "New South Wales")
+
+head(NewSouthWales[,17])
+
+
+```
+
+Subset by Division and add Division column with row value "Victoria"
+
+
+
+```{r}
+
+
+
+
+Victoria <-  obs_count[52:88,] %>% as_tibble() %>% 
+                                         mutate(Division = "Victoria")
+
+head(Victoria[,17])
+
+
+```
+
+Subset by Division and add Division column with row value "Queensland"
+
+
+```{r}
+
+
+
+Queensland <-  obs_count[92:121,] %>% as_tibble() %>% 
+                                         mutate(Division = "Queensland")
+
+head(Queensland[,17])
+
+
+```
+
+Subset by Division and add Division column with row value "South Australia"
+
+
+```{r}
+
+
+
+SouthAustralia <-  obs_count[125:135,] %>% as_tibble() %>% 
+                                         mutate(Division = "South Australia")
+
+head(SouthAustralia[,17])
+
+
+
+```
+
+Subset by Division and add Division column with row value "Western Australia"
+
+```{r}
+
+
+
+WesternAustralia <-  obs_count[139:154,] %>% as_tibble() %>% 
+                                         mutate(Division = "Western Australia")
+
+head(WesternAustralia[,17])
+
+```
+
+Subset by Division and add Division column with row value "Tasmania"
+
+
+```{r}
+
+
+
+Tasmania <-  obs_count[158:162,] %>% as_tibble() %>% 
+                                         mutate(Division = "Tasmania")
+
+head(Tasmania[,17])
+
+
+
+```
+
+Subset by Division and add Division column with row value "Northern Territory"
+
+```{r}
+
+NorthernTerritory <-  obs_count[166:167,] %>% as_tibble() %>% 
+                                         mutate(Division = "Northern Territory")
+
+head(NorthernTerritory[,17])
+
+```
+
+
+Subset by Division and add Division column with row value "Australian Capital Territory"
+
+
+```{r}
+
+CapitalTerritory <-  obs_count[171:172,] %>% as_tibble() %>% 
+                                         mutate(Division = "Australian Capital Territory")
+
+
+head(CapitalTerritory[,17])
+
+```
+
+## Recombine Data Set
+
+Combine all Division variables
+
+
+```{r}
+
+
+obs_count01 <-  rbind( NewSouthWales, Victoria, Queensland, 
+                       SouthAustralia, WesternAustralia, 
+                       Tasmania, NorthernTerritory, 
+                       CapitalTerritory) %>%  as_tibble()
+
+
+dim(obs_count01)
+
+
+```
+
+
+
+
+
+Continue to transform the data set and remove blank field such as total and the blank value 
+
+
+```{r}
+obs_count02 <-  obs_count01 %>%
+                    select(-blank)%>%
+                          filter(!grepl("Total", area))%>%
+                                  filter(!grepl("Total", area)) %>%drop_na()
+
+head(obs_count02)
+
+
+```
+## Visualizing Data Set
+
+Begin  summarizing & visualizing your data
+
+
+```{r}
+
+
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+
+```
+
+
+
+
+

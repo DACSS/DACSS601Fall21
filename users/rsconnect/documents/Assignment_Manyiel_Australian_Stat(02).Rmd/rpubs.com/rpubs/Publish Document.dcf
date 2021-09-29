@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/815921/3eb8456d25b74449b34e106f71fc783e
+bundleId: https://api.rpubs.com/api/v1/document/815921/3eb8456d25b74449b34e106f71fc783e
+url: http://rpubs.com/manyiel/815921/edit
+when: 1632961590.00082
+lastSyncTime: 1632961590.00082
