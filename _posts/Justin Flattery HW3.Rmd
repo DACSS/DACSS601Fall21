@@ -15,7 +15,7 @@ library(tidyverse)
 ```
 ## Read in data
 
-I am going to first read in the cereal data set. This shows a breakdown of cereal by sodium, sugar and type.
+I am going to first read in the State County data set. This shows a breakdown of State and County Railroad Employment
 
 ```{r , message=FALSE}
 StateCounty<-readxl::read_excel("_data/StateCounty2012.xls", skip=3) %>%
