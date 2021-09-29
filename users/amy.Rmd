@@ -1,0 +1,14 @@
+---
+title: "Amy Franks"
+image: "amy.jpg"
+links:
+  - label: GitHub
+    url: "https://github.com/kanimoji/"
+  - label: Email
+    url: "mailto:amycfranks@gmail.com"
+output:
+  postcards::jolla_blue
+---
+ 
+Hi, I'm Amy. I think this is about the tenth time I've attempted to complete Homework #1. But I love a challenge, and R certainly provides that: Four windows in one program! Loading packages all the time! False, true, commit, push, pull, publish! Don't leave out the quotation marks! I'm forking confused! It is good for learning the commands and options of the software, though. I'm dying to know what "blaming" someone/thing on Github is. Who can I blame? Lol.
+
