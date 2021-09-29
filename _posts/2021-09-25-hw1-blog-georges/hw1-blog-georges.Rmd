@@ -1,13 +1,13 @@
 ---
-title: "Homework 1: Blog Post"
+title: 'Homework 1: Blog Post'
 description: |
   My 1st attempt at a blog post.
 author: Megan Georges
 date: 09-25-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 ```{r setup, include=FALSE}
