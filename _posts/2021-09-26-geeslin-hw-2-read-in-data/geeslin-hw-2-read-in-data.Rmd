@@ -1,13 +1,13 @@
 ---
-title: "Reading in the Data (Homework 2): Birds"
+title: 'Reading in the Data (Homework 2): Birds'
 description: |
-   Practice getting the dataset into RStudio and beginning to understand it.
-author: "Eliza Geeslin"
+  Practice getting the dataset into RStudio and beginning to understand it.
+author: Eliza Geeslin
 date: 09-26-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 ## Before we begin...
