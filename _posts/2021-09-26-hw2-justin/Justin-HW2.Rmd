@@ -1,0 +1,25 @@
+---
+title: HW1
+description: Reading in blogpost data
+author: Justin Flattery
+date: 9/26/2021
+output:
+  distill::distill_article: ~
+  self_contained: no
+draft: yes
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Read in data
+
+I am going to use the cereal data set. This shows a breakdown of cereal by sodium, sugar and type.
+
+
+
+```{r }
+cereal <-read.csv("../../_data/cereal.csv")
+```
+
