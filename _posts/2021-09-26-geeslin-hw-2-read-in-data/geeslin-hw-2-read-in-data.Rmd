@@ -1,0 +1,61 @@
+---
+title: 'Reading in the Data (Homework 2): Birds'
+description: |
+  Practice getting the dataset into RStudio and beginning to understand it.
+author: Eliza Geeslin
+date: 09-26-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+## Before we begin...
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Read in the Data
+
+The first step is getting everything up and running.
+
+
+```{r}
+setwd("../../_data") # set working directory
+birds <- read_csv("birds.csv") # assign dataset to variable
+```
+
+
+First, what are the dimensions and column names?
+
+
+```{r}
+dim(birds) # dim() returns dimensions of dataset
+
+colnames(birds) # colnames() returns column names
+```
+
+
+Okay, and what does this data look like?
+
+
+```{r}
+head(birds) #head() shows the first few columns of data
+```
+
+So, overall it doesn't seem incredibly messy, just very big! 
+
+
+## Conclusion
+
+
+The next step here is to wrangle the data. Since this set is very big, it will be key to understand what we actually need (what columns etc.) to do the analysis we want to do!
+
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
