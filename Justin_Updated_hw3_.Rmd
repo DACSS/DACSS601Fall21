@@ -1,0 +1,44 @@
+---
+title: "HW3_Updated_Justin Flattery"
+author: "Justin"
+date: "10/5/2021"
+output: 
+  distill::distill_article:
+    self_contained: false
+draft: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(blogbuilder)
+library(distill)
+library(tidyverse)
+```
+
+### I am looking to first read in a dataset. Specifically the dataset for debt_in_trillions. 
+
+```{r , message=FALSE}
+debt<- readxl::read_excel("_data/debt_in_trillions.xlsx")
+```
+
+### I will now use the select function to only view Mortgage, HE Revolving, Student Loan, Credit Card, Total
+
+```{r, message = false}
+select(debt, "Mortgage", "HE Revolving", "Auto Loan", "Credit Card", "Student Loan", "Total")
+```
+
+#### Now that I have the columns I want, I will now narrow down the rows of interest, specifically I want to look at when Mortgage's are greater then 8. To do this I will use the filter function
+
+```{r, message=false}
+filter(debt,Mortgage > 8)
+```
+### Next I will use the arrange to sort the columns by lowest to highest Student Loan %
+
+```{r, message = false}
+arrange(debt, desc('Student Loan'))
+```
+### Finally, I will use the summarize function
+```{r, message = false}
+summarise(debt)
+```
+### It seems the summarize function does not produce any compelling results because there is no function grouping these together
