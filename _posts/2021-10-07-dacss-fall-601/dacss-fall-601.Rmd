@@ -1,22 +1,19 @@
 ---
-title: "John CM Manyiel"
-image: "../images/students/manyiel.jpeg"
-#image: "../images/students/manyiel.jpg"
-
-links:
-  - label: LinkedIn
-    url: "https://www.linkedin.com/in/john-m-03177914/"
-  - label: GitHub
-    url: "https://github.com/manyiel"
-  - label: Email
-    url: "mailto:jmanyiel@umass.edu"
+title: "John C.M. Manyiel"
+image: "/../../images/students/manyiel.jpeg"
+#description: |
+#  A short description of the post.
+#John C.M. Manyiel
+date: 10-07-2021
 output:
-  postcards::trestles
+  distill::distill_article:
+    self_contained: false
 draft: true
 ---
 
-## Bio 
-John C. Manyiel
+
+
+## Biography 
 
 John Manyiel is artistic in the heart. To give credit to that, John tried many sorts of things, and sometimes, he gets it or moves on until the interest switches back again and tries once more and again- he is persistent.
 John has noticeable and welcoming open arms.
@@ -42,3 +39,5 @@ B.A in Economics & Minor in Political Science.
 
 ## Research Interests
 John would love to understand the relation between political conflict and economic growth in Sub-Sahara Africa and beyond with focus on human development. That would need more grips on GIS and Satellite technology. He will accept an opportunity to help ravaging countries in the developing world and find better future path for the younger generation. John would like would encourage them to invest locally and grow their country. 
+
+
