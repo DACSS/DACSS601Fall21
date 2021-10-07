@@ -48,7 +48,7 @@ getwd()
 ### I'm going to set the directory just to be sure I'm working with the right folders and files.
 
 ```{r set working directory}
-setwd("~/R/DACSS601Fall21/_posts/2021-09-29-first-blog-post-using-distill")
+#setwd("~/R/DACSS601Fall21/_posts/2021-09-29-first-blog-post-using-distill")
 ```
 
 ### Now I'm going to *read in a csv data set about cereal*. This following chunk creates a new tab that contains a table with the cereal data
