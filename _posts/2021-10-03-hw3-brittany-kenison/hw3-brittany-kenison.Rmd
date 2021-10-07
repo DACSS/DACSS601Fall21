@@ -30,7 +30,7 @@ Here is a recap of all fields:
 
 ```{r recap}
 #read data from public school characteristics file
-psc <- read_csv("../_data/Public_School_Characteristics_2017-18.csv")
+psc <- read_csv("../../_data/Public_School_Characteristics_2017-18.csv")
 
 #display all column names
 colnames(psc)
