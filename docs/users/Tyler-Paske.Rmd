@@ -1,0 +1,17 @@
+---
+title: "Tyler Paske"
+image: "images/students/Tyler_Paske.jpg"
+links:
+  - label: LinkedIn
+    url: "https://linkedin.com/TylerPaske"
+  - label: Twitter
+    url: "https://twitter.com/TylerPaske"
+  - label: GitHub
+    url: "https://github.com/TylerPaske"
+  - label: Email
+    url: "tpaske@umass.edu"
+output:
+  postcards::jolla 
+---
+ 
+With a background of Operations Management at a Tax Consulting Firm I'm looking to expand my knowledge and skills to a closer understanding of data manipulation

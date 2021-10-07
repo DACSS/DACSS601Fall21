@@ -1,0 +1,13 @@
+---
+title: "Justin"
+image: "images/students/Justin.jpeg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/justin-flattery-7a4a24172/"
+  - label: Email
+    url: "mailto:jflattery@umass.edu"
+output:
+  postcards::jolla
+---
+ 
+Justin Flattery is a first year student in the UMass Amherst DACSS program. He is currently working as an Innovation Strategist at nonprofit Commonwealth, where he concentrates on building emergency savings solutions for financially vulnerable people. Prior to joining Commonwealth, Justin worked as a coordinator at a public health research organization where he focused on developing engaging educational content for both public audiences and professional development. He has experience in economic consulting and at the Boston Mayor’s Office of New Urban Mechanics. Justin graduated from Boston University with a Bachelor of Arts in Economics and International Relations.
