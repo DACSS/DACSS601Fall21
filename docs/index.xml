@@ -12,7 +12,15 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>HW#3 - Transforming the US public schools data set</title>
+      <dc:creator>Brittany Kenison</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-03-hw3-brittany-kenison</link>
+      <description>Using the public school characteristic data set collected in the 2017-2018 school year</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-03-hw3-brittany-kenison</guid>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Homework Two: Reading in Data</title>
       <dc:creator>Megan Georges</dc:creator>
@@ -147,6 +155,7 @@
       <category>-homework 1 -Joe Davis</category>
       <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we</guid>
       <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/lets-try-a-blog-shall-we_files/figure-html5/some basic graphs of that data-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Welcome to DACSS 601</title>

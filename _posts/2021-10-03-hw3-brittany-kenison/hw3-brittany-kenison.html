@@ -111,12 +111,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["HW#3 - Transforming the US public schools data set"]},{"type":"character","attributes":{},"value":["Using the public school characteristic data set collected in the 2017-2018 school year\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Brittany Kenison"]}]}]},{"type":"character","attributes":{},"value":["10-03-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["HW#3 - Transforming the US public schools data set"]},{"type":"character","attributes":{},"value":["Using the public school characteristic data set collected in the 2017-2018 school year\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Brittany Kenison"]}]}]},{"type":"character","attributes":{},"value":["10-03-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["hw3-brittany-kenison_files/anchor-4.2.2/anchor.min.js","hw3-brittany-kenison_files/bowser-1.9.3/bowser.min.js","hw3-brittany-kenison_files/distill-2.2.21/template.v2.js","hw3-brittany-kenison_files/header-attrs-2.10/header-attrs.js","hw3-brittany-kenison_files/jquery-1.11.3/jquery.min.js","hw3-brittany-kenison_files/pagedtable-1.1/css/pagedtable.css","hw3-brittany-kenison_files/pagedtable-1.1/js/pagedtable.js","hw3-brittany-kenison_files/popper-2.6.0/popper.min.js","hw3-brittany-kenison_files/tippy-6.2.7/tippy-bundle.umd.min.js","hw3-brittany-kenison_files/tippy-6.2.7/tippy-light-border.css","hw3-brittany-kenison_files/tippy-6.2.7/tippy.css","hw3-brittany-kenison_files/tippy-6.2.7/tippy.umd.min.js","hw3-brittany-kenison_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1491,7 +1491,7 @@ Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#read data from public school characteristics file</span>
-<span class='va'>psc</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"../../_data/Public_School_Characteristics_2017-18.csv"</span><span class='op'>)</span>
+<span class='va'>psc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"../../_data/Public_School_Characteristics_2017-18.csv"</span><span class='op'>)</span>
 
 <span class='co'>#display all column names</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>psc</span><span class='op'>)</span>

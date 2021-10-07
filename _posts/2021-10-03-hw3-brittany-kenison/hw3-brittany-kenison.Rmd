@@ -1,14 +1,14 @@
 ---
-title: "HW#3 - Transforming the US public schools data set"
+title: HW#3 - Transforming the US public schools data set
 description: |
   Using the public school characteristic data set collected in the 2017-2018 school year
 author: Brittany Kenison
 date: 10-03-2021
 output:
   distill::distill_article:
-    self_contained: false
-    code_folding: true
-draft: true
+    self_contained: no
+    code_folding: yes
+draft: yes
 ---
 
 
