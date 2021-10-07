@@ -12,7 +12,15 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 30 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Homework Two: Reading in Data</title>
+      <dc:creator>Megan Georges</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-hw2-post-georges</link>
+      <description>HW2 practice reading in data with the railroad_2012_clean_county.csv dataset</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-hw2-post-georges</guid>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>hw1allysonbeach</title>
       <dc:creator>Allyson Beach</dc:creator>

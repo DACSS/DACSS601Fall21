@@ -1,13 +1,13 @@
 ---
-title: "Homework Two: Reading in Data"
+title: 'Homework Two: Reading in Data'
 description: |
   HW2 practice reading in data with the railroad_2012_clean_county.csv dataset
 author: Megan Georges
 date: 10-01-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 
