@@ -1,11 +1,12 @@
 ---
-title: "hw1_allyson_beach"
+title: hw1allysonbeach
+description: HW1
 author: Allyson Beach
 date: 09-30-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 ```{r setup, include=FALSE}

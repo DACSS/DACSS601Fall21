@@ -4,8 +4,8 @@ author: Allyson Beach
 date: 09-30-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 
@@ -31,7 +31,6 @@ print(nycflights13::flights)
 
 # allow 5 rows and all columns to print 
 print(nycflights13::flights, n=5, width=Inf)
-
 ```
 
 
@@ -50,7 +49,6 @@ animal_weights_relative <- as_tibble(read_csv("../../_data/animal_weight.csv"))
 
 #using here to get relative path to read in csv file
 animal_weights_here <- as_tibble(read_csv(here("_data", "animal_weight.csv")))
-
 ```
 **Inline CSV File:**
 We can also write in a data set into the tibble framework. 

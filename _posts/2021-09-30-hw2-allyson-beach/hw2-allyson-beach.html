@@ -98,6 +98,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="HW 2"/>
   <meta property="og:type" content="article"/>
+
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
@@ -109,6 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <script type="text/json" id="radix-rmarkdown-metadata">
   {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["HW 2"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Allyson Beach"]}]}]},{"type":"character","attributes":{},"value":["09-30-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1456,6 +1458,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <script id="distill-front-matter" type="text/json">
 {"title":"HW 2","authors":[{"author":"Allyson Beach","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-30T00:00:00.000-04:00","citationText":"Beach, 2021"}
+
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1574,6 +1577,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <span class='co'>#using here to get relative path to read in csv file</span>
 <span class='va'>animal_weights_here</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='fu'>read_csv</span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"_data"</span>, <span class='st'>"animal_weight.csv"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 </div>
@@ -1582,6 +1586,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># we created a data set with that shows a sample of all the different data types you can write into a csv file</span>
 <span class='va'>my_dataset</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span>
+
 <span class='st'>"'fox', 3, 12.45, TRUE, 2010-01-01\n'hound', 5, 32.45, FALSE, 2010-01-01"</span>, 
 col_names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"string"</span>, <span class='st'>"integer"</span>, <span class='st'>"decimals"</span>, <span class='st'>"logical"</span>, <span class='st'>"dates"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
@@ -1609,12 +1614,14 @@ tile</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># can find the length of strings with str_length</span>
 <span class='fu'>str_length</span><span class='op'>(</span><span class='va'>my_strings</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 <pre><code>[1] 3 4 6 4</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># we can concatenate strings as well with *str_c*</span>
 <span class='fu'>str_c</span><span class='op'>(</span><span class='st'>"This is a string called "</span>, <span class='va'>my_strings</span>, <span class='st'>"!"</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 <pre><code>[1] &quot;This is a string called dog!&quot;   
@@ -1623,17 +1630,20 @@ tile</code></pre>
 [4] &quot;This is a string called tile!&quot;  </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>str_c</span><span class='op'>(</span><span class='st'>"Hi"</span>, <span class='va'>my_strings</span>, <span class='st'>"!"</span>, sep<span class='op'>=</span><span class='st'>", "</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 <pre><code>[1] &quot;Hi, dog, !&quot;    &quot;Hi, mark, !&quot;   &quot;Hi, London, !&quot; &quot;Hi, tile, !&quot;  </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>str_c</span><span class='op'>(</span><span class='va'>my_strings</span>, collapse<span class='op'>=</span><span class='st'>", "</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 <pre><code>[1] &quot;dog, mark, London, tile&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#subset of strings can be retrieved with str_sub</span>
 <span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>my_strings</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span>
+
 </code></pre>
 </div>
 <pre><code>[1] &quot;Lon&quot;</code></pre>
@@ -1654,6 +1664,7 @@ tile</code></pre>
 </div>
 <div id="htmlwidget-9283a8a6bc3bc79fd540" style="width:960px;height:100%;" class="str_view html-widget"></div>
 <script type="application/json" data-for="htmlwidget-9283a8a6bc3bc79fd540">{"x":{"html":"<ul>\n  <li>bil<span class='match'>berry<\/span><\/li>\n  <li>black<span class='match'>berry<\/span><\/li>\n  <li>blue<span class='match'>berry<\/span><\/li>\n  <li>boysen<span class='match'>berry<\/span><\/li>\n  <li>cloud<span class='match'>berry<\/span><\/li>\n  <li>cran<span class='match'>berry<\/span><\/li>\n  <li>elder<span class='match'>berry<\/span><\/li>\n  <li>goji <span class='match'>berry<\/span><\/li>\n  <li>goose<span class='match'>berry<\/span><\/li>\n  <li>huckle<span class='match'>berry<\/span><\/li>\n  <li>mul<span class='match'>berry<\/span><\/li>\n  <li>rasp<span class='match'>berry<\/span><\/li>\n  <li>salal <span class='match'>berry<\/span><\/li>\n  <li>straw<span class='match'>berry<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
 </div>
 <p><strong>Factors</strong> Factors are a way to create categories within your data. For instance, we might have many different types of vehicles. With factors, we can create categories of “truck”, “sedan”, “suv”, etc. Another useful aspect of the factor data type is that it can be used to sort the dataset in a specific way instead of just alphabetic. We will work with the <em>gss_cat</em> dataset since it has many factor data types.</p>
 <div class="layout-chunk" data-layout="l-body">

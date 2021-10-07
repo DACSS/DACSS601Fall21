@@ -1,0 +1,29 @@
+---
+title: "Kirsten Johnson"
+image: "../images/KirstenJohnsonHeadshot.jpg"
+links: 
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/kirsten-johnson-a5a7b0b3/"
+  - label: GitHub
+    url: "https://github.com/kirstenrjohnson"
+  - label: Email
+    url: "mailto:kirsten7@bu.edu"
+output:
+  postcards::trestles
+---
+ 
+## Bio
+
+I'm Kirsten! I work as GIS Specialist for MassDOT in Traffic & Safety. I studied Environmental Science and GIS during my undergrad at Boston University. In my spare time, I enjoy running a Boston food instagram account and working out.
+
+## Education
+
+**Boston University** | Boston, MA
+
+B.A. in Environmental Science | September 2014 - May 2018
+
+## Experience
+
+**MassDOT** | GIS Specialist | January 2020 - Present
+
+**Critigen** | GIS Analyst | May 2018 - January 2020
