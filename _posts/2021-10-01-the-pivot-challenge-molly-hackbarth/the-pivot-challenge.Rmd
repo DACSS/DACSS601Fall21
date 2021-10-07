@@ -1,14 +1,14 @@
 ---
-title: "The Pivot Challenge"
-description: |
-  Trying to understand the world of pivot longer and pivot wider with debt in trillions and household income. 
+title: The Pivot Challenge
+description: "Trying to understand the world of pivot longer and pivot wider with
+  debt in trillions and household income. \n"
 author: Molly Hackbarth
 date: 10-01-2021
 output:
   distill::distill_article:
-    self_contained: false
-    toc: true
-draft: true
+    self_contained: no
+    toc: yes
+draft: yes
 ---
 
 
