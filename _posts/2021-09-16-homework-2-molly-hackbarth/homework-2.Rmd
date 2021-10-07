@@ -1,0 +1,141 @@
+---
+title: Homework 2
+description: |
+  Homework 2 - Reading and pulling data.
+author: Molly Hackbarth
+date: 09-16-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Reading Data into R
+
+You can read data into R through a couple of methods. The first method is to use the library(datasets) function which will allow you to call dataset from the library. This is often seen using the dataset *iris* in examples. If you call table(iris) it will load most of the iris dataset.
+
+>library(datasets)<br>
+>table(iris)
+
+## Reading Data into R through your own datasets
+
+Reading your own dataset into R is a different process. In order to do this you must pull it from your **working directory.** To find your this directory you can use the getwd() function. *If you're confused about what a working directory is, it is a directory is your computer file folders (i.e. Downloads, Documents, etc.), and when R is running it's working in one of these folders. Hence the name **working directory**.*
+
+>library(tidyverse)<br>
+>library(readxl)<br>
+>StateCounty2012 <- read_excel("/_data/StateCounty2012.xls")<br>
+View(StateCounty2012)
+
+## You can also use HERE
+
+You can also use HERE to make links easier. *you can read more about HERE here: https://github.com/jennybc/here_here#* One reason to use HERE is it allows you to bypass the issue of setwd(), allowing you to change your working directory file, which can cause issues! **A relative path to the project root directory will always be created using here().**
+
+>library(here)
+>library(tidyverse) <br>
+>library(readxl)<br>
+>StateCounty2012 <- read_excel(here("_data", "StateCounty2012.xls"))<br>
+>View(StateCounty2012)'
+
+### Notes
+- If you are having trouble reading a file make sure to check knit and then go to the knit directory and check Project Directory!
+- if you are having trouble viewing the worksheet when you are knitting it on a mac you may need to download xquartz found here: https://www.xquartz.org/
+- To render a file you may need to use ../_data/StateCounty2012.xls however when you submit it to github you'll want to remove the periods to show it as /_data/StateCounty2012.xls so that will work on the instructor's computer. 
+- If you have the more subfolders to get to your file in HERE, you would add them before the worksheet/image/project. (i.e. here("images", "best-dogs", "goodestboy.jpg"))
+- A great rundown on how HERE works is here: http://jenrichmond.rbind.io/post/how-to-use-the-here-package/
+
+## Preview the data
+
+### An example of untidy data
+
+Using head() you can preview the data. You will notice that it's not very tidy.
+
+>library(here)<br>
+library(readxl)<br>
+StateCounty2012 <- read_excel(here("_data", "StateCounty2012.xls"))<br>
+head(StateCounty2012)
+
+```{r print}
+library(here)
+library(readxl)
+StateCounty2012 <- read_excel(here("_data", "StateCounty2012.xls"))
+head(StateCounty2012)
+```
+
+### An example of tidy data
+
+Here is an example of tidy data.
+
+>library(here)<br>
+library(readr)<br>
+Eggs <- read_csv(here("_data", "eggs_tidy.csv"))<br>
+head(Eggs)
+
+```{r tidy data}
+library(here)
+library(readr)
+library(knitr)
+Eggs <- read_csv(here("_data", "eggs_tidy.csv"))
+head(Eggs)
+```
+
+### Tibble
+
+You can also use tibble directly, which is part of tidyverse, to create a table for your data.
+
+>library(tidyverse)<br>
+library(here)<br>
+Eggs <- read_csv(here("_data", "eggs_tidy.csv"))<br>
+as_tibble(Eggs)
+
+```{r tibble}
+library(tidyverse)
+library(here)
+Eggs <- read_csv(here("_data", "eggs_tidy.csv"))
+as_tibble(Eggs)
+```
+
+## Using Kable
+
+If you would like to show the full data table you can using kable. Below you will see the kable version for StateCounty2012 and Eggs. 
+
+>kable(Eggs, caption = "Here is the tidy data of Eggs")<br>
+kable(StateCounty2012, caption = "Here is the untidy data of StateCounty2012")
+
+```{r kable}
+kable(Eggs [1:4, ], caption = "Here is the tidy data of Eggs")
+kable(StateCounty2012 [1:4, ], caption = "Here is the untidy data of StateCounty2012")
+```
+
+## Using rmarkdown
+
+You can use rmarkdown for paged tables. 
+
+>library(rmarkdown)<br>
+paged_table(Eggs)<br.
+paged_table(StateCounty2012)
+
+```{r rmarkdown}
+library(rmarkdown)
+paged_table(Eggs)
+paged_table(StateCounty2012)
+```
+
+## Editing a file 
+
+To edit data you can install editData (install.packages("editData")). You can read more about it here: https://cran.r-project.org/web/packages/editData/vignettes/editData.html
+
+>require(editData)<br>
+>tibble(StateCounty2012)<br>
+>result <- editData(StateCounty2012)
+
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

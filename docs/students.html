@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #20794d; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,14 +77,13 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.sc { color: #20794d; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
-
 
   <!--radix_placeholder_meta_tags-->
   <title>DACSS 601 Fall 2021: Students</title>
@@ -1605,10 +1604,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refs = $(this).attr('data-cites').split(" ");
-        var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
-        }).join("\n");
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2307,7 +2303,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.9.4/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2368,9 +2364,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </div>
 <ul>
+<li><a href="%5BQuinn_He%5D.html">[Quinn_He]</a></li>
 <li><a href="about_me_mh.html">about_me_mh</a></li>
+<li><a href="Allyson_Beach.html">Allyson_Beach</a></li>
+<li><a href="Amy-Franks.html">Amy-Franks</a></li>
+<li><a href="BrittanyKenison.html">BrittanyKenison</a></li>
+<li><a href="Claire-Battaglia.html">Claire-Battaglia</a></li>
+<li><a href="Eliza-Geeslin.html">Eliza-Geeslin</a></li>
 <li><a href="Joe-Davis.html">Joe-Davis</a></li>
+<li><a href="Justin-Flattery.html">Justin Flattery</a></li>
+<li><a href="kirstenjohnson.html">kirstenjohnson</a></li>
 <li><a href="Max.html">Max</a></li>
+<li><a href="Megan-Georges.html">Megan-Georges</a></li>
+<li><a href="Molly-Hackbarth.html">Molly-Hackbarth</a></li>
+<li><a href="Prabhat-Raut.html">Prabhat Raut</a></li>
+<li><a href="Quinn-He.html">Quinn-He</a></li>
+<li><a href="Tyler-Paske.html">Tyler-Paske</a></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

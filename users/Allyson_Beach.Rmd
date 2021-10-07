@@ -1,0 +1,13 @@
+---
+title: "Allyson Beach"
+image: "../images/students/Ally_Beach.jpg"
+links:
+  - label: GitHub
+    url: "https://github.com/allybeach/"
+  - label: Email
+    url: "ajbeach@umass.edu"
+output:
+  postcards::jolla
+---
+
+I am a current masters student in the computer science department. My educatuional background is a BS in Aerospace and Mechanical Engineering. I am also a current employee of Raytheon. I am a beginner to R programming. I am from Mobile, AL, but currently live in Arlington, MA. My hobbies are rock climbing, running/cycling, and drawing. I’ve been to 47 out of the 50 states and have lived in 7 of them. 

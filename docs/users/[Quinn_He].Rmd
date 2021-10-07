@@ -1,0 +1,23 @@
+---
+title: "Quinn He"
+image: 
+links:
+  - label: LinkedIn
+    url: "linkedin.com/in/quinn-he-102b10156"
+  - label: GitHub
+    url: "https://github.com/"
+  - label: Email
+    url: "8hequinn8@gmail.com"
+output:
+  postcards::trestles
+---
+ 
+I am a recent graduate of UMass Amherst with a BA in English. I'm from Wayne, New Jersey. 
+My main interest revolves around Cambridge Analytica and how the firm harvested data 
+from Facebook and used it to sow misinformation and create polarization 
+in various different settings, with repercussions still felt today. 
+It's both horrendous, yet fascinating. My hobbies include reading, writing, and guitar.
+My R experience is essentially none. I took Psych240, but that's it. 
+
+
+

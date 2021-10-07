@@ -1,0 +1,56 @@
+---
+title: Let's try a blog, shall we?
+description: Homework 1, trying to get a blog up without breaking the whole class
+  website.
+author: Joe Davis
+date: 09-14-2021
+categories: -homework 1 -Joe Davis
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Being extra with my commenting, this is where I set up libraries the post will need.
+library(tidyverse)
+library(readr)
+```
+# So, This is blogging in Rmarkdown.
+### Do we still call it blogging? Substacking in front of the paywall?
+My introduction information was included on the post card excercise, so how about a little aside first? I've always preferred to write in a conversational tone. This is a much more common approach in my professional environs to which I've grown accustomed. Obviously, this a poor fit for the academic world. I promise I will return to using only my most serious and authoritative written voice _tout suite_. Well, probably not __right away__, but as soon as I feel like I know what I'm doing here and not breaking things.
+
+I plan on attempting to read in some of the messy data sets in the next installment of the blog, but for getting the hang of things here I think it's best for us all if I do some things with the training wheels on first.
+
+Let's start with an R code chunk doing some basic stuff while showing the R code along with it.
+
+```{r liverpool goals}
+# Making up a vector for liverpool football club goals scored 
+liverpool_goals <- c(2,1,3,4)
+
+# Getting the mean of the made up vector of LFC goals
+mean(liverpool_goals)
+```
+That seems to have worked! Alright, let's take another baby step forward. Let's try and get the already cleaned up Australian marriage data file into this post and look at some of the columns.
+
+```{r australian marriage data}
+# Loading in and assigning in the Australian marriage data. I copied the .csv from the existing _data folder to the files folder for this post. Hopefully that's the right thing to do!
+australian_marriage_data <- read_csv(file = "lets-try-a-blog-shall-we_files/australian_marriage_tidy.csv")
+australian_marriage_data
+```
+
+If there's a table above this sentence, then that's just a little bit of internet magic. The thing about tables, though, is that sometimes it becomes hard to see the forest for the trees. Some graphs, then? I want to just look at the percent of yes votes by territory from the overall data set.
+
+```{r some basic graphs of that data}
+#set a data frame from a portion of the tidy spreadsheet, filtering to yes votes
+australian_filter <- filter(australian_marriage_data, resp == "yes")
+
+#using select to drop the variable I don't want to look at
+australian_df <- select(australian_filter, -(resp:count))
+
+#simple scatter plot of the yes vote percentage for each territory
+ggplot(data = australian_df) +
+  geom_point(mapping = aes(x = territory, y = percent))
+```
+
+I'll come back to do something more interesting and coherent for analysis in a future installment, but I'm already starting to feel a lot more comfortable with the R verbiage and such. I'm sure there were more efficient ways to make that graph but we'll get to that later I'm sure.  
