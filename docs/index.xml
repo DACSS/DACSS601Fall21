@@ -12,7 +12,16 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 03 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>HW-2 Updated</title>
+      <dc:creator>Justin</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin</link>
+      <description>Reading in blogpost data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin</guid>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin/hw2-justin_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>HW#3 - Transforming the US public schools data set</title>
       <dc:creator>Brittany Kenison</dc:creator>
@@ -77,9 +86,9 @@
     <item>
       <title>HW1</title>
       <dc:creator>Justin Flattery</dc:creator>
-      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw2-justin</link>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw1-justin</link>
       <description>Reading in blogpost data</description>
-      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw2-justin</guid>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw1-justin</guid>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>

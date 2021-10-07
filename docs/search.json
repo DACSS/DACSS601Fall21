@@ -5,35 +5,35 @@
       "title": "About the Course",
       "author": [],
       "contents": "\r\nThis is some information about DACSS and the course. Can be prefilled in with something interesting.\r\nCourse Instructor:\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-07T11:58:56-04:00"
+      "last_modified": "2021-10-07T12:36:07-04:00"
     },
     {
       "path": "index.html",
       "title": "Student Submissions",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-07T11:59:13-04:00"
+      "last_modified": "2021-10-07T12:36:26-04:00"
     },
     {
       "path": "instructor.html",
       "title": "Meredith Rolfe",
       "author": [],
       "contents": "\r\n\r\n          \r\n          \r\n          \r\n          \r\n          DACSS 601 Fall 2021\r\n          \r\n          \r\n          About\r\n          Syllabus\r\n          Students\r\n          \r\n          \r\n          \r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Meredith Rolfe\r\n          \r\n          \r\n            \r\n              I am some sort of person, blah blah biography.\r\n            \r\n            \r\n              I am some sort of person, blah blah biography.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Twitter\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Twitter\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    \r\n          \r\n          \r\n            \r\n          \r\n          \r\n          \r\n            \r\n              \r\n              \r\n              \r\n              \r\n              \r\n            \r\n          \r\n          \r\n          \r\n\r\n    \r\n  ",
-      "last_modified": "2021-10-07T11:59:14-04:00"
+      "last_modified": "2021-10-07T12:36:27-04:00"
     },
     {
       "path": "students.html",
       "title": "Students",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n[Quinn_He]\r\nabout_me_mh\r\nAllyson_Beach\r\nAmy-Franks\r\nBrittanyKenison\r\nClaire-Battaglia\r\nEliza-Geeslin\r\nJoe-Davis\r\nJustin Flattery\r\nkirstenjohnson\r\nMax\r\nMegan-Georges\r\nMolly-Hackbarth\r\nPrabhat Raut\r\nQuinn-He\r\nTyler-Paske\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-07T12:02:11-04:00"
+      "last_modified": "2021-10-07T12:40:52-04:00"
     },
     {
       "path": "syllabus.html",
       "title": "Course Syllabus",
       "author": [],
       "contents": "\r\nEdit this page with the course syllabus and/or other information. Feel free to delete the example file below as well.\r\n(Note that when knitted, it might display as ‘Couldn’t load plugin’. Simply click ‘Open in Browser’ at the top left side of the screen to view your page looks like.)\r\nSyllabus:\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-07T11:59:32-04:00"
+      "last_modified": "2021-10-07T12:36:46-04:00"
     }
   ],
   "collections": ["posts/posts.json"]
