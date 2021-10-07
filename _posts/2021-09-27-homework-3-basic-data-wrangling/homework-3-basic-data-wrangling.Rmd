@@ -1,0 +1,174 @@
+---
+title: 'homework 3: basic data wrangling'
+description: |
+  the adventure continues
+author: Claire Battaglia
+date: 09-27-2021
+categories:
+- homework 3
+- data wrangling
+- organiceggspoultry.xls
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(readxl)
+```
+
+### basic data wrangling
+
+First, let's talk about what we mean by "data wrangling." A typical data science project begins with reading in whatever data we're working with. From there, the next two steps are *tidying* and *transforming* the data. Together, these two processes are loosely referred to as *wrangling*.[^1]
+
+In my last post [homework 2: reading in data](https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data/), I read in the dataset “organiceggpoultry.xls" and spent a little time trying to understand the basic shape of the data. Today, I'll pick up where I left off and see if I can wrangle it into something more decipherable.
+
+To start, I'll once again read in the data.
+
+```{R read in the data}
+# set working directory
+setwd("../../_data")
+
+# assign data to variable
+cogEggs <- read_excel("organiceggpoultry.xls")
+
+# preview dataset
+head(cogEggs)
+```
+
+It seems like we'll have to do a few things before being able to manipulate the data in any meaningful way.
+
+### to-do
+
+* split the first column (currently unnamed) into two columns: 1) *Month* and 2) *Year* and fill in missing values
+* name columns
+* get rid of junk rows/columns (i.e. anything that's not data)
+* pivot to get variables/observances in the right place (we'll be going from wide to long)
+
+### splitting one column into two
+
+I'll first use the **separate()** function to split the column into two columns. I'll then use the **fill()** function to fill in the missing values within the *Year* column.
+
+```{R separate column 1 into 2 columns}
+# separate column 1 into 2 columns
+cogEggs <- cogEggs %>%
+  separate(col = 1, into = c('Month', 'Year'), sep = ' ')
+
+# preview to check
+head(cogEggs)
+```
+
+We now have two columns: *Month* and *Year*. Looking at row 5, we can see that where we have a value for year, it did indeed get moved into the appropriate column. Looking at row 6, however, we can see that not all of the rows have a value for year.
+
+I'll now use the **fill()** function to fill in the remaining years. This function will automatically fill designated cells with the value in the cell above/below. It's easy to conceptualize this function as equivalent to copying and pasting by dragging in Excel.
+
+```{R fill values in Year column}
+# fill values in Year column
+cogEggs <- cogEggs %>%
+  fill(Year)
+
+#view to check
+cogEggs
+```
+
+Our dataset is slowly taking shape! As is, our dataset actually contains data for two separate datasets. It's interesting to note that these were two separate sheets in the Excel file and were read in as one giant dataset. Because I am only interested in eggs, I'm going to reassign our object cogEggs to a new, paired-down dataset.
+
+In order to make this easier, I am going to first rename the columns I want to keep. I'll use the **colnames()** function to make sure I know the names of the columns.
+
+```{R get column names}
+# get column names
+colnames(cogEggs)
+```
+
+Since I've already renamed the *Month* and *Year* columns, I only need to rename columns 2-5. Column 6 is empty and everything from column 7 on belongs to the chicken dataset.
+
+```{R rename columns 2-5}
+# rename columns 2-5
+cogEggs <- cogEggs %>%
+  rename(xlDoz = ...2, xlHalfDoz = ...3, lgDoz = ...4, lgHalfDoz = ...5)
+
+#preview to check
+head(cogEggs)
+```
+
+```{R reassign object to paired-down dataset}
+#reassign object to paired-down dataset
+cogEggs <- cogEggs %>%
+  select(Month, Year, xlDoz, xlHalfDoz, lgDoz, lgHalfDoz)
+
+# preview to check
+head(cogEggs)
+```
+
+Now let's get rid of the the rows that don't contain any data.
+
+```{R remove rows with no data}
+# slice all rows except 1-4
+cogEggs <- cogEggs %>%
+  slice(-c(1,2,3,4))
+
+#view to check
+cogEggs
+```
+
+### pivoting from wide to long
+
+Our final step today will be to pivot this table from wide to long.
+
+Our variables in this dataset are 1) month, 2) year, 3) egg size, 4) carton size
+
+Our variables *month* and *year* already have their own column. The remaining columns, however, are actually values for the variables *egg size* (xl and lg) and *carton size* (dozen and half-dozen). This may be slightly more complicated because each column contains one *egg size* value and one *carton size* value. *Yikes.*
+
+After reading about how to use the **pivot_longer()** function when each column contains [multiple values](https://dcl-wrangle.stanford.edu/pivot-advanced.html), I realize that the way I renamed the columns is going to make my task here more difficult. To not totally lose my mind doing this, I'm going to rename them again, this time using an underscore, which will allow me to use the **names_sep()** function to separate by the _. I strongly dislike underscores but live and learn.
+
+```{R rename columns to contain _}
+# rename columns 2-5 to contain _
+cogEggs <- cogEggs %>%
+  rename(xl_Doz = xlDoz, xl_HalfDoz = xlHalfDoz, lg_Doz = lgDoz, lg_HalfDoz = lgHalfDoz)
+
+#preview to check
+head(cogEggs)
+```
+
+Okay, now to actually pivot.
+
+```{R pivot from wide to long}
+# pivot from wide to long
+cogEggs <- cogEggs %>%
+  pivot_longer(
+    cols = !Month & !Year,
+    names_to = c("Egg_Size", "Carton_Size"),
+    names_sep = "_",
+    values_to = "Price"
+  )
+
+#view to check
+cogEggs
+```
+
+That's it for today! Datasets must meet three criteria to be considered "tidy."[^2]
+
+1.  Each variable must have its own column.
+2.  Each observation must have its own row.
+3.  Each value must have its own cell.
+
+Pivoting has made it so that this dataset meets these criteria. Next up: some summary stats and maybe a cool graph of some kind.
+
+### moving forward
+
+Here are a few notes I jotted down today that I'll think about next time.
+
+* read in specific sheet, not entire workbook (Excel)
+* slice when I first read in the data to get rid of junk rows before starting
+* rethink strategy for naming columns (do I need to use an underscore or would names_pattern work if names are in snakeCase?)
+* check/change variable types (e.g. variable type for *price* says <chr> when it probably should be <dbl>)
+* recode certain values (e.g. change Jan to January for sake of consistency)
+* add a table of contents so that the reader doesn't have to scroll endlessly to find something of interest
+
+[^1]: Hadley, Wickham and Garrett Grolemund. 2017. *R for Data Science.* Sebastopol, CA. O'Reilly Media, Inc.
+[^2]: Hadley, Wickham and Garrett Grolemund. 2017. *R for Data Science.* Sebastopol, CA. O'Reilly Media, Inc.
