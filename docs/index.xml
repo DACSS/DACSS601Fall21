@@ -106,6 +106,15 @@
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>Quinn He HW2</title>
+      <dc:creator>Quinn He</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2</link>
+      <description>Homework 2 where I try to open datasets and see what I can do with it.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2</guid>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2/quinn-he-hw2_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>blog post 1: reading in data</title>
       <dc:creator>Claire Battaglia</dc:creator>
       <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data</link>
@@ -130,6 +139,7 @@
       <category>-homework 1 -Joe Davis</category>
       <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we</guid>
       <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/lets-try-a-blog-shall-we_files/figure-html5/some basic graphs of that data-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Welcome to DACSS 601</title>

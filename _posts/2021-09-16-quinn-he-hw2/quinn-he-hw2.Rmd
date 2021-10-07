@@ -1,13 +1,13 @@
 ---
-title: "Quinn He HW2"
-description: |
-  Homework 2 where I try to open datasets and see what I can do with it. 
+title: Quinn He HW2
+description: "Homework 2 where I try to open datasets and see what I can do with it.
+  \n"
 author: Quinn He
 date: 09-16-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 
