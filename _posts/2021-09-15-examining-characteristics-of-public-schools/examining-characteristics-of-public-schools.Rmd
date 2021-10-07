@@ -23,9 +23,9 @@ Let's get familiar with the data set by looking at the a few records:
 
 ```{r publicschool}
 #read data from public school characteristics file
-psc <- read_csv("Public_School_Characteristics_2017-18.csv")
+psc <- read_csv("../../_data/Public_School_Characteristics_2017-18.csv")
 
-#display the first 4 rows of data
+#display the first 6 rows of data
 head(psc)
 ```
 
