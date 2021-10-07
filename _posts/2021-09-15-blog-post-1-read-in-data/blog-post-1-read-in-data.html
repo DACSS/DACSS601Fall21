@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["blog post 1: reading in data"]},{"type":"character","attributes":{},"value":["practicing the unsexy first step of data analysis\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Claire Battaglia"]}]}]},{"type":"character","attributes":{},"value":["09-15-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["blog post 1: reading in data"]},{"type":"character","attributes":{},"value":["practicing the unsexy first step of data analysis\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Claire Battaglia"]}]}]},{"type":"character","attributes":{},"value":["09-15-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"blog post 1: reading in data","description":"practicing the unsexy first step of data analysis","authors":[{"author":"Claire Battaglia","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-15T00:00:00.000+00:00","citationText":"Battaglia, 2021"}
+{"title":"blog post 1: reading in data","description":"practicing the unsexy first step of data analysis","authors":[{"author":"Claire Battaglia","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-15T00:00:00.000-04:00","citationText":"Battaglia, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1484,7 +1484,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># set working directory</span>
-<span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>setwd</a></span><span class='op'>(</span><span class='st'>"~/Documents/DACSS601Fall21/_data"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>setwd</a></span><span class='op'>(</span><span class='st'>"../../_data"</span><span class='op'>)</span>
 
 <span class='co'># assign data to variable</span>
 <span class='va'>cogEggs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"organiceggpoultry.xls"</span><span class='op'>)</span>
@@ -1509,16 +1509,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cogEggs</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 6 × 11
-  `(Certified Organ… ...2   ...3  ...4  ...5  ...6  ...7   ...8  ...9 
+<pre><code># A tibble: 6 x 11
+  `(Certified Organ~ ...2   ...3  ...4  ...5  ...6  ...7   ...8  ...9 
   &lt;chr&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
 1 &lt;NA&gt;                &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; NA    &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-2 USDA Certified Or…  &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; NA    USDA … &lt;NA&gt;  &lt;NA&gt; 
-3 Price per Carton …  &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; NA    Price… &lt;NA&gt;  &lt;NA&gt; 
-4 &lt;NA&gt;               &quot;Extr… &quot;Ext… &quot;Lar… &quot;Lar… NA    Whole  B/S … Bone…
-5 Jan 2004           &quot;230&quot;  &quot;132&quot; &quot;230&quot; &quot;126&quot; NA    197.5  645.5 too …
-6 February           &quot;230&quot;  &quot;134… &quot;226… &quot;128… NA    197.5  642.5 too …
-# … with 2 more variables: ...10 &lt;chr&gt;, ...11 &lt;chr&gt;</code></pre>
+2 USDA Certified Or~  &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; NA    USDA ~ &lt;NA&gt;  &lt;NA&gt; 
+3 Price per Carton ~  &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; NA    Price~ &lt;NA&gt;  &lt;NA&gt; 
+4 &lt;NA&gt;               &quot;Extr~ &quot;Ext~ &quot;Lar~ &quot;Lar~ NA    Whole  B/S ~ Bone~
+5 Jan 2004           &quot;230&quot;  &quot;132&quot; &quot;230&quot; &quot;126&quot; NA    197.5  645.5 too ~
+6 February           &quot;230&quot;  &quot;134~ &quot;226~ &quot;128~ NA    197.5  642.5 too ~
+# ... with 2 more variables: ...10 &lt;chr&gt;, ...11 &lt;chr&gt;</code></pre>
 </div>
 <p><em>yikes!</em></p>
 <p>Using the colnames() function will show us the names of all 11 columns, which may help us better understand what we’re looking at.</p>
@@ -1549,7 +1549,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'>select</span><span class='op'>(</span><span class='va'>cogEggs</span>, <span class='st'>"...2"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 6 × 1
+<pre><code># A tibble: 6 x 1
   ...2                 
   &lt;chr&gt;                
 1  &lt;NA&gt;                

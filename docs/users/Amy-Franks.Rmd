@@ -1,0 +1,17 @@
+---
+title: "Amy Franks"
+image: "Amy.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/amycfranks/"
+  - label: Instagram
+    url: "https://instagram.com/amycfranks/"
+  - label: GitHub
+    url: "https://github.com/kanimoji/"
+  - label: Email
+    url: "mailto:amycfranks@gmail.com"
+output:
+  postcards::jolla_blue
+---
+ 
+I'm a teacher, translator and mom. I like to challenge myself by learning new things. This content is challenging! I am very much more the tortoise than the hare, but I'm going to keep moving slow and steady (or at least slow)

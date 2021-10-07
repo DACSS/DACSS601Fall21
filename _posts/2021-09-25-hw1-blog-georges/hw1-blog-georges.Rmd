@@ -1,0 +1,53 @@
+---
+title: 'Homework 1: Blog Post'
+description: |
+  My 1st attempt at a blog post.
+author: Megan Georges
+date: 09-25-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(distill)
+library(datasets)
+library(ggplot2)
+```
+
+# Hello, my name is Megan Georges.
+I will be practicing some R coding with the PlantGrowth dataset. 
+
+***
+
+### Here are the first ten rows of the PlantGrowth dataset.
+
+```{r}
+data("PlantGrowth")
+head(PlantGrowth, 10)
+```
+
+***
+
+### The PlantGrowth dataset has `r nrow(PlantGrowth)` rows and `r ncol(PlantGrowth)` columns.
+
+***
+
+### Here are the summary statistics:
+
+```{r}
+summary(PlantGrowth)
+```
+***
+
+### Here is a plot:
+
+```{r}
+plot(PlantGrowth)
+```
+
+***
+
+# The End!
