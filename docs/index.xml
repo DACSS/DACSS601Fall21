@@ -65,6 +65,13 @@
       <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw2-allyson-beach/hw2-allyson-beach_files/figure-html5/factors-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
+      <title>First blog post using Distill</title>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill</link>
+      <description>I'm going to make my first blog post. Once I figure that out, I'll try reading in some data.I am also experimenting with R Markdown text formatting such as **bold text** and *italics*</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill</guid>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>homework 3: basic data wrangling</title>
       <dc:creator>Claire Battaglia</dc:creator>
       <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-27-homework-3-basic-data-wrangling</link>

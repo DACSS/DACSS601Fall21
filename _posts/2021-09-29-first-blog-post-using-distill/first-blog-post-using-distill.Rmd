@@ -1,16 +1,15 @@
 ---
-title: "First blog post using Distill"
-description: 
-  
- I'm going to make my first blog post. Once I figure that out, I'll try reading in some data.I am also experimenting with R Markdown text formatting such as **bold text** and *italics*
-  
-author:
+title: First blog post using Distill
+description: I'm going to make my first blog post. Once I figure that out, I'll try
+  reading in some data.I am also experimenting with R Markdown text formatting such
+  as **bold text** and *italics*
+author: ~
 name: Amy Franks
 date: 09-29-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 ### First I need to load my packages by using the **library** command and this chunk:
