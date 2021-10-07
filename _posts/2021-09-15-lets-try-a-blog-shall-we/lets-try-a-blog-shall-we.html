@@ -1536,8 +1536,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span class='va'>australian_df</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>australian_filter</span>, <span class='op'>-</span><span class='op'>(</span><span class='va'>resp</span><span class='op'>:</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>#simple scatter plot of the yes vote percentage for each territory</span>
-<span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>australian_df</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_point</span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>territory</span>, y <span class='op'>=</span> <span class='va'>percent</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>australian_df</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>territory</span>, y <span class='op'>=</span> <span class='va'>percent</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="lets-try-a-blog-shall-we_files/figure-html5/some%20basic%20graphs%20of%20that%20data-1.png" width="624" /></p>
