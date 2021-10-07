@@ -1,0 +1,30 @@
+---
+title: HW-2 Updated
+description: Reading in blogpost data
+author: Justin
+date: 10/4/2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(blogbuilder)
+library(distill)
+library(tidyverse)
+```
+
+### I am looking to read in a dataset. Specifically eggs_tidy.csv which shows Month,year,large_half_dozen,large_dozen,extra_large_half_dozen,extra_large_dozen eggs
+
+```{r}
+#will now read in the file
+eggs_tidy <-read_csv("../../_data/eggs_tidy.csv")
+```
+### I will now show a visualization of the table
+```{r}
+ggplot(eggs_tidy, aes(large_dozen)) + geom_histogram()
+
+```
+
