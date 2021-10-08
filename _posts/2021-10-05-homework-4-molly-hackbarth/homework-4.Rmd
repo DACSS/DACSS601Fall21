@@ -1,0 +1,356 @@
+---
+title: "Homework 4"
+description: |
+  Working on univariate statistics with cereal and debt in trillions.
+author: Molly Hackbarth
+date: 10-05-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+draft: true
+---
+
+
+```{r setup}
+knitr::opts_chunk$set(layout = "l-body-outset", echo = TRUE)
+library(tidyverse)
+library(here)
+library(readxl)
+library(stringr)
+library(rmarkdown)
+library(readr)
+library(knitr)
+library(DT)
+library(patchwork)
+library(zoo)
+```
+
+# Introduction
+
+For this homework assignment I plan to work with three different types of data sets. Below I will read in the data sets. This time instead of putting layout="l-body-outset" I put that in the setup as a opts_chunk$set function.
+
+## Cleaning the data
+
+I will first clean data that is needed to be cleaned. I had previously cleaned the debt in trillions so below you will find my work and how I did it. 
+
+### Cereal data
+
+```{r reading in cereal}
+
+cereal <- read_csv(here("_data", "cereal.csv"))
+
+datatable(cereal, options = list(
+  initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "}"),  caption = 'Cereal',
+           width = '100%', options = list(scrollX = TRUE)))
+
+```
+
+### Debt in Trillions
+
+```{r reading in debt in trillions}
+dt <- read_excel(here("_data", "debt_in_trillions.xlsx"))
+
+dt <-  rename(dt, "year_and_quarter" = "Year and Quarter",
+         "herevolving" = "HE Revolving",
+         "autoloan" = "Auto Loan",
+         "creditcard" = "Credit Card", 
+         "studentloan" = "Student Loan",) %>%
+  select(!starts_with("total"))
+
+# I changed the rest of the names to lowercase but it doesn't have to be done. 
+# I just prefer to not have to press the shift key when typing if I can avoid it. 
+  colnames(dt)<-tolower(colnames(dt))
+
+dt <- dt %>%
+separate(year_and_quarter, into = c("year", "quarter"), sep=":")
+dt <- transform(dt, year = as.numeric(year))
+
+# This is adding 2000 so that the years will be in the 2000s-2010s
+  dt$year <- dt$year+2000
+  
+# Needed to change mortgage to a numeric form, it was originally a character form.
+  dt$mortgage <- as.numeric(dt$mortgage)
+
+datatable(dt, options = list(
+  initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "}"), 
+           caption = 'Debt in Trillions',
+           width = '100%', options = list(scrollX = TRUE)))
+```
+
+
+## Picking variables
+
+All variables were picked from the data sets we were provided. There are no missing values. 
+
+### Picking variables for Cereal
+
+For variables I'm going to focus on the sugar and sodium columns and compare them based on the different cereals. 
+
+### Picking variables for Debt in trillions
+ 
+For debt in trillions I want to focus on the type of debt and how it fluctuates by year and quarter. 
+
+
+## Descriptive Statstics 
+
+### Cereal descprtive stastics
+
+First lets look at descriptive statics of sodium and and sugar.  
+
+```{r cereal visual statstics}
+summarize_all(cereal, list(mean=mean, median=median, mean=mean, max=max, sd=sd, IQR=IQR ), na.rm=TRUE)
+
+summarize(cereal,quantile.sodium = quantile(Sodium, 0.25), quantile.sugar = quantile(Sugar, 0.75)
+          )
+
+summarise
+
+
+```
+
+For the sugar quartile I found that for the third quartile that 25% of the cereal had 12.5 of sugar or more. 
+
+For the sodium quartile I found that for the first quartile that 25% of the cereal had 137.5 of sodium or less. For the standard deviation, the mean was 167 while the standard deviation was about 77.3. Only one data item, 340 was more than two standard deviations above the mean, and only one data item, 0 was more than two standard deviations below the mean. 
+
+The fact that sodium is so much higher in sodium than sugar surprised me because of people mostly talking about how "sugary" cereals are. Sodium ranged from 0-340 grams compared to sugar's 0-18 grams. 
+
+
+
+### Debt in trillions descrpitve statstics
+
+Now lets look at the descriptive statics for debt in trillions. 
+
+```{r debt in trillions statstics}
+summarize_all(dt, list(mean=mean, median=median, mean=mean, max=max, sd=sd, IQR=IQR), na.rm=TRUE)
+
+```
+
+We can notice that because quarters is a character column it is returning NA.
+
+Here we can see some interesting statistics. If we look at all the means we have three that are relatively close in amount (from about .73-.91 ) two that are lower (.39-.52) other and he_revolving (I believe to be home equity revolving), and one that is way higher than any of them, mortgage at 8.41 
+
+For other loans we don't know what loans are in the category, so it makes sense for it to be smaller than the major loans. he_revolving may be lower due to a much lower range of debt than the other loan types. 
+
+However for mortgage the median is a much larger number. I believe this may because of how many people purchase homes and need to borrow money from the bank, unlike for the other types of loans. Usually these loans are much larger.
+
+Looking at the means for each of these categories the means seem to be on a similar path to the medians with all the categories being close to their median amount. 
+
+## Visulazation 
+
+Now that I've done some stastics I would like to see it in a visualized form. Below you will find both data sets broken out into different graphs. 
+
+### Cereal 
+
+For cereal I'm interested in seeing the sodium compared to sugar for each cereal brand. 
+
+```{r cereal visual}
+
+p1 <- ggplot(cereal, aes(Cereal, Sodium)) +
+  geom_col() + 
+  scale_x_discrete(guide = guide_axis(n.dodge = 2)) + 
+  theme(text=element_text(size=5))
+
+p2 <- ggplot(cereal, aes(Cereal, Sugar)) +
+  geom_col() + 
+  scale_x_discrete(guide = guide_axis(n.dodge = 2)) + 
+  theme(text=element_text(size=5))
+
+p1 / p2
+```
+
+This gets me two separate graphs, however I'm more interested in having them on one graph. Additionally I noticed that the font had to be extremely small to fit the whole bar chart in with the names. This time I'll try using a legend. 
+
+```{r cereal together visual}
+
+p3<- ggplot(cereal, aes(x=Sodium, y=Sugar, group=Cereal)) +
+  geom_col(aes(color=Cereal, position='dodge')) +
+  theme(legend.key.size = unit(.5, 'cm'))
+
+p4 <- ggplot(cereal, aes(fill=Cereal, y=Sugar, x=Sodium)) +
+  geom_bar(stat='identity', position='dodge') + 
+  theme(legend.key.size = unit(.5, 'cm'))
+
+p3 | p4 
+
+```
+
+This is closer to what I want but not exactly. This time I'm going to try to force sodium and sugar as the key with the cereal being on the chart. 
+
+```{r cereal line chart visual}
+cereal1 <- cereal
+cereal1 <- cereal %>% 
+ select(!starts_with("Type")) %>%
+  gather(key = Type, value = Amount, Sugar,Sodium)
+
+cereal1 %>%
+ggplot(aes(x=Cereal, y=Amount, group=Type, color=Type)) +
+    geom_line() +
+  geom_point() +
+    ggtitle("Cereal by amount of sodium vs sugar") + 
+  scale_x_discrete(guide = guide_axis(n.dodge = 2), labels = function(x) 
+    stringr::str_wrap(x, width = 10)) + 
+  theme(text=element_text(size=9))
+
+
+```
+This is what I wanted! This allows you to see how sugar and sodium's amount compared to the cereal. As you can see sodium is much more drastically different compared to the sugar. 
+
+### Debt in trillions
+
+With what I learned about plotting in Cereal, I'm going to focus on trying to make tables here.
+
+```{r debt in trillions visual}
+dt1 <- dt %>% 
+  gather(key = debt, value = totaldebt, mortgage:other)
+
+p5 <- ggplot(dt1, aes(year, totaldebt, fill = debt)) + 
+  geom_col(position = "dodge")
+
+p6 <- ggplot(dt1, aes(quarter, totaldebt, fill = debt)) + 
+  geom_col(position = "dodge")
+
+p5 / p6 + plot_layout(guides = "collect") + plot_annotation(
+  title = "Total debt by year and quarter")
+
+p7 <- ggplot(dt, aes(year, creditcard)) + 
+  geom_col(position = "dodge")
+
+p8 <- ggplot(dt, aes(year, mortgage)) + 
+  geom_col(position = "dodge")
+
+p9 <- ggplot(dt, aes(year, herevolving)) + 
+  geom_col(position = "dodge")
+
+p10 <- ggplot(dt, aes(year, autoloan)) + 
+  geom_col(position = "dodge")
+
+
+p11 <- ggplot(dt, aes(year, studentloan)) + 
+  geom_col(position = "dodge")
+
+p12 <- ggplot(dt, aes(year, other)) + 
+  geom_col(position = "dodge")
+  
+p7+p8+p9+p10+p11+p12+plot_layout(ncol = 3) + plot_annotation(
+  title = "Different debt in trillions",
+  caption = "by credit card, mortgage, 
+  he revolving, auto loan, student loan, other"
+)
+```
+From the different types of debt you can see that each debt has it's own graph, while student loan seems to always go up compared to he revolving going down after 2010, the rest seemed to have a dip between 2010-2015.
+
+For overall mortgage was by far the largest amount.
+
+# Attempting Debt in Trillions in Time
+
+For this I'm going to attempt to turn the quarter and years into time frames. 
+
+## Using the zoo package
+
+```{r debt in trillons to time}
+dt2 <- dt
+dt2 <- dt2 %>%
+# Mutating all quarters to turn into the first of the month for that quarter
+  mutate(quarter = case_when(
+    startsWith(quarter, "Q1") ~ "-1", 
+   startsWith(quarter, "Q2") ~ "-4", 
+    startsWith(quarter, "Q3") ~ "-7",
+    startsWith(quarter, "Q4") ~ "-10"
+)) %>%
+# Uniting the year and quarter columns back into one column  
+  unite('yq', year:quarter, remove = FALSE) %>%
+  select(-c(year, quarter)) %>%
+# Removing the _ that was in the year quarter that made it look like this 2003_-1
+  mutate_at("yq", str_replace, "_", "")
+# I used zoo to first change this into a date type column 
+dt2$yq <- as.Date(as.yearmon(dt2$yq))
+# and then change it into a year quarter one like before!
+dt2$yq <- as.yearqtr(dt2$yq, format = "%Y-%m-%d")
+
+# Using the paged table you can see that the column type has changed to S3: yearqtr :)
+   
+paged_table(dt2)
+
+```
+
+Now that I've been able to change the year and quarter column to a date I'm going to try to plot it this way. I attempted to use the lubridate package but I was having trouble getting the dates back into Q1 form. So I just used the zoo package. 
+
+## Visulizing through time for debt in trillions
+
+First I'll try to visualize debt in trillions without using it as a time function. 
+
+```{r visual year and quarter}
+dt2 <- dt2 %>%
+  gather(key = debt, value = totaldebt, mortgage:other)
+
+p13 <- ggplot(dt2, aes(x=yq, y=totaldebt, fill=debt)) + 
+  geom_area(alpha=0.6) + 
+  scale_fill_brewer(palette="Dark2") + 
+  scale_x_continuous(name="year") +
+  scale_y_continuous(name="total debt")
+
+p14 <- ggplot(dt2, aes(y = totaldebt, x = yq, colour = debt)) + 
+  geom_line() +
+    scale_x_continuous(name="year") +
+  scale_y_continuous(name="total debt")
+
+p13/p14
+
+
+```
+
+Now that I know that it works I will try to do it using a time frame. 
+
+```{r visualizing through time}
+
+p15 <- ggplot(dt2, aes(y = totaldebt, x = yq, colour = debt)) + 
+  geom_line() +
+  scale_x_date(date_labels = "%YQ%q") +
+    scale_x_continuous(name="year") +
+  scale_y_continuous(name="total debt")
+  
+p15
+```
+
+I noticed there was not much difference because quarter is not being read in. Instead I decided to try this with the zoo package. 
+
+```{r visualize with zoo}
+# Here is reading in ggplot and using the zoo package
+p16 <- ggplot(dt2, aes(yq, totaldebt)) + 
+  geom_line() + 
+  scale_x_yearqtr(format = "%YQ%q", name="year and quarter - ggplot") +
+  scale_y_continuous(name="total debt")
+# Here is only using the zoo package
+p17 <- zoo(dt2$totaldebt, as.yearqtr(dt2$yq))
+p17 <- autoplot(p17) + 
+  scale_x_yearqtr(format = "%YQ%q", name="year and quarter - zoo package") +
+  scale_y_continuous(name="total debt")
+
+p16/p17
+
+```
+
+Both look the same, however using the only zoo package I get "Warning in zoo(dt2$totaldebt, as.yearqtr(dt2$yq)): some methods for “zoo” objects do not work if the index entries in ‘order.by’ are not unique"
+  
+Lets see if I can combine graphs together. 
+
+```{r putting time graphs together}
+p18 <- ggplot(dt2, aes(yq, totaldebt, colour = debt)) + 
+  geom_line() +
+  ggtitle("Total Debt in Trillions") +
+  scale_x_yearqtr(format = "%YQ%q", name="year and quarter") +
+  scale_y_continuous(name="total debt")
+p18
+```
+
+I did it! 
+
+
+
