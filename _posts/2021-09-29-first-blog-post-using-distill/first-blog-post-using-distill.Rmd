@@ -1,0 +1,88 @@
+---
+title: First blog post using Distill
+description: I'm going to make my first blog post. Once I figure that out, I'll try
+  reading in some data.I am also experimenting with R Markdown text formatting such
+  as **bold text** and *italics*
+author: ~
+name: Amy Franks
+date: 09-29-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+### First I need to load my packages by using the **library** command and this chunk:
+
+{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(readxl)  
+
+### But oh no. I want this code to be displayed in 4 rows. This can be done by adding *two spaces* at the end of each line:
+
+{r setup, include=FALSE}  
+knitr::opts_chunk$set(echo = TRUE)  
+library(tidyverse)  
+library(readr)  
+library(readxl)  
+library(csv)  
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(readxl)
+library(csv)
+```
+
+### I'm going to in work with data from the set about cereal. I want to first *establish my working directory*. I can find the current working directory with the command *getwd()*
+
+```{r get working directory}
+getwd()
+```
+
+### I'm going to set the directory just to be sure I'm working with the right folders and files.
+
+```{r set working directory}
+#setwd("~/R/DACSS601Fall21/_posts/2021-09-29-first-blog-post-using-distill")
+```
+
+### Now I'm going to *read in a csv data set about cereal*. This following chunk creates a new tab that contains a table with the cereal data
+
+```{r read in cereal info}
+cereal <- read.csv("cereal.csv")
+View(cereal)
+```
+
+### If I need to figure out the dimensions of the data set, or get other information, I can use a number of commands. Using *dim()* returns info on the dimensions. In this case, there are 20 rows and 4 columns in the *cereal.csv* file.
+
+```{r get some info about the scope of the cereal dataset} 
+dim(cereal)
+```
+
+### I can use *colnames()* to get the name of each column. In this case, the column names are ***"Cereal", "Sodium", "Sugar" and "Type"***
+
+```{r}
+colnames(cereal)
+```
+
+### Since I assigned the csv file to the variable *cereal*, I can retrieve the data by simply calling the function by writing *"cereal"*.
+
+```{r}
+cereal
+```
+
+### These are the very basics of reading in data. I am excited to *keep learning* how to use R and R Markdown, and how to manipulate and utilize data.
+
+
+
+
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

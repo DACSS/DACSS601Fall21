@@ -2,46 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/about.html</loc>
-    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
+    <lastmod>2021-10-07T03:43:25-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/</loc>
-    <lastmod>2021-09-22T11:52:07-04:00</lastmod>
+    <lastmod>2021-10-07T11:10:08-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/instructor.html</loc>
-    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
+    <lastmod>2021-10-07T03:43:34-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/students.html</loc>
-    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
+    <lastmod>2021-10-07T13:44:57-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/syllabus.html</loc>
-    <lastmod>2021-09-22T11:49:30-04:00</lastmod>
+    <lastmod>2021-10-07T03:43:34-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin/</loc>
+    <lastmod>2021-10-07T14:16:24-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-03-hw3-brittany-kenison/</loc>
+    <lastmod>2021-10-07T14:16:09-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-hw2-post-georges/</loc>
+    <lastmod>2021-10-07T14:12:30-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-the-pivot-challenge-molly-hackbarth/</loc>
+    <lastmod>2021-10-07T14:13:13-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw1allysonbeach/</loc>
+    <lastmod>2021-10-07T14:11:48-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw2-allyson-beach/</loc>
+    <lastmod>2021-10-07T14:12:12-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill/</loc>
+    <lastmod>2021-10-07T14:11:34-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-27-homework-3-basic-data-wrangling/</loc>
+    <lastmod>2021-10-07T14:11:09-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-geeslin-hw-2-read-in-data/</loc>
+    <lastmod>2021-10-07T14:10:23-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw1-justin/</loc>
+    <lastmod>2021-10-07T14:10:35-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-insert-post-title/</loc>
+    <lastmod>2021-10-07T14:10:47-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-25-hw1-blog-georges/</loc>
+    <lastmod>2021-10-07T14:10:04-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-23-homework-3-molly-hackbarth/</loc>
+    <lastmod>2021-10-07T14:09:47-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-18-insert-post-title/</loc>
+    <lastmod>2021-10-07T14:09:30-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-examining-characteristics-of-public-schools/</loc>
-    <lastmod>2021-09-22T12:09:26-04:00</lastmod>
+    <lastmod>2021-10-07T14:07:35-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth/</loc>
-    <lastmod>2021-09-22T12:09:37-04:00</lastmod>
+    <lastmod>2021-10-07T14:08:38-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2/</loc>
+    <lastmod>2021-10-07T14:09:19-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-blog-post-1-read-in-data/</loc>
-    <lastmod>2021-09-22T12:09:23-04:00</lastmod>
+    <lastmod>2021-10-07T14:07:22-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-homework-1-molly-hackbarth/</loc>
-    <lastmod>2021-09-22T12:09:31-04:00</lastmod>
+    <lastmod>2021-10-07T14:07:57-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-15-lets-try-a-blog-shall-we/</loc>
-    <lastmod>2021-09-22T12:09:34-04:00</lastmod>
+    <lastmod>2021-10-07T14:08:16-04:00</lastmod>
   </url>
   <url>
     <loc>https://mrolfe.github.io/DACSS601Fall21/posts/welcome/</loc>
-    <lastmod>2021-09-22T12:09:39-04:00</lastmod>
+    <lastmod>2021-10-07T14:16:34-04:00</lastmod>
   </url>
 </urlset>

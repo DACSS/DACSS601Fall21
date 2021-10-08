@@ -1,12 +1,7 @@
 Version: 1.0
 
-<<<<<<< HEAD
-RestoreWorkspace: Default
-SaveWorkspace: Default
-=======
 RestoreWorkspace: No
 SaveWorkspace: No
->>>>>>> main
 AlwaysSaveHistory: Default
 
 EnableCodeIndexing: Yes
@@ -17,11 +12,8 @@ Encoding: UTF-8
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
-<<<<<<< HEAD
-=======
 AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
 LineEndingConversion: Posix
 
->>>>>>> main
 BuildType: Website

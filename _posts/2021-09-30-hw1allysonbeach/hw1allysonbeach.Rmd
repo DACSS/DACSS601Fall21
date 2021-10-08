@@ -1,0 +1,42 @@
+---
+title: hw1allysonbeach
+description: HW1
+author: Allyson Beach
+date: 09-30-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Introduction
+Hello everyone! My name is Allyson Beach. I have never used R before this course, but am excited to learn more about it. I am in my final semester in the CS masters program. For this first post, I will plot some simulated data. 
+
+## Objective 
+We will create a vector through the sequence function from 1 to 10 by increments of 1 (default). We will then plot this data with ggplot2 package as a function of y = 2x. 
+
+## Data
+```{r data}
+x <- seq(1, 10)
+x
+y <- x*2
+y
+```
+We can also change the x data to be incremented by 2.
+
+```{r data2}
+x <- seq(1,20, 2)
+x
+y <- x*2
+y
+```
+Here we will plot the data using the ggplot2 package. 
+
+```{r plot}
+figure <- ggplot2::qplot(x,y)
+show(figure)
+```

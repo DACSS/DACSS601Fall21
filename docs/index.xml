@@ -12,7 +12,123 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>HW-2 Updated</title>
+      <dc:creator>Justin</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin</link>
+      <description>Reading in blogpost data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin</guid>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-04-hw2-justin/hw2-justin_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>HW#3 - Transforming the US public schools data set</title>
+      <dc:creator>Brittany Kenison</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-03-hw3-brittany-kenison</link>
+      <description>Using the public school characteristic data set collected in the 2017-2018 school year</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-03-hw3-brittany-kenison</guid>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Homework Two: Reading in Data</title>
+      <dc:creator>Megan Georges</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-hw2-post-georges</link>
+      <description>HW2 practice reading in data with the railroad_2012_clean_county.csv dataset</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-hw2-post-georges</guid>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Pivot Challenge</title>
+      <dc:creator>Molly Hackbarth</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-the-pivot-challenge-molly-hackbarth</link>
+      <description>Trying to understand the world of pivot longer and pivot wider with debt in trillions and household income.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-01-the-pivot-challenge-molly-hackbarth</guid>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>hw1allysonbeach</title>
+      <dc:creator>Allyson Beach</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw1allysonbeach</link>
+      <description>HW1</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw1allysonbeach</guid>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw1allysonbeach/hw1allysonbeach_files/figure-html5/plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>HW2</title>
+      <dc:creator>Allyson Beach</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw2-allyson-beach</link>
+      <description>HW2</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw2-allyson-beach</guid>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-30-hw2-allyson-beach/hw2-allyson-beach_files/figure-html5/factors-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>First blog post using Distill</title>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill</link>
+      <description>I'm going to make my first blog post. Once I figure that out, I'll try reading in some data.I am also experimenting with R Markdown text formatting such as **bold text** and *italics*</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill</guid>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>homework 3: basic data wrangling</title>
+      <dc:creator>Claire Battaglia</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-27-homework-3-basic-data-wrangling</link>
+      <description>the adventure continues</description>
+      <category>homework 3</category>
+      <category>data wrangling</category>
+      <category>organiceggspoultry.xls</category>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-27-homework-3-basic-data-wrangling</guid>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Reading in the Data (Homework 2): Birds</title>
+      <dc:creator>Eliza Geeslin</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-geeslin-hw-2-read-in-data</link>
+      <description>Practice getting the dataset into RStudio and beginning to understand it.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-geeslin-hw-2-read-in-data</guid>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>HW1</title>
+      <dc:creator>Justin Flattery</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw1-justin</link>
+      <description>Reading in blogpost data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-hw1-justin</guid>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>[HW3 Data Wrangling]</title>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-insert-post-title</link>
+      <description>In this distill blog post I will be reading in the eggs data and perforrming basic data wrangling operations using dplyr functions.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-26-insert-post-title</guid>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Homework 1: Blog Post</title>
+      <dc:creator>Megan Georges</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-25-hw1-blog-georges</link>
+      <description>My 1st attempt at a blog post.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-25-hw1-blog-georges</guid>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-25-hw1-blog-georges/hw1-blog-georges_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Homework 3</title>
+      <dc:creator>Molly Hackbarth</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-23-homework-3-molly-hackbarth</link>
+      <description>Working with Australian Marriages Laws.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-23-homework-3-molly-hackbarth</guid>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Tyler Paske HW#2</title>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-18-insert-post-title</link>
+      <description>My attempt to post reading in eggs data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-18-insert-post-title</guid>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>HW#2 - Getting familiar with the US public schools data set</title>
       <dc:creator>Brittany Kenison</dc:creator>
@@ -28,6 +144,15 @@
       <description>Homework 2 - Reading and pulling data.</description>
       <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-homework-2-molly-hackbarth</guid>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Quinn He HW2</title>
+      <dc:creator>Quinn He</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2</link>
+      <description>Homework 2 where I try to open datasets and see what I can do with it.</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2</guid>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-16-quinn-he-hw2/quinn-he-hw2_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>blog post 1: reading in data</title>

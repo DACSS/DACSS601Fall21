@@ -1,0 +1,36 @@
+---
+title: 'Homework Two: Reading in Data'
+description: |
+  HW2 practice reading in data with the railroad_2012_clean_county.csv dataset
+author: Megan Georges
+date: 10-01-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Practice reading in data
+
+I will be using the 2012 US Railroad Employment dataset. This data breaks down US railroad employment in 2012 by state and county.
+
+```{r}
+Railroad <- read.csv("../../_data/railroad_2012_clean_county.csv")
+```
+
+## Descriptive Statistics
+
+Below is some information on the railroad dataset.
+
+```{r}
+colnames(Railroad)
+summary(Railroad)
+```
+
+
