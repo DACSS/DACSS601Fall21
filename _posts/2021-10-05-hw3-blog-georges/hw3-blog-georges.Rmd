@@ -1,13 +1,13 @@
 ---
-title: "Homework 3: Basic Data Wrangling"
+title: 'Homework 3: Basic Data Wrangling'
 description: |
   Practice wrangling data with the Australian Marraige Law Excel document.
 author: Megan Georges
 date: 10-05-2021
 output:
   distill::distill_article:
-    self_contained: false
-draft: true
+    self_contained: no
+draft: yes
 ---
 
 

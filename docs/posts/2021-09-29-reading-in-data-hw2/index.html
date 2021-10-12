@@ -104,14 +104,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Reading in Data"/>
 <meta property="og:url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-reading-in-data-hw2/"/>
+<meta property="og:image" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-reading-in-data-hw2/Reading_in_data_HW2_files/figure-html5/unnamed-chunk-6-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="DACSS 601 Fall 2021"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="DACSS 601 Fall 2021: Homework_2 "/>
 <meta property="twitter:description" content="Reading in Data"/>
 <meta property="twitter:url" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-reading-in-data-hw2/"/>
+<meta property="twitter:image" content="https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-reading-in-data-hw2/Reading_in_data_HW2_files/figure-html5/unnamed-chunk-6-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
 <meta property="twitter:site" content="@UMassDACSS"/>
 <meta property="twitter:creator" content="@UMassDACSS"/>
 
@@ -2417,289 +2423,697 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <p><strong>This R chunk uses an alternative to the <em>summary</em> function called <em>Skim</em>. <em>Skim</em> provides a comprehensive overview of the <em>mtcars</em> data set as well as providing a visualization of the data in the rows represented by histograms.</strong></p>
 <div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:unnamed-chunk-2">Table 1: </span>Data summary</caption>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1: </span>Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">mtcars</td>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+mtcars
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">32</td>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+32
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">11</td>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+11
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">11</td>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+11
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Variable type: numeric</strong></p>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">p0</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p100</th>
-<th style="text-align: left;">hist</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">mpg</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">20.09</td>
-<td style="text-align: right;">6.03</td>
-<td style="text-align: right;">10.40</td>
-<td style="text-align: right;">15.43</td>
-<td style="text-align: right;">19.20</td>
-<td style="text-align: right;">22.80</td>
-<td style="text-align: right;">33.90</td>
-<td style="text-align: left;">▃▇▅▁▂</td>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20.09
+</td>
+<td style="text-align:right;">
+6.03
+</td>
+<td style="text-align:right;">
+10.40
+</td>
+<td style="text-align:right;">
+15.43
+</td>
+<td style="text-align:right;">
+19.20
+</td>
+<td style="text-align:right;">
+22.80
+</td>
+<td style="text-align:right;">
+33.90
+</td>
+<td style="text-align:left;">
+&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">cyl</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6.19</td>
-<td style="text-align: right;">1.79</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">6.00</td>
-<td style="text-align: right;">8.00</td>
-<td style="text-align: right;">8.00</td>
-<td style="text-align: left;">▆▁▃▁▇</td>
+<tr>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6.19
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+8.00
+</td>
+<td style="text-align:right;">
+8.00
+</td>
+<td style="text-align:left;">
+&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">disp</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">230.72</td>
-<td style="text-align: right;">123.94</td>
-<td style="text-align: right;">71.10</td>
-<td style="text-align: right;">120.83</td>
-<td style="text-align: right;">196.30</td>
-<td style="text-align: right;">326.00</td>
-<td style="text-align: right;">472.00</td>
-<td style="text-align: left;">▇▃▃▃▂</td>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+230.72
+</td>
+<td style="text-align:right;">
+123.94
+</td>
+<td style="text-align:right;">
+71.10
+</td>
+<td style="text-align:right;">
+120.83
+</td>
+<td style="text-align:right;">
+196.30
+</td>
+<td style="text-align:right;">
+326.00
+</td>
+<td style="text-align:right;">
+472.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">hp</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">146.69</td>
-<td style="text-align: right;">68.56</td>
-<td style="text-align: right;">52.00</td>
-<td style="text-align: right;">96.50</td>
-<td style="text-align: right;">123.00</td>
-<td style="text-align: right;">180.00</td>
-<td style="text-align: right;">335.00</td>
-<td style="text-align: left;">▇▇▆▃▁</td>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+146.69
+</td>
+<td style="text-align:right;">
+68.56
+</td>
+<td style="text-align:right;">
+52.00
+</td>
+<td style="text-align:right;">
+96.50
+</td>
+<td style="text-align:right;">
+123.00
+</td>
+<td style="text-align:right;">
+180.00
+</td>
+<td style="text-align:right;">
+335.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2581&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">drat</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3.60</td>
-<td style="text-align: right;">0.53</td>
-<td style="text-align: right;">2.76</td>
-<td style="text-align: right;">3.08</td>
-<td style="text-align: right;">3.70</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">4.93</td>
-<td style="text-align: left;">▇▃▇▅▁</td>
+<tr>
+<td style="text-align:left;">
+drat
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.60
+</td>
+<td style="text-align:right;">
+0.53
+</td>
+<td style="text-align:right;">
+2.76
+</td>
+<td style="text-align:right;">
+3.08
+</td>
+<td style="text-align:right;">
+3.70
+</td>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:right;">
+4.93
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2581&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">wt</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3.22</td>
-<td style="text-align: right;">0.98</td>
-<td style="text-align: right;">1.51</td>
-<td style="text-align: right;">2.58</td>
-<td style="text-align: right;">3.33</td>
-<td style="text-align: right;">3.61</td>
-<td style="text-align: right;">5.42</td>
-<td style="text-align: left;">▃▃▇▁▂</td>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.22
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+<td style="text-align:right;">
+1.51
+</td>
+<td style="text-align:right;">
+2.58
+</td>
+<td style="text-align:right;">
+3.33
+</td>
+<td style="text-align:right;">
+3.61
+</td>
+<td style="text-align:right;">
+5.42
+</td>
+<td style="text-align:left;">
+&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">qsec</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">17.85</td>
-<td style="text-align: right;">1.79</td>
-<td style="text-align: right;">14.50</td>
-<td style="text-align: right;">16.89</td>
-<td style="text-align: right;">17.71</td>
-<td style="text-align: right;">18.90</td>
-<td style="text-align: right;">22.90</td>
-<td style="text-align: left;">▃▇▇▂▁</td>
+<tr>
+<td style="text-align:left;">
+qsec
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+17.85
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+<td style="text-align:right;">
+14.50
+</td>
+<td style="text-align:right;">
+16.89
+</td>
+<td style="text-align:right;">
+17.71
+</td>
+<td style="text-align:right;">
+18.90
+</td>
+<td style="text-align:right;">
+22.90
+</td>
+<td style="text-align:left;">
+&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">vs</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.44</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: left;">▇▁▁▁▆</td>
+<tr>
+<td style="text-align:left;">
+vs
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.44
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">am</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.41</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: left;">▇▁▁▁▆</td>
+<tr>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.41
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">gear</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3.69</td>
-<td style="text-align: right;">0.74</td>
-<td style="text-align: right;">3.00</td>
-<td style="text-align: right;">3.00</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">5.00</td>
-<td style="text-align: left;">▇▁▆▁▂</td>
+<tr>
+<td style="text-align:left;">
+gear
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.69
+</td>
+<td style="text-align:right;">
+0.74
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+5.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">carb</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2.81</td>
-<td style="text-align: right;">1.62</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">2.00</td>
-<td style="text-align: right;">2.00</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">8.00</td>
-<td style="text-align: left;">▇▂▅▁▁</td>
+<tr>
+<td style="text-align:left;">
+carb
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2.81
+</td>
+<td style="text-align:right;">
+1.62
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+8.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><strong>This R chunk exemplifies the granularity of the <em>Skim</em> package by selecting specific columns to summarize.</strong></p>
 <div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:unnamed-chunk-3">Table 2: </span>Data summary</caption>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+<span id="tab:unnamed-chunk-3">Table 2: </span>Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">mtcars</td>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+mtcars
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">32</td>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+32
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">11</td>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+11
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">2</td>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+2
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Variable type: numeric</strong></p>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">p0</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p100</th>
-<th style="text-align: left;">hist</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">hp</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">146.69</td>
-<td style="text-align: right;">68.56</td>
-<td style="text-align: right;">52.00</td>
-<td style="text-align: right;">96.50</td>
-<td style="text-align: right;">123.00</td>
-<td style="text-align: right;">180.00</td>
-<td style="text-align: right;">335.00</td>
-<td style="text-align: left;">▇▇▆▃▁</td>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+146.69
+</td>
+<td style="text-align:right;">
+68.56
+</td>
+<td style="text-align:right;">
+52.00
+</td>
+<td style="text-align:right;">
+96.50
+</td>
+<td style="text-align:right;">
+123.00
+</td>
+<td style="text-align:right;">
+180.00
+</td>
+<td style="text-align:right;">
+335.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2581&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">wt</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3.22</td>
-<td style="text-align: right;">0.98</td>
-<td style="text-align: right;">1.51</td>
-<td style="text-align: right;">2.58</td>
-<td style="text-align: right;">3.33</td>
-<td style="text-align: right;">3.61</td>
-<td style="text-align: right;">5.42</td>
-<td style="text-align: left;">▃▃▇▁▂</td>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.22
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+<td style="text-align:right;">
+1.51
+</td>
+<td style="text-align:right;">
+2.58
+</td>
+<td style="text-align:right;">
+3.33
+</td>
+<td style="text-align:right;">
+3.61
+</td>
+<td style="text-align:right;">
+5.42
+</td>
+<td style="text-align:left;">
+&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+</td>
 </tr>
 </tbody>
 </table>
@@ -2742,156 +3156,363 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <strong>Summarizes data set using the skim function</strong>
 <div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:unnamed-chunk-9">Table 3: </span>Data summary</caption>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+<span id="tab:unnamed-chunk-9">Table 3: </span>Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">eggs_tidy</td>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+eggs_tidy
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">120</td>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+120
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">6</td>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+6
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">1</td>
+<tr>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">5</td>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+5
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Variable type: character</strong></p>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">max</th>
-<th style="text-align: right;">empty</th>
-<th style="text-align: right;">n_unique</th>
-<th style="text-align: right;">whitespace</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+empty
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:right;">
+whitespace
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">month</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
+<tr>
+<td style="text-align:left;">
+month
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Variable type: numeric</strong></p>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">p0</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p100</th>
-<th style="text-align: left;">hist</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">year</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2008.50</td>
-<td style="text-align: right;">2.88</td>
-<td style="text-align: right;">2004</td>
-<td style="text-align: right;">2006.00</td>
-<td style="text-align: right;">2008.5</td>
-<td style="text-align: right;">2011.0</td>
-<td style="text-align: right;">2013.00</td>
-<td style="text-align: left;">▇▇▇▇▇</td>
+<tr>
+<td style="text-align:left;">
+year
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2008.50
+</td>
+<td style="text-align:right;">
+2.88
+</td>
+<td style="text-align:right;">
+2004
+</td>
+<td style="text-align:right;">
+2006.00
+</td>
+<td style="text-align:right;">
+2008.5
+</td>
+<td style="text-align:right;">
+2011.0
+</td>
+<td style="text-align:right;">
+2013.00
+</td>
+<td style="text-align:left;">
+&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">large_half_dozen</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">155.17</td>
-<td style="text-align: right;">22.59</td>
-<td style="text-align: right;">126</td>
-<td style="text-align: right;">129.44</td>
-<td style="text-align: right;">174.5</td>
-<td style="text-align: right;">174.5</td>
-<td style="text-align: right;">178.00</td>
-<td style="text-align: left;">▆▁▁▁▇</td>
+<tr>
+<td style="text-align:left;">
+large_half_dozen
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+155.17
+</td>
+<td style="text-align:right;">
+22.59
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+129.44
+</td>
+<td style="text-align:right;">
+174.5
+</td>
+<td style="text-align:right;">
+174.5
+</td>
+<td style="text-align:right;">
+178.00
+</td>
+<td style="text-align:left;">
+&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">large_dozen</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">254.20</td>
-<td style="text-align: right;">18.55</td>
-<td style="text-align: right;">225</td>
-<td style="text-align: right;">233.50</td>
-<td style="text-align: right;">267.5</td>
-<td style="text-align: right;">268.0</td>
-<td style="text-align: right;">277.50</td>
-<td style="text-align: left;">▅▂▁▁▇</td>
+<tr>
+<td style="text-align:left;">
+large_dozen
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+254.20
+</td>
+<td style="text-align:right;">
+18.55
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:right;">
+233.50
+</td>
+<td style="text-align:right;">
+267.5
+</td>
+<td style="text-align:right;">
+268.0
+</td>
+<td style="text-align:right;">
+277.50
+</td>
+<td style="text-align:left;">
+&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">extra_large_half_dozen</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">164.22</td>
-<td style="text-align: right;">24.68</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">135.78</td>
-<td style="text-align: right;">185.5</td>
-<td style="text-align: right;">185.5</td>
-<td style="text-align: right;">188.13</td>
-<td style="text-align: left;">▆▁▁▁▇</td>
+<tr>
+<td style="text-align:left;">
+extra_large_half_dozen
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+164.22
+</td>
+<td style="text-align:right;">
+24.68
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+135.78
+</td>
+<td style="text-align:right;">
+185.5
+</td>
+<td style="text-align:right;">
+185.5
+</td>
+<td style="text-align:right;">
+188.13
+</td>
+<td style="text-align:left;">
+&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">extra_large_dozen</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">266.80</td>
-<td style="text-align: right;">22.80</td>
-<td style="text-align: right;">230</td>
-<td style="text-align: right;">241.50</td>
-<td style="text-align: right;">285.5</td>
-<td style="text-align: right;">285.5</td>
-<td style="text-align: right;">290.00</td>
-<td style="text-align: left;">▅▂▁▁▇</td>
+<tr>
+<td style="text-align:left;">
+extra_large_dozen
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+266.80
+</td>
+<td style="text-align:right;">
+22.80
+</td>
+<td style="text-align:right;">
+230
+</td>
+<td style="text-align:right;">
+241.50
+</td>
+<td style="text-align:right;">
+285.5
+</td>
+<td style="text-align:right;">
+285.5
+</td>
+<td style="text-align:right;">
+290.00
+</td>
+<td style="text-align:left;">
+&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+</td>
 </tr>
 </tbody>
 </table>
