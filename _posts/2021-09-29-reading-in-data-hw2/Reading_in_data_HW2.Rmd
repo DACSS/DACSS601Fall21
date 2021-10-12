@@ -1,0 +1,121 @@
+---
+title: 'Homework_2 '
+description: Reading in Data
+author:
+- name: Cynthia Hester
+date: 09-29-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Reading in the first data set
+
+Reading in or importing data files to RStudio is a necessary step to gain access to any files that are needed for cleaning or tidying. After imported data is cleaned, it is then more suitable for exploration.
+
+
+As we know data formats are not homogeneous,and come in many different flavors. So,whether data is in **CSV, SPSS,XLSX,SAS,TXT,STATA,or HTML** as well as many other formats, there is usually R package to read in the data.
+
+
+The first data set I will read in is from the included R package "Data Sets". It is the *MTCars* (MotorTrend) dataset which was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption as well as 10 aspects of automotive design and performance for 32 cars (1973-74).
+
+
+
+**This R chunk loads in the data sets package and provides a summary of the statistics for the *mtcars* data set**
+
+```{r}
+library(datasets)
+summary(mtcars)
+
+```
+
+
+
+
+**This R chunk uses an alternative to the *summary* function called *Skim*. *Skim* provides a comprehensive overview of the *mtcars* data set as well as providing a visualization of the  data in the rows represented by histograms.**
+
+
+```{r}
+library(skimr)
+skim(mtcars)
+```
+
+
+
+
+
+**This R chunk exemplifies the granularity of the *Skim* package by selecting specific columns to summarize.**
+
+
+```{r}
+skim(mtcars,hp,wt)
+```
+
+
+
+
+
+**This R chunk provides the column names of the *mtcars* dataset using the colnames() function.**
+
+```{r}
+colnames(mtcars)
+```
+
+
+
+
+
+**This R chuck introduces the *dim()* function provides information on the dimensions of the data set,which shows this data array to have 32 rows and 11 columns.**
+
+```{r}
+dim(mtcars)
+```
+
+
+
+
+**This R chunk shows a generic visualization of the *mtcars* object using the *plot()* function.**
+```{r}
+plot(mtcars)
+```
+
+
+
+## The Second Data Set comes from the course csv file eggs_tidy. 
+
+I wanted to try reading data in from an external data set, that used the csv format.
+
+
+**This first R chunk reads in the eggs tidy csv data**
+
+```{r}
+library(readr)
+eggs_tidy <- read_csv("../../_data/eggs_tidy.csv")
+```
+
+
+**Summarizes the eggs_tidy data set**
+```{r}
+summary(eggs_tidy)
+```
+
+
+
+**Summarizes data set using the skim function**
+```{r}
+skim(eggs_tidy)
+```
+
+**This chunk uses the *tibble function* which provides a more comprehensive and readable  data frame**
+
+```{r}
+library(tibble)
+as_tibble(eggs_tidy)
+```
+
+
