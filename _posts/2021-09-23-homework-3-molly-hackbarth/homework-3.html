@@ -1628,9 +1628,9 @@ NA
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marriages7</span> <span class='op'>&lt;-</span> <span class='va'>marriages7</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>select</span><span class='op'>(</span><span class='op'>!</span><span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"d1"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"NA"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"(Total)"</span><span class='op'>)</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"d1"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"NA"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"(Total)"</span><span class='op'>)</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </div>
@@ -1639,7 +1639,7 @@ NA
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marriages7</span> <span class='op'>&lt;-</span> <span class='va'>marriages7</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>mutate</span><span class='op'>(</span>Footnotes <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>Footnotes <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span>
     <span class='fu'><a href='https://rdrr.io/r/base/startsWith.html'>endsWith</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"c)"</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"(c) Includes Christmas Island and the Cocos (Keeling) Islands"</span>,
     <span class='fu'><a href='https://rdrr.io/r/base/startsWith.html'>endsWith</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"d)"</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"(d) Includes Norfolk Island"</span>,
     <span class='fu'><a href='https://rdrr.io/r/base/startsWith.html'>endsWith</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"e)"</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"(e) Includes Jervis Bay"</span>,
@@ -1658,11 +1658,11 @@ NA
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marriages7</span> <span class='op'>&lt;-</span> <span class='va'>marriages7</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"Divisions"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"Australia"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"(a) The Federal Electoral Division boundaries are current as at 24 August 2017
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"Divisions"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"Australia"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://stringr.tidyverse.org/reference/str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>Cities</span>, <span class='st'>"(a) The Federal Electoral Division boundaries are current as at 24 August 2017
 "</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-<span class='fu'>slice</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>151</span><span class='op'>:</span><span class='fl'>155</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>151</span><span class='op'>:</span><span class='fl'>155</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>marriages7</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1692,7 +1692,7 @@ NA
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marriages</span> <span class='op'>%&gt;%</span>
-<span class='fu'>arrange</span><span class='op'>(</span><span class='va'>marriages</span>, <span class='st'>"Cities"</span><span class='op'>)</span>
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>marriages</span>, <span class='st'>"Cities"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 150 x 16
@@ -1717,8 +1717,8 @@ NA
 #   Eligible Participants Not Clear Number &lt;dbl&gt;, ...</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marriages</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>select</span><span class='op'>(</span><span class='fu'>contains</span><span class='op'>(</span><span class='st'>"number"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarize_all</span><span class='op'>(</span><span class='va'>median</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"number"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise_all.html'>summarize_all</a></span><span class='op'>(</span><span class='va'>median</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <pre><code># A tibble: 1 x 7
@@ -1731,8 +1731,8 @@ NA
 #   Total Number Eligable Participants &lt;dbl&gt;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marriages</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>select</span><span class='op'>(</span><span class='fu'>ends_with</span><span class='op'>(</span><span class='st'>"e"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise_all</span><span class='op'>(</span><span class='va'>median</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>ends_with</a></span><span class='op'>(</span><span class='st'>"e"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise_all.html'>summarise_all</a></span><span class='op'>(</span><span class='va'>median</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 1 x 6

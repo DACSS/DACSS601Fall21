@@ -1496,7 +1496,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 5          5.0         3.6          1.4         0.2  setosa
 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>iris_tibble</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>iris_tibble</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>iris_tibble</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1569,12 +1569,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://here.r-lib.org/'>here</a></span><span class='op'>)</span>
 <span class='co'># using the absolute path to read in csv file</span>
-<span class='va'>animal_weights_absolute</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span>
+<span class='va'>animal_weights_absolute</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span>
 <span class='st'>"../../_data/animal_weight.csv"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'>#using relative path to read in the csv file</span>
-<span class='va'>animal_weights_relative</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"../../_data/animal_weight.csv"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>animal_weights_relative</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"../../_data/animal_weight.csv"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'>#using here to get relative path to read in csv file</span>
-<span class='va'>animal_weights_here</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"_data"</span>, <span class='st'>"animal_weight.csv"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>animal_weights_here</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"_data"</span>, <span class='st'>"animal_weight.csv"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -1653,8 +1653,8 @@ tile</code></pre>
 <span class='fu'><a href='https://stringr.tidyverse.org/reference/str_view.html'>str_view</a></span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"berry"</span>, match<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
-<div id="htmlwidget-72e44f9bb51a4356abc9" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-72e44f9bb51a4356abc9">{"x":{"html":"<ul>\n  <li>bil<span class='match'>berry<\/span><\/li>\n  <li>black<span class='match'>berry<\/span><\/li>\n  <li>blue<span class='match'>berry<\/span><\/li>\n  <li>boysen<span class='match'>berry<\/span><\/li>\n  <li>cloud<span class='match'>berry<\/span><\/li>\n  <li>cran<span class='match'>berry<\/span><\/li>\n  <li>elder<span class='match'>berry<\/span><\/li>\n  <li>goji <span class='match'>berry<\/span><\/li>\n  <li>goose<span class='match'>berry<\/span><\/li>\n  <li>huckle<span class='match'>berry<\/span><\/li>\n  <li>mul<span class='match'>berry<\/span><\/li>\n  <li>rasp<span class='match'>berry<\/span><\/li>\n  <li>salal <span class='match'>berry<\/span><\/li>\n  <li>straw<span class='match'>berry<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-880c9a102d0fddea7fbe" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-880c9a102d0fddea7fbe">{"x":{"html":"<ul>\n  <li>bil<span class='match'>berry<\/span><\/li>\n  <li>black<span class='match'>berry<\/span><\/li>\n  <li>blue<span class='match'>berry<\/span><\/li>\n  <li>boysen<span class='match'>berry<\/span><\/li>\n  <li>cloud<span class='match'>berry<\/span><\/li>\n  <li>cran<span class='match'>berry<\/span><\/li>\n  <li>elder<span class='match'>berry<\/span><\/li>\n  <li>goji <span class='match'>berry<\/span><\/li>\n  <li>goose<span class='match'>berry<\/span><\/li>\n  <li>huckle<span class='match'>berry<\/span><\/li>\n  <li>mul<span class='match'>berry<\/span><\/li>\n  <li>rasp<span class='match'>berry<\/span><\/li>\n  <li>salal <span class='match'>berry<\/span><\/li>\n  <li>straw<span class='match'>berry<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <p><strong>Factors</strong> Factors are a way to create categories within your data. For instance, we might have many different types of vehicles. With factors, we can create categories of “truck”, “sedan”, “suv”, etc. Another useful aspect of the factor data type is that it can be used to sort the dataset in a specific way instead of just alphabetic. We will work with the <em>gss_cat</em> dataset since it has many factor data types.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1685,7 +1685,7 @@ tile</code></pre>
 [4] &quot;Not applicable&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># another way is to use the count() function</span>
-<span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> <span class='fu'>count</span><span class='op'>(</span><span class='va'>race</span><span class='op'>)</span>
+<span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>race</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 3 x 2
@@ -1704,9 +1704,9 @@ tile</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># after we change factor codes </span>
 <span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> 
-<span class='fu'>mutate</span><span class='op'>(</span>rincome <span class='op'>=</span> <span class='fu'>fct_recode</span><span class='op'>(</span><span class='va'>rincome</span>, 
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>rincome <span class='op'>=</span> <span class='fu'>fct_recode</span><span class='op'>(</span><span class='va'>rincome</span>, 
                               <span class='st'>"Less than $1000"</span> <span class='op'>=</span> <span class='st'>"Lt $1000"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>rincome <span class='op'>=</span> <span class='fu'>fct_recode</span><span class='op'>(</span><span class='va'>rincome</span>, 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>rincome <span class='op'>=</span> <span class='fu'>fct_recode</span><span class='op'>(</span><span class='va'>rincome</span>, 
                               <span class='st'>"NA"</span> <span class='op'>=</span> <span class='st'>"Not applicable"</span>, 
                               <span class='st'>"NA"</span> <span class='op'>=</span> <span class='st'>"Don't know"</span>, 
                               <span class='st'>"NA"</span> <span class='op'>=</span> <span class='st'>"No answer"</span>, 
@@ -1717,7 +1717,7 @@ tile</code></pre>
 <img src="hw2-allyson-beach_files/figure-html5/factors-2.png" width="624" />
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># can lump the small factors together and remove the "Not applicable", "Don't know", "No answer", "Refused" responses</span>
-<span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> <span class='fu'>count</span><span class='op'>(</span><span class='va'>rincome</span><span class='op'>)</span>
+<span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>rincome</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 16 x 2
@@ -1742,12 +1742,12 @@ tile</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># first filter out the unwanted responses </span>
 <span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> 
-<span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>rincome</span> <span class='op'>%in%</span> 
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>rincome</span> <span class='op'>%in%</span> 
            <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Not applicable"</span>, 
              <span class='st'>"Don't know"</span>, 
              <span class='st'>"No answer"</span>, 
              <span class='st'>"Refused"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-<span class='fu'>count</span><span class='op'>(</span><span class='va'>rincome</span><span class='op'>)</span>
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>rincome</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 12 x 2
@@ -1768,13 +1768,13 @@ tile</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># lump groups outside the largest 8</span>
 <span class='va'>gss_cat</span> <span class='op'>%&gt;%</span> 
-<span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>rincome</span> <span class='op'>%in%</span> 
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>rincome</span> <span class='op'>%in%</span> 
          <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Not applicable"</span>, 
            <span class='st'>"Don't know"</span>, 
            <span class='st'>"No answer"</span>, 
            <span class='st'>"Refused"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-<span class='fu'>mutate</span><span class='op'>(</span>rincome <span class='op'>=</span> <span class='fu'>fct_lump</span><span class='op'>(</span><span class='va'>rincome</span>, n<span class='op'>=</span><span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>  <span class='op'>%&gt;%</span> 
-<span class='fu'>count</span><span class='op'>(</span><span class='va'>rincome</span><span class='op'>)</span> 
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>rincome <span class='op'>=</span> <span class='fu'>fct_lump</span><span class='op'>(</span><span class='va'>rincome</span>, n<span class='op'>=</span><span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>  <span class='op'>%&gt;%</span> 
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>rincome</span><span class='op'>)</span> 
 </code></pre>
 </div>
 <pre><code># A tibble: 9 x 2

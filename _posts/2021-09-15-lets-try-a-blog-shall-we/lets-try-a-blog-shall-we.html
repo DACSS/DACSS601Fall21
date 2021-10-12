@@ -1530,10 +1530,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#set a data frame from a portion of the tidy spreadsheet, filtering to yes votes</span>
-<span class='va'>australian_filter</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>australian_marriage_data</span>, <span class='va'>resp</span> <span class='op'>==</span> <span class='st'>"yes"</span><span class='op'>)</span>
+<span class='va'>australian_filter</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>australian_marriage_data</span>, <span class='va'>resp</span> <span class='op'>==</span> <span class='st'>"yes"</span><span class='op'>)</span>
 
 <span class='co'>#using select to drop the variable I don't want to look at</span>
-<span class='va'>australian_df</span> <span class='op'>&lt;-</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>australian_filter</span>, <span class='op'>-</span><span class='op'>(</span><span class='va'>resp</span><span class='op'>:</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>australian_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>australian_filter</span>, <span class='op'>-</span><span class='op'>(</span><span class='va'>resp</span><span class='op'>:</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>#simple scatter plot of the yes vote percentage for each territory</span>
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>australian_df</span><span class='op'>)</span> <span class='op'>+</span>

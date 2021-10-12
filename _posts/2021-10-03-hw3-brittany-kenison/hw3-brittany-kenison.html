@@ -1543,7 +1543,7 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#update table by selecting fields to be used for analysis</span>
 <span class='va'>psc</span> <span class='op'>&lt;-</span> <span class='va'>psc</span><span class='op'>%&gt;%</span>
-  <span class='fu'>select</span> <span class='op'>(</span><span class='va'>LEA_NAME</span>, <span class='va'>SCH_NAME</span>, <span class='va'>LSTATE</span>, <span class='va'>FRELCH</span>, <span class='va'>REDLCH</span>, <span class='va'>ULOCALE</span>, <span class='va'>STUTERATIO</span>, <span class='va'>FTE</span>, <span class='va'>PK</span><span class='op'>:</span><span class='va'>G13</span><span class='op'>)</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span> <span class='op'>(</span><span class='va'>LEA_NAME</span>, <span class='va'>SCH_NAME</span>, <span class='va'>LSTATE</span>, <span class='va'>FRELCH</span>, <span class='va'>REDLCH</span>, <span class='va'>ULOCALE</span>, <span class='va'>STUTERATIO</span>, <span class='va'>FTE</span>, <span class='va'>PK</span><span class='op'>:</span><span class='va'>G13</span><span class='op'>)</span> 
 
 <span class='co'>#display column names of updated table</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>psc</span><span class='op'>)</span>
@@ -1566,7 +1566,7 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#rename columns into a readable format</span>
 <span class='va'>psc</span> <span class='op'>&lt;-</span> <span class='va'>psc</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>rename</span><span class='op'>(</span>District <span class='op'>=</span> <span class='va'>LEA_NAME</span>, School <span class='op'>=</span> <span class='va'>SCH_NAME</span>, State <span class='op'>=</span> <span class='va'>LSTATE</span>, Free_Lunch <span class='op'>=</span> <span class='va'>FRELCH</span>, Reduced_Lunch <span class='op'>=</span> <span class='va'>REDLCH</span>, Rural_Urban_Status  <span class='op'>=</span> <span class='va'>ULOCALE</span>, Student_Teacher_Ratio <span class='op'>=</span> <span class='va'>STUTERATIO</span>, Teacher_counts <span class='op'>=</span> <span class='va'>FTE</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>District <span class='op'>=</span> <span class='va'>LEA_NAME</span>, School <span class='op'>=</span> <span class='va'>SCH_NAME</span>, State <span class='op'>=</span> <span class='va'>LSTATE</span>, Free_Lunch <span class='op'>=</span> <span class='va'>FRELCH</span>, Reduced_Lunch <span class='op'>=</span> <span class='va'>REDLCH</span>, Rural_Urban_Status  <span class='op'>=</span> <span class='va'>ULOCALE</span>, Student_Teacher_Ratio <span class='op'>=</span> <span class='va'>STUTERATIO</span>, Teacher_counts <span class='op'>=</span> <span class='va'>FTE</span><span class='op'>)</span>
 
 <span class='co'>#display updated column names</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>psc</span><span class='op'>)</span>
@@ -1598,8 +1598,8 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>##create a new table (psc_char) with school level characteristic data with one row per school</span>
 <span class='va'>psc_char</span> <span class='op'>&lt;-</span> <span class='va'>psc</span><span class='op'>%&gt;%</span>
-<span class='fu'>select</span> <span class='op'>(</span><span class='va'>State</span>, <span class='va'>District</span>, <span class='va'>School</span>, <span class='va'>Free_Lunch</span>, <span class='va'>Reduced_Lunch</span>, <span class='va'>Rural_Urban_Status</span>, <span class='va'>Student_Teacher_Ratio</span>, <span class='va'>Teacher_counts</span><span class='op'>)</span><span class='op'>%&gt;%</span>
-  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>State</span>, <span class='va'>District</span>, <span class='va'>School</span><span class='op'>)</span>
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span> <span class='op'>(</span><span class='va'>State</span>, <span class='va'>District</span>, <span class='va'>School</span>, <span class='va'>Free_Lunch</span>, <span class='va'>Reduced_Lunch</span>, <span class='va'>Rural_Urban_Status</span>, <span class='va'>Student_Teacher_Ratio</span>, <span class='va'>Teacher_counts</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>State</span>, <span class='va'>District</span>, <span class='va'>School</span><span class='op'>)</span>
 
 <span class='co'>#display a subset of the results</span>
 <span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>psc_char</span>, options<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>rows.print <span class='op'>=</span> <span class='fl'>10</span>, max.print <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
@@ -1623,8 +1623,8 @@ Show code
 <span class='co'>##pivot grade columns into a single variable and store the values in new column.</span>
 <span class='va'>psc_grade</span> <span class='op'>&lt;-</span> <span class='va'>psc</span> <span class='op'>%&gt;%</span>
   <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='va'>PK</span><span class='op'>:</span><span class='va'>G13</span>, names_to <span class='op'>=</span> <span class='st'>"Grade"</span>, values_to<span class='op'>=</span> <span class='st'>"Grade_Counts"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>select</span><span class='op'>(</span><span class='va'>State</span>, <span class='va'>School</span>, <span class='va'>Grade</span>, <span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>%&gt;%</span>
-  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>State</span>, <span class='va'>School</span>, <span class='va'>Grade</span>, <span class='va'>Grade_Counts</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>State</span>, <span class='va'>School</span>, <span class='va'>Grade</span>, <span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>State</span>, <span class='va'>School</span>, <span class='va'>Grade</span>, <span class='va'>Grade_Counts</span><span class='op'>)</span>
 
 <span class='co'>#display a subset of the results</span>
 <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>psc_grade</span><span class='op'>)</span>, <span class='st'>"simple"</span>, caption <span class='op'>=</span> <span class='st'>"Student counts by grade"</span><span class='op'>)</span>
@@ -1694,9 +1694,9 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#counts of schools by state using psc_char table since it represents a single school per row</span>
 <span class='co'>#Sort from lowest to highest count</span>
 <span class='va'>state_counts</span> <span class='op'>&lt;-</span> <span class='va'>psc_char</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>State</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>State</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span>
 
 <span class='co'>#display results</span>
 <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kbl.html'>kbl</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>state_counts</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>, <span class='st'>"simple"</span>, caption <span class='op'>=</span> <span class='st'>"Six states with lowest number of schools"</span><span class='op'>)</span>
@@ -1749,9 +1749,9 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#counts of schools by state/territory using psc_char table since it represents a single school per row</span>
 <span class='co'>#sort by highest to lowest counts</span>
 <span class='va'>state_counts</span> <span class='op'>&lt;-</span> <span class='va'>psc_char</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>State</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>State</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>#display results</span>
 <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kbl.html'>kbl</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>state_counts</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>, <span class='st'>"simple"</span>, caption <span class='op'>=</span> <span class='st'>"Six states with the highest number of schools"</span><span class='op'>)</span>
@@ -1804,10 +1804,10 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#find the number of schools by the locale type (aka, rural/urban)</span>
 <span class='va'>locale_type</span> <span class='op'>&lt;-</span> <span class='va'>psc_char</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>Rural_Urban_Status</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Rural_Urban_Status</span><span class='op'>)</span>
 
 <span class='co'>#display results</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'>select</span><span class='op'>(</span><span class='va'>locale_type</span>, <span class='va'>Rural_Urban_Status</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>locale_type</span>, <span class='va'>Rural_Urban_Status</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
@@ -1830,14 +1830,14 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#group sub-types to report the number of schools by the locale type </span>
 <span class='va'>localeGroup</span> <span class='op'>&lt;-</span> <span class='va'>psc_char</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>LocaleGroup <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>LocaleGroup <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span>
     <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"41-Rural: Fringe"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"42-Rural: Distant"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"43-Rural: Remote"</span> <span class='op'>~</span> <span class='st'>"Rural"</span>, 
     <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"31-Town: Fringe"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"32-Town: Distant"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"33-Town: Remote"</span> <span class='op'>~</span> <span class='st'>"Town"</span>,
     <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"21-Suburb: Large"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"21-Suburb: Large"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"21-Suburb: Large"</span> <span class='op'>~</span> <span class='st'>"Suburb"</span>,
     <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"11-City: Large"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"12-City: Mid-size"</span> <span class='op'>|</span> <span class='va'>Rural_Urban_Status</span> <span class='op'>==</span> <span class='st'>"13-City: Small"</span> <span class='op'>~</span> <span class='st'>"City"</span>
       <span class='op'>)</span><span class='op'>)</span>
 <span class='co'>#display results</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'>select</span><span class='op'>(</span><span class='va'>localeGroup</span>, <span class='va'>LocaleGroup</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>localeGroup</span>, <span class='va'>LocaleGroup</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
@@ -1855,8 +1855,8 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#count the number of students for each grade</span>
 <span class='va'>t_gradeCount</span> <span class='op'>&lt;-</span> <span class='va'>psc_grade</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>Grade</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>GradeCount <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Grade</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>GradeCount <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>t_gradeCount</span><span class='op'>)</span>
 </code></pre>
@@ -2008,9 +2008,9 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#filter out rows where grade counts are null</span>
 <span class='co'>#used same code as above to group grade counts by grade</span>
 <span class='va'>t_gradeCountCorrect</span> <span class='op'>&lt;-</span> <span class='va'>psc_grade</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>)</span><span class='op'>%&gt;%</span>
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>Grade</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>GradeCount <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Grade</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>GradeCount <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Grade_Counts</span><span class='op'>)</span><span class='op'>)</span>
   
 <span class='co'>#display results</span>
   <span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>t_gradeCountCorrect</span><span class='op'>)</span>
