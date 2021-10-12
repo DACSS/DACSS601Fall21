@@ -1,0 +1,59 @@
+---
+title: Quinn He HW2
+description: "Homework 2 where I try to open datasets and see what I can do with it.
+  \n"
+author: Quinn He
+date: 09-16-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+```{r}
+hotel_bookings <- read_csv("../../_data/hotel_bookings.csv")
+
+
+```
+
+## Amount of weekend nights stayed in (per party)
+
+```{r}
+
+ggplot(hotel_bookings, aes(stays_in_weekend_nights)) + geom_bar()
+
+```
+## Guests that have children
+
+```{r}
+ggplot(hotel_bookings, aes(children)) + geom_bar()
+```
+
+# I wanted to see if there is a relationship between people who stay in on weekend nights and those who have children. It does not appear a large number of guests have children so what else could it be? Perhaps babies?
+
+```{r}
+ggplot(hotel_bookings, aes(babies)) + geom_bar()
+```
+# Cleary that also does not have an impact on the decision.
+
+# Months arrived by customeres
+```{r}
+ ggplot(data = hotel_bookings) +
+geom_bar(mapping = aes(x = arrival_date_month))
+```
+
+
+# Most popular hotel type
+```{r}
+ ggplot(data = hotel_bookings) + 
+  geom_bar(mapping = aes(x = hotel))
+```
+
+

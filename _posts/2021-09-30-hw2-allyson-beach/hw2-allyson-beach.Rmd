@@ -1,0 +1,133 @@
+---
+title: HW2
+description: HW2
+author: Allyson Beach
+date: 09-30-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+# library(datasets)
+knitr::opts_chunk$set(echo = TRUE)
+```
+**Built in Datasets:**
+There are some data sets that are provided as packages built in the R code base. This is a great place to start to look at a data set. We will look at the *iris* data set. It comes in the format as a data.frame which is the default data structure. However, we will convert it to a tibble that allows for some easier data manipulations later on with the *as_tibble()* function. 
+
+```{r read_iris}
+head(iris)
+iris_tibble <- as_tibble(iris)
+head(iris_tibble)
+```
+The tibble format shows the different data types for each column. We can examine the data either with the *head()* function that shows the first 5 or so rows. We can also use the *print()* function and specify how many rows and all the columns to show. This is one of the areas where tibble differentiates from the normal data.frame. We will use the nyc flight data set for this example. 
+
+```{r print_tibble}
+# before print specifications, default 10 rows and only amount of cols that can fit in the screen 
+print(nycflights13::flights)
+# allow 5 rows and all columns to print 
+print(nycflights13::flights, n=5, width=Inf)
+```
+
+
+
+**External Datasets:** 
+The built-in datasets are great for practice. However, most data and analysis is done outside of R and has to be read in. These datasets can come in any format from excel sheets to binary. We will use the tidyverse's *readr* package to read in some datatsets that are in *.csv* format.  
+
+```{r read_animal}
+library(here)
+# using the absolute path to read in csv file
+animal_weights_absolute <- as_tibble(read_csv(
+"../../_data/animal_weight.csv"))
+#using relative path to read in the csv file
+animal_weights_relative <- as_tibble(read_csv("../../_data/animal_weight.csv"))
+#using here to get relative path to read in csv file
+animal_weights_here <- as_tibble(read_csv(here("_data", "animal_weight.csv")))
+```
+**Inline CSV File:**
+We can also write in a data set into the tibble framework. 
+
+```{r write_tibble, results = 'asis'}
+# we created a data set with that shows a sample of all the different data types you can write into a csv file
+my_dataset <- read_csv(
+"'fox', 3, 12.45, TRUE, 2010-01-01\n'hound', 5, 32.45, FALSE, 2010-01-01", 
+col_names = c("string", "integer", "decimals", "logical", "dates"))
+```
+**Data Manipulation**
+There are many different data types that can be read in with a dataset. We will review some ways to manipulate these data types to get in a form that is desirable. 
+
+**String Manipulation**
+Here are some strings that we will play with, "dog", "mark", "London", and "tile". Some other functions that were not touched, but can be further evaluated is str_to_lower, str_to_upper, str_to_title, str_sort, str_order, str_wrap, and str_trim.
+
+```{r string_manipulation}
+# some strings to work with 
+my_strings <- c("dog", "mark", "London", "tile")
+my_strings[1]
+# can print an vector of string as lines 
+writeLines(my_strings)
+# can find the length of strings with str_length
+str_length(my_strings)
+# we can concatenate strings as well with *str_c*
+str_c("This is a string called ", my_strings, "!")
+str_c("Hi", my_strings, "!", sep=", ")
+str_c(my_strings, collapse=", ")
+#subset of strings can be retrieved with str_sub
+str_sub(my_strings[3], 1, 3)
+```
+
+**Regular Expressions**
+After some basic manipulations of strings, we can further use this understanding to search and matching patterns with regular expressions. The *str_view()* allows us to see what expressions match with our pattern. For instance, we can use the regex functionality to see how many types of berries are in the fruit dataset by searching for the pattern *"berry"*. 
+
+```{r regex}
+# we will use the fruit dataset for regex 
+head(fruit)
+# use str_view to see the regex matches 
+str_view(fruit, "berry", match=TRUE)
+```
+
+**Factors**
+Factors are a way to create categories within your data. For instance, we might have many different types of vehicles. With factors, we can create categories of "truck", "sedan", "suv", etc. Another useful aspect of the factor data type is that it can be used to sort the dataset in a specific way instead of just alphabetic. We will work with the *gss_cat* dataset since it has many factor data types. 
+
+```{r factors}
+gss_cat
+# one way to see the levels is to index in the column of interest
+gss_cat %>% .$race %>% levels()
+# another way is to use the count() function
+gss_cat %>% count(race)
+# we can use mutate and fct_recode to change factors
+# before we change the factor codes 
+gss_cat %>% ggplot(aes(x = rincome)) + geom_bar() + coord_flip() 
+# after we change factor codes 
+gss_cat %>% 
+mutate(rincome = fct_recode(rincome, 
+                              "Less than $1000" = "Lt $1000")) %>%
+  mutate(rincome = fct_recode(rincome, 
+                              "NA" = "Not applicable", 
+                              "NA" = "Don't know", 
+                              "NA" = "No answer", 
+                              "NA" = "gRefused")) %>% 
+ggplot(aes(x = rincome)) + geom_bar() + coord_flip() 
+# can lump the small factors together and remove the "Not applicable", "Don't know", "No answer", "Refused" responses
+gss_cat %>% count(rincome)
+# first filter out the unwanted responses 
+gss_cat %>% 
+filter(!rincome %in% 
+           c("Not applicable", 
+             "Don't know", 
+             "No answer", 
+             "Refused")) %>% 
+count(rincome)
+# lump groups outside the largest 8
+gss_cat %>% 
+filter(!rincome %in% 
+         c("Not applicable", 
+           "Don't know", 
+           "No answer", 
+           "Refused")) %>% 
+mutate(rincome = fct_lump(rincome, n=8))  %>% 
+count(rincome) 
+```

@@ -1,0 +1,220 @@
+---
+title: HW#3 - Transforming the US public schools data set
+description: |
+  Using the public school characteristic data set collected in the 2017-2018 school year
+author: Brittany Kenison
+date: 10-03-2021
+output:
+  distill::distill_article:
+    self_contained: no
+    code_folding: yes
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(rmarkdown)
+library(distill)
+library(kableExtra)
+library(knitr)
+
+```
+
+## Review
+
+We ended the last blog post by looking at the data fields provided. The information appears to capture school location and contact information, student enrollment by grade, broken down by race/ethnicity and gender, and number of students by grade. 
+
+Here is a recap of all fields:
+
+```{r recap}
+#read data from public school characteristics file
+psc <- read_csv("../../_data/Public_School_Characteristics_2017-18.csv")
+
+#display all column names
+colnames(psc)
+```
+
+## What should this data represent?
+Based on the data points, I've outlined my research interests into three categories:
+
+* number of schools by state
+    
+* counts of schools by rural/urban location
+    
+* number of students by grade
+
+### Selecting data
+
+Based on the defined interests above, we can narrow down the data set to following fields:  
+
+```{r finalcolumns}
+#update table by selecting fields to be used for analysis
+psc <- psc%>%
+  select (LEA_NAME, SCH_NAME, LSTATE, FRELCH, REDLCH, ULOCALE, STUTERATIO, FTE, PK:G13) 
+
+#display column names of updated table
+colnames(psc)
+
+```
+
+### Make columns readable
+
+Next, let's rename the columns into a more readable format:
+
+```{r readableColumns}
+#rename columns into a readable format
+psc <- psc %>%
+  rename(District = LEA_NAME, School = SCH_NAME, State = LSTATE, Free_Lunch = FRELCH, Reduced_Lunch = REDLCH, Rural_Urban_Status  = ULOCALE, Student_Teacher_Ratio = STUTERATIO, Teacher_counts = FTE)
+
+#display updated column names
+colnames(psc)
+
+```
+
+### Divide and conquor 
+
+Now that we have distilled (get it?) the data down to only the necessary information, there is one final step to wrangle (I'm sorry) the data: create two tables.  
+
+Why two tables? The counts of students by grade need to be collapsed into one column to represent the grade variable. If we pivot within the same table, other numeric values will be repeated (for example, the free and reduced lunch counts) for each grade and school. This could cause mathematical errors later on if we are not careful. 
+
+The first table will reflect one row per school with other characteristic information, sorted alphabetically by State, District, then School: 
+
+```{r pscCharTable}
+
+##create a new table (psc_char) with school level characteristic data with one row per school
+psc_char <- psc%>%
+select (State, District, School, Free_Lunch, Reduced_Lunch, Rural_Urban_Status, Student_Teacher_Ratio, Teacher_counts)%>%
+  arrange(State, District, School)
+
+#display a subset of the results
+paged_table(psc_char, options=list(rows.print = 10, max.print = 100))
+
+```
+
+
+
+In the second table, each one row will represent one grade per school and the number of students enrolled:
+
+```{r pscGradeTable}
+##create a second table with the counts of students by grade per school.
+##pivot grade columns into a single variable and store the values in new column.
+psc_grade <- psc %>%
+  pivot_longer(PK:G13, names_to = "Grade", values_to= "Grade_Counts") %>%
+  select(State, School, Grade, Grade_Counts)%>%
+  arrange(State, School, Grade, Grade_Counts)
+
+#display a subset of the results
+knitr::kable(head(psc_grade), "simple", caption = "Student counts by grade")
+
+```
+
+
+## Summarizing
+
+With our data sets ready, we can begin our analysis in the three research interest areas.  
+
+
+### State school counts
+
+To find the six states/territories with the lowest number of schools, we group by schools, count the number of rows and leave the sorting default:
+
+```{R lowschools}
+#counts of schools by state using psc_char table since it represents a single school per row
+#Sort from lowest to highest count
+state_counts <- psc_char %>%
+  group_by(State) %>%
+  summarise(count = n()) %>%
+  arrange(count)
+
+#display results
+kbl(head(state_counts[,1:2]), "simple", caption = "Six states with lowest number of schools")
+
+```
+
+
+To find the six states and territories with the highest number of schools, we use the same code as above, except we add the descending to the sorting function:
+
+```{R mostschools}
+#counts of schools by state/territory using psc_char table since it represents a single school per row
+#sort by highest to lowest counts
+state_counts <- psc_char %>%
+  group_by(State) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+#display results
+kbl(head(state_counts[,1:2]), "simple", caption = "Six states with the highest number of schools")
+
+```
+
+
+### Urban/Rural schools
+
+In the characteristics table, each school has a 'locale' classification to indicate if it is urban, suburban, or rural. To find the total by category, we will simply apply the group by function.
+
+```{r localetype}
+#find the number of schools by the locale type (aka, rural/urban)
+locale_type <- psc_char %>%
+  group_by(Rural_Urban_Status)
+
+#display results
+table(select(locale_type, Rural_Urban_Status))
+
+```
+
+
+The locale type combines a main type and a sub-type. I am not interested in the sub-types, so let's group them by the main category by using the case when function: 
+
+```{r localeGrouping}
+#group sub-types to report the number of schools by the locale type 
+localeGroup <- psc_char %>%
+  mutate(LocaleGroup = case_when(
+    Rural_Urban_Status == "41-Rural: Fringe" | Rural_Urban_Status == "42-Rural: Distant" | Rural_Urban_Status == "43-Rural: Remote" ~ "Rural", 
+    Rural_Urban_Status == "31-Town: Fringe" | Rural_Urban_Status == "32-Town: Distant" | Rural_Urban_Status == "33-Town: Remote" ~ "Town",
+    Rural_Urban_Status == "21-Suburb: Large" | Rural_Urban_Status == "21-Suburb: Large" | Rural_Urban_Status == "21-Suburb: Large" ~ "Suburb",
+    Rural_Urban_Status == "11-City: Large" | Rural_Urban_Status == "12-City: Mid-size" | Rural_Urban_Status == "13-City: Small" ~ "City"
+      ))
+#display results
+table(select(localeGroup, LocaleGroup))
+
+```
+
+
+### Student counts by grade
+
+These are the total number of students (all US States and territories) per grade
+
+```{r studentGrade}
+#count the number of students for each grade
+t_gradeCount <- psc_grade %>%
+  group_by(Grade) %>%
+  summarise(GradeCount = sum(Grade_Counts))
+
+knitr::kable(t_gradeCount)
+
+```
+
+
+Oops, I forgot to remove the rows with missing data for grade counts. This makes sense as most schools do not teach all grades. 
+
+Here is the corrected version:
+
+```{r studentGradeCorrected}
+#filter out rows where grade counts are null
+#used same code as above to group grade counts by grade
+t_gradeCountCorrect <- psc_grade %>%
+  filter(!is.na(Grade_Counts))%>%
+  group_by(Grade) %>%
+  summarise(GradeCount = sum(Grade_Counts))
+  
+#display results
+  kable(t_gradeCountCorrect)
+
+```
+
+
+## The End
+
+Thanks for reading!

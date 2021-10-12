@@ -1,0 +1,331 @@
+---
+title: The Pivot Challenge
+description: "Trying to understand the world of pivot longer and pivot wider with
+  debt in trillions and household income. \n"
+author: Molly Hackbarth
+date: 10-01-2021
+output:
+  distill::distill_article:
+    self_contained: no
+    toc: yes
+draft: yes
+---
+
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(here)
+library(readxl)
+library(stringr)
+library(rmarkdown)
+library(knitr)
+library(DT)
+```
+
+# Debt in Trillions Data
+
+## Introduction 
+
+In this challenge I'm going to attempt to pivot wider and possibly longer on debt in trillions. Firstly I will read the data into r. Since there is only one sheet and it starts on the first line this time I don't have to worry about adding a sheet variable or skipping numbers. 
+
+```{r reading data, echo=TRUE, layout="l-body-outset"}
+#calling the file dt for debt trillions
+dt <- read_excel(here("_data", "debt_in_trillions.xlsx"))
+
+datatable(dt, class = 'cell-border stripe', 
+           caption = 'Table 1: Here is the mess of our economy.',
+           width = '100%', options = list(scrollX = TRUE))
+
+```
+
+## Formatting the columns
+
+Luckily this time we only have a few columns compared to multiple in Australian Marriages. Looking at each column it seems the only column I could take out is the "Total" column due to each of them adding up to the total. ~~However for now I'll leave it in and come back and edit it if I feel like it'll cause issues.~~ The column is a pain in the pivot table. 
+
+```{r formatting, echo=TRUE, layout="l-body-outset"}
+dt <-  rename(dt, "year_and_quarter" = "Year and Quarter",
+         "he_revolving" = "HE Revolving",
+         "auto_loan" = "Auto Loan",
+         "credit_card" = "Credit Card", 
+         "student_loan" = "Student Loan",) %>%
+  select(!starts_with("total"))
+# I changed the rest of the names to lowercase but it doesn't have to be done. 
+# I just prefer to not have to press the shift key when typing if I can avoid it. 
+  colnames(dt)<-tolower(colnames(dt))
+
+ datatable(dt, class = 'cell-border stripe', 
+           caption = 'Table 2: This is the cleaned up version of Debt in Trillions.',
+           width = '100%', options = list(scrollX = TRUE))
+  
+```
+
+## Formatting the Year and Quarters 
+
+I next need to format the year and quarters into dates. After a lot of time searching I found out how to make the year and quarter into two different columns. I'm also going to change the years to the years in the 2000s. This took an extremely long time. The fastest way I found was to just change the year column to a numeric type and then add 2000. I'm sure there's a better way to do it but google wasn't helpful for this issue...(Most likely it has to do with the package zoo or lubridate).
+
+```{r quaters and years, echo=TRUE, layout="l-body-outset"}
+# A new data table was made due to me going back and forth constantly.
+dt1 <- dt %>%
+  separate(year_and_quarter, into = c("year", "quarter"), sep=":")
+dt1 <- transform(dt1, year = as.numeric(year))
+
+# This is adding 2000 so that the years will be in the 2000s-2010s
+  dt1$year <- dt1$year+2000
+
+# If you wanted you could also change it to trillions like this
+# dt1$he_revolving <- dt1$he_revolving*1000000000000
+# dt1$auto_loan <- dt1$auto_loan*1000000000000
+# dt1$credit_card <- dt1$credit_card*1000000000000
+# dt1$student_loan <- dt1$student_loan*1000000000000
+# dt1$other <- dt1$other*1000000000000
+# dt1$mortgage <- dt1$mortgage*1000000000000
+
+datatable(dt1, class = 'cell-border stripe', 
+           caption = 'Table 3: This table seperated year and quarter and changed years into 2000s.',
+           width = '100%', options = list(scrollX = TRUE))
+  
+```
+
+## Pivot Wider
+
+Alright now to try and pivot! Below I will try to do a couple different pivot widers.
+
+```{r pivoting wider, echo=TRUE, layout="l-body-outset"}
+# I want to see what the credit card in trillions by year and quarter.
+# Named dtcredit due to focus on credit
+dtcredit <- dt1 %>% 
+  pivot_wider(names_from = year, quarter, 
+              values_from = credit_card, values_fill = 0)
+
+datatable(dtcredit, class = 'cell-border stripe', 
+          caption = 'Table 4: This table is broken out by year and quarter with credit card debt.',
+           width = '100%', options = list(scrollX = TRUE))
+
+# I want to see student loan and credit card in trillions by year and quarter
+# Named dtsc due to combining student loan and credit
+dtsc <- dt1 %>% 
+  pivot_wider(names_from = year, quarter,
+              values_from = c(credit_card, student_loan), values_fill = 0)
+
+datatable(dtsc, class = 'cell-border stripe', 
+          caption = 'Table 5: This table is broken out by year and quarter with credit and student loan debt.',
+           width = '100%', options = list(scrollX = TRUE))
+  
+
+```
+
+
+## Pivot Longer
+
+Now I'll try to focus on pivot longer. I was able to get the columns flipped so that that the type of debt and the debt amount went vertically. Unfortunately doing it by quarters doesn't do much in this situation.
+
+```{r pivot longer, echo=TRUE, layout="l-body-outset"}
+# Type of debt and and amount by year and quarter
+dts <- dt1 %>%
+  pivot_longer(col = -c(quarter, year,),
+               names_to = "type_of_debt", 
+               values_to = "debt", 
+               values_drop_na = TRUE)
+
+ datatable(dts, class = 'cell-border stripe',
+          caption =  'Table 6: This table is broken out by year and quarter with debt.',
+           width = '100%', options = list(scrollX = TRUE))
+ 
+ # Type of debt and and amount by year
+ dty <- dt1 %>%
+   select(!starts_with("quarter")) %>%
+    pivot_longer(!year, names_to = "type_of_debt", values_to = "debt")
+ 
+ datatable(dty, class = 'cell-border stripe', 
+           caption = 'Table 7: This table is broken out by year with debt.',
+           width = '100%', options = list(scrollX = TRUE))
+ 
+# Type of debt and and amount by quarter
+  dtq <- dt1 %>%
+   select(!starts_with("year")) %>%
+    pivot_longer(!quarter, names_to = "type_of_debt", values_to = "debt")
+  
+ datatable(dtq, class = 'cell-border stripe', 
+           caption = 'Table 8: This is broken out by quarter by debt.',
+           width = '100%', options = list(scrollX = TRUE))
+```
+
+## Uniting the columns 
+
+I decided to reunite the quarter and year columns to see if it would make any differences in my pivots.
+
+```{r uniting, echo=TRUE}
+dttest <- dt1 %>%
+  unite('year_and_quarter', year:quarter, remove = FALSE) %>%
+  select(-c(year, quarter))
+
+ datatable(dttest, class = 'cell-border stripe', 
+           caption = 'Table 10: This is united year and quarter table.', 
+           width = '100%', options = list(scrollX = TRUE))
+
+```
+
+## Pivoting with united Year and Quarter
+
+Here I will test pivoting using year and quarter as one column.
+
+```{r pivoting part 2, echo=TRUE, layout="l-body-outset"}
+
+# Testing pivot wider
+dttest1 <- dttest %>% 
+  pivot_wider(names_from = year_and_quarter,
+              values_from = other, values_fill = 0)
+
+datatable(dttest1, class = 'cell-border stripe', 
+          caption = 'Table 9: This is a broken out by one column for year and quarter by other.',
+          width = '100%', options = list(scrollX = TRUE))
+
+# Testing pivot longer
+dttest2 <- dttest %>%
+    pivot_longer(!year_and_quarter, names_to = "type_of_debt", values_to = "debt")
+
+ datatable(dttest2, class = 'cell-border stripe', 
+           caption = 'Table 11: This is broken out by one column for year and quarter by debt.', 
+           width = '100%', options = list(scrollX = TRUE))
+
+```
+
+## Conclusion
+
+Over all I think that breaking it down into two seperate columns of q1 and q2 for pivoting was more useful. 
+
+# Household Income
+
+``` {r reading in data household income, echo= TRUE, layout="l-body-outset"}
+df <- read_excel(here("_data", "USA Households by Total Money Income, Race, and Hispanic Origin of Householder 1967 to 2019.xlsx"))
+datatable(df, class = 'cell-border stripe', 
+           caption = 'Table 12: Here is the messy USA Household Income',
+           width = '100%', options = list(scrollX = TRUE))
+
+```
+
+## Renaming Household Income
+
+I'm going to attempt to shorten the amount of columns needed as well as skip and slice some lines. I plan to remove the median and mean columns as well as the percentage column. I can remake those if need be. 
+
+``` {r renaming and cleaning columns, echo= TRUE, layout="l-body-outset"}
+df1 <- read_excel(here("_data", "USA Households by Total Money Income, Race, and Hispanic Origin of Householder 1967 to 2019.xlsx"), skip=4, 
+                  col_names = c("race_year", "number_thousands", "d1", 
+                                "under_15k", "15k_24.99k", "25k_34.99k", 
+                                "35k_49.99k", "50k_74.99k", "75k_99.99k", 
+                                "100k_149.99k", "150k_199.99k", "over_200k", 
+                                rep("d",4))) %>%
+# This will remove years and races with the number - filter(!between(race_year, 1, 28)) %>%
+  filter(!str_detect(race_year,"note")) %>%
+           filter(!str_detect(race_year,"source"))  %>%
+                    filter(!str_detect(race_year,"not")) %>%
+    select(!starts_with("d")) %>%
+  slice(-c(353:377)) 
+  
+datatable(df1, class = 'cell-border stripe',
+           caption = 'Table 13: Here is a tider USA Household Income',
+           width = '100%', options = list(scrollX = TRUE))
+```
+
+## Cleaning the data
+
+I'm now going to clean the data. After a lot of trial and error I was able to add another column for race. However in order to use fill you will have to make sure you have "na" in each of the empty columns. The best way I could find was to mutate (I used mutate all in case that was in other places) and then fill. 
+  
+```{r cleaning data, echo=TRUE, layout="l-body-outset"}
+# New data table to work with
+df2 <- df1 
+
+# Will add a race column and then remove any digit or comma in it
+df2 <- df2 %>%
+   mutate(race = race_year)
+
+# gsub is used for replacement operations for functions
+
+df2$race<-gsub("[[:digit:]]+","",as.character(df2$race))
+df2$race<-gsub(",","",as.character(df2$race))
+
+
+# Relocate the column by race_year
+df2 <- df2 %>%
+  relocate(race, .before = number_thousands) %>%
+  mutate_all(na_if,"") %>%
+  mutate_all(na_if," ") %>%
+  mutate_all(na_if,"  ")
+
+# Use fill on the column race
+df2 <- df2 %>%
+  fill(race)
+
+# Filter out race_year races
+
+df2 <- df2 %>%
+  filter(!str_detect(race_year, "RACES")) %>%
+  filter(!str_detect(race_year, "WHITE")) %>%
+  filter(!str_detect(race_year, "BLACK")) %>%
+  filter(!str_detect(race_year, "HISPANIC")) %>%
+  filter(!str_detect(race_year, "ASIAN"))
+
+# Rename race_year column to just year
+
+df2 <- rename(df2, "year" = "race_year")
+
+# Get rid of footnotes
+
+df2 <- df2 %>% 
+  mutate_at("year", str_replace, " ", "_") %>%
+  mutate_at("year", str_replace, ",", "_")
+
+# sub is used to replace the string in a vector or a data frame
+df2$year <- sub('_..*','',df2$year)
+
+datatable(df2, class = 'cell-border stripe', 
+           caption = 'Table 14: Here is the tidest USA Household Income',
+           width = '100%', options = list(scrollX = TRUE))
+  
+```
+
+## Pivot Longer & Wider 
+
+Now that the data is clean I'll pivot longer and wider.
+
+```{r pivot longer and wider, echo=TRUE, layout="l-body-outset"}
+
+# Made a new data frame to deal with the double issue in pivot wider and longer
+df3 <- df2
+df3$number_thousands <- as.double(df3$number_thousands) 
+df3$under_15k <- as.double(df3$under_15k) 
+df3$`15k_24.99k` <- as.double(df3$`15k_24.99k`)
+df3$`25k_34.99k` <- as.double(df3$`25k_34.99k`) 
+df3$`35k_49.99k` <- as.double(df3$`35k_49.99k`) 
+df3$`50k_74.99k` <- as.double(df3$`50k_74.99k`) 
+df3$`75k_99.99k` <- as.double(df3$`75k_99.99k`) 
+df3$`100k_149.99k` <- as.double(df3$`100k_149.99k`) 
+df3$`150k_199.99k` <- as.double(df3$`150k_199.99k`) 
+df3$over_200k<- as.double(df3$over_200k) 
+
+#Testing pivot wider
+dfw <- df3 %>%
+  pivot_wider(names_from = year,
+              values_from = under_15k, values_fill = 0)
+
+datatable(dfw, class = 'cell-border stripe',
+          caption = 'Table 15: This is a broken out by year by under 15k.',
+          width = '100%', options = list(scrollX = TRUE))
+ 
+# Testing pivot longer with multiple columns
+ dfl2 <- df3 %>%
+   pivot_longer(col = -c(race, year,),
+               names_to = "total_income_options",
+               values_to = "income", 
+               values_drop_na = TRUE)
+
+ datatable(dfl2, class = 'cell-border stripe', 
+           caption = 'Table 16: This is broken out by race and year by income.', 
+           width = '100%', options = list(scrollX = TRUE)) 
+```
+
+
+## Conclusion
+
+This data set came with a lot more problems than the debt in trillions. This one required a lot more formatting to become usable for pivoting than the other. It also seemed to be harder to get pivoting to work. 
