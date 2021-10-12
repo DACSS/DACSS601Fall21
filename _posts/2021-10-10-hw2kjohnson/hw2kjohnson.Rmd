@@ -1,0 +1,42 @@
+---
+title: Homework 2- Reading in Data
+description: |
+  Reading in Data
+author: Kirsten Johnson
+date: 10-10-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+### In this post, I will try reading in data. I will be reading in the Austrailian marriage tidy dataset. This data breaks down Austrailian marriage staticstics by territory.
+
+#### Lets read in the australian marriage csv:
+
+<!-- #read in data -->
+```{r}
+aus_marriage<-read_csv("../../_data/australian_marriage_tidy.csv")
+```
+
+
+
+#### To take a quick look at what the data contains, I want to view the csv column names.
+
+<!-- #Get column names -->
+```{r}
+colnames(aus_marriage) 
+```
+
+
+#### Here are the column field definitions:
+##### 1. "territory" lists the Australian territory name.
+##### 2. "resp" denotes marital status as either 'yes', married or 'no', not married.
+##### 3. "count" gives a count of how many people from a territory have a specific marital status.
+##### 4. "percent" gives a percentage of the people from a territory with a specific marital status.

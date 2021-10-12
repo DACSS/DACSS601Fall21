@@ -12,7 +12,22 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Homework 2- Reading in Data</title>
+      <dc:creator>Kirsten Johnson</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-10-hw2kjohnson</link>
+      <description>Reading in Data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-10-hw2kjohnson</guid>
+      <pubDate>Sun, 10 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Homework 1- My first post</title>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-06-hw1postkjohnson</link>
+      <description>Trying out a post!</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-10-06-hw1postkjohnson</guid>
+      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>HW-2 Updated</title>
       <dc:creator>Justin</dc:creator>
@@ -69,6 +84,14 @@
       <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill</link>
       <description>I'm going to make my first blog post. Once I figure that out, I'll try reading in some data.I am also experimenting with R Markdown text formatting such as **bold text** and *italics*</description>
       <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-first-blog-post-using-distill</guid>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Homework_2 </title>
+      <dc:creator>Cynthia Hester</dc:creator>
+      <link>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-reading-in-data-hw2</link>
+      <description>Reading in Data</description>
+      <guid>https://mrolfe.github.io/DACSS601Fall21/posts/2021-09-29-reading-in-data-hw2</guid>
       <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
