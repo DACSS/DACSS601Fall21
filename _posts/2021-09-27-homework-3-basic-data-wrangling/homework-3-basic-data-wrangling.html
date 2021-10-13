@@ -1585,7 +1585,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># rename columns 2-5</span>
 <span class='va'>cogEggs</span> <span class='op'>&lt;-</span> <span class='va'>cogEggs</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>xlDoz <span class='op'>=</span> <span class='va'>...2</span>, xlHalfDoz <span class='op'>=</span> <span class='va'>...3</span>, lgDoz <span class='op'>=</span> <span class='va'>...4</span>, lgHalfDoz <span class='op'>=</span> <span class='va'>...5</span><span class='op'>)</span>
+  <span class='fu'>rename</span><span class='op'>(</span>xlDoz <span class='op'>=</span> <span class='va'>...2</span>, xlHalfDoz <span class='op'>=</span> <span class='va'>...3</span>, lgDoz <span class='op'>=</span> <span class='va'>...4</span>, lgHalfDoz <span class='op'>=</span> <span class='va'>...5</span><span class='op'>)</span>
 
 <span class='co'>#preview to check</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cogEggs</span><span class='op'>)</span>
@@ -1606,7 +1606,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#reassign object to paired-down dataset</span>
 <span class='va'>cogEggs</span> <span class='op'>&lt;-</span> <span class='va'>cogEggs</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Month</span>, <span class='va'>Year</span>, <span class='va'>xlDoz</span>, <span class='va'>xlHalfDoz</span>, <span class='va'>lgDoz</span>, <span class='va'>lgHalfDoz</span><span class='op'>)</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>Month</span>, <span class='va'>Year</span>, <span class='va'>xlDoz</span>, <span class='va'>xlHalfDoz</span>, <span class='va'>lgDoz</span>, <span class='va'>lgHalfDoz</span><span class='op'>)</span>
 
 <span class='co'># preview to check</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cogEggs</span><span class='op'>)</span>
@@ -1627,7 +1627,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># slice all rows except 1-4</span>
 <span class='va'>cogEggs</span> <span class='op'>&lt;-</span> <span class='va'>cogEggs</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'>slice</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>#view to check</span>
 <span class='va'>cogEggs</span>
@@ -1657,7 +1657,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># rename columns 2-5 to contain _</span>
 <span class='va'>cogEggs</span> <span class='op'>&lt;-</span> <span class='va'>cogEggs</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>xl_Doz <span class='op'>=</span> <span class='va'>xlDoz</span>, xl_HalfDoz <span class='op'>=</span> <span class='va'>xlHalfDoz</span>, lg_Doz <span class='op'>=</span> <span class='va'>lgDoz</span>, lg_HalfDoz <span class='op'>=</span> <span class='va'>lgHalfDoz</span><span class='op'>)</span>
+  <span class='fu'>rename</span><span class='op'>(</span>xl_Doz <span class='op'>=</span> <span class='va'>xlDoz</span>, xl_HalfDoz <span class='op'>=</span> <span class='va'>xlHalfDoz</span>, lg_Doz <span class='op'>=</span> <span class='va'>lgDoz</span>, lg_HalfDoz <span class='op'>=</span> <span class='va'>lgHalfDoz</span><span class='op'>)</span>
 
 <span class='co'>#preview to check</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cogEggs</span><span class='op'>)</span>

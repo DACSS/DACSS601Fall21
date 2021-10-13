@@ -1,0 +1,98 @@
+---
+title: HW 3 Continued with the Australian Marriage Dataset
+author: Allyson Beach
+date: 10-04-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=TRUE}
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(rmarkdown)
+library(here)
+data_path <- paste(here(), "/_data/", sep="")
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Our next data wrangling will be with the Australian Marriage Dataset. 
+First we will just read in the excel sheet to see what this shows. Sheet 3 has the marriage data that we are interested in. This is hardcoded and can be adjusted later to be more flexible by referencing the name of the sheet instead of the position. 
+
+
+```{r}
+## Format this data this way:
+## Case = division + town 
+## Value = only get the counts of 1. yes 2. no 3. no response 4. not clear
+aus_data_path <- paste(data_path, "australian_marriage_law_postal_survey_2017_-_response_final.xls", sep="")
+aus_data <- read_excel(aus_data_path, sheet=3)
+paged_table(aus_data)
+```
+
+Now that we are able to read in the raw data, we are going to rename the columns to something easier to read and manipulate. We will name the columns that we want to delete "D" plus some number. We can also see that we can skip 6 of the empty rows in the beginning of the data set to make room for these new column names.
+
+
+```{r}
+aus_data <- read_excel(aus_data_path, sheet=3, skip=6, 
+                       col_names = c("Towns", "Yes", "D1", 
+                                     "No", "D2", "D3", "D4", 
+                                     "D5", "D6","D11", "Response_Not_Clear", 
+                                     "D7", "No_Response", "D8", "D9", "D10"))
+paged_table(aus_data)
+```
+
+We then check to make sure that our column names align correctly with the correct data. Then we can skip one more row to replace the row that labelled the "no." and "%" data. 
+
+```{r}
+aus_data <- read_excel(aus_data_path, sheet=3, skip=7, 
+                       col_names = c("Towns", "Yes", "D1", 
+                                     "No", "D2", "D3", "D4", 
+                                     "D5", "D6","D11", "Response_Not_Clear", 
+                                     "D7", "No_Response", "D8", "D9", "D10"))
+paged_table(aus_data)
+```
+
+Now that we have properly labeled the data, we can remove the columns with the data that we will not use. As mentioned before, we labeled these columns as "D" to make it easier to delete. We will also remove any of the blank rows, the total rows, and the notes starting with "(a)" at the end of the dataset. 
+
+```{r}
+aus_data <- aus_data %>% 
+  select(!starts_with("d", ignore.case = TRUE)) %>% 
+  filter(!grepl("total", Towns, ignore.case = TRUE)) %>% 
+  filter(grepl("^[A-Z]", Towns, ignore.case = TRUE)) %>% 
+  filter(!is.na(Towns))
+paged_table(aus_data)
+```
+
+
+Something I learned with using *grepl* is that the singular *\* does not work to escape characters. So I had to use a double *\\* to escape the parentheses in my search for the notes at the bottom of the data set. I am not sure why this is at the moment, but now the dataset has filtered out the subnotes, the total rows, and the columns with the excessive information. Another lesson was that the *is.na()* takes the name of the columns, not as strings, but as objects.  
+
+
+Now, we should separate the *Towns* column that contains the divisions and the cities/towns. One approach would be to take any row that contains an NA in "Yes", "No", "Response_Not_Clear", or "No_Response" column. A simpler approach will be to search for anything that contains the word *"Divisions"* within the Towns column. 
+
+```{r}
+
+aus_data <- aus_data %>% 
+  mutate(Divisions = case_when(str_ends(Towns, "Divisions") ~ Towns, TRUE ~ NA_character_)) %>% 
+  fill(Divisions) %>% 
+  filter(!str_ends(Towns, "Divisions"))
+
+paged_table(aus_data)
+  
+```
+
+Now we need to pivot the types of responses into one variable. A case is really defined by the type of response from Town and Division and the count of those responses. 
+
+```{r}
+
+aus_data <- aus_data %>% 
+  pivot_longer(c(`Yes`, `No`, `Response_Not_Clear`, `No_Response`), names_to = "Response", values_to = "Count")
+
+paged_table(aus_data)
+
+```
+
+
+
