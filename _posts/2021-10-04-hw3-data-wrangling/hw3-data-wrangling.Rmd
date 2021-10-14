@@ -1,0 +1,154 @@
+---
+title: HW3 Data Wrangling
+description: |
+  Lets get this data wrangled!
+author: Eliza Geeslin
+date: 10-04-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(rmarkdown)
+library(knitr)
+library(formattable)
+library(vctrs)
+```
+
+## Step 1: Read in the Data
+
+The first step is getting everything up and running. 
+* This dataset has a few tabs, so even though I am using the first tab (the default) I want to ensure we are using the correctly named tab every time. 
+* There are actually two data sets (eggs and pounltry). I am going to be honest - I did not totally realize this until halfway through the wrangingling, so I decided to try to tidy the dataset into one that could be filtered down to either chicken or eggs. Not totally sure it worked :). 
+
+```{r}
+organic_egg_poultry <- read_excel("../../_data/organiceggpoultry.xls", sheet = "Data") # assign dataset to variable
+
+#head(organic_egg_poultry)
+
+colnames(organic_egg_poultry) # colnames() returns column names
+```
+## Step 2: Tidy the Data
+
+I am going to do a few things to tidy the data:
+* Get rid of extra columns and rows
+* Adjust column names (for future pivoting)
+* Adjust data types
+
+First, the column names are off, so I am going to skip 4 rows to get the actual column names. 
+
+```{r}
+organic_egg_poultry <- read_excel("../../_data/organiceggpoultry.xls", sheet = "Data", skip = 4)
+
+paged_table(organic_egg_poultry)
+```
+
+Some of the column names are a little warped, so I am going to rename them: 
+* I will indicate the ones to be deleted ("del")
+* I am trying to name them in a way that will help later on - I think I might have to break out some of these columns because it seems like they hold multiple variables (Produce, Amount, ProduceType). This is where I realized there are really two distinct data sets, but c'est la vie!
+
+```{r}
+organic_egg_poultry <- read_excel("../../_data/organiceggpoultry.xls", sheet = "Data", skip = 5, col_names = c("Month", "ExtraLargeEggs_Dozen_Eggs", "ExtraLargeEggs_HalfDozen_Eggs", "LargeEggs_Dozen_Eggs", "LargeEggs_HalfDozen_Eggs", "del", "WholeChicken_Pound_Chicken", "BonelessChickenBreast_Pound_Chicken", "BoneChickenBreast_Pound_Chicken", "WholeChickenLegs_Pound_Chicken", "ChickenThighs_Pound_Chicken"))
+
+paged_table(organic_egg_poultry)
+```
+Next, I noticed something weird with the month "February" in the dataset that will mess up the column splitting/filling (the next two steps), so I went ahead fixed that. 
+
+```{r}
+organic_egg_poultry2 <- organic_egg_poultry
+organic_egg_poultry2[organic_egg_poultry2 == "February /1"] <- "February"
+
+paged_table(organic_egg_poultry2)
+```
+Then, I split Month and Year.
+
+```{r}
+organic_egg_poultry3 <- organic_egg_poultry2 %>%
+separate(col = 1, into=c('Month', 'Year'), sep = ' ')
+
+paged_table(organic_egg_poultry3)
+```
+
+As we can see, the year doesn't fill up all the rows, so I used fill() to complete the rows.
+
+```{r}
+organic_egg_poultry3 <- organic_egg_poultry3 %>%
+  fill(Year)
+
+paged_table(organic_egg_poultry3)
+
+```
+Then I got rid of the extra column in between the Eggs and Chicken datasets (because I am still working with them together).
+
+```{r}
+organic_egg_poultry3 <- organic_egg_poultry3 %>%
+  select(!starts_with("del"))
+
+paged_table(organic_egg_poultry3)
+```
+## Step 3: Wrangle the Data
+
+Before I pivot this data, I need to do something about the "too few" string in the chicken part of the dateset (I know this will cause an issue because I didn't do anything initially and I got an error: "`Can't combine `ExtraLargeEggs_Dozen_Eggs` <double> and `BoneChickenBreast_Pound_Chicken` <character>`").
+
+I think the best bet here is to mutate "too few" into N/A? (although I am not totally sure if that will mess up the integrity of the data?). 
+
+```{r}
+organic_egg_poultry4 <- organic_egg_poultry3
+organic_egg_poultry4[organic_egg_poultry4 == "too few"] <- NA
+
+paged_table(organic_egg_poultry4)
+```
+I also have to make sure everything is the right data type. 
+
+```{r}
+organic_egg_poultry4 <- organic_egg_poultry4 %>%
+  mutate(BoneChickenBreast_Pound_Chicken = as.double(BonelessChickenBreast_Pound_Chicken)) %>%
+  mutate(ChickenThighs_Pound_Chicken = as.double(ChickenThighs_Pound_Chicken))
+
+paged_table(organic_egg_poultry4)
+```
+At last I can pivot longer the data. This is where the column naming comes in handy!
+
+```{r}
+#pivot_long
+organic_egg_poultry5 <- organic_egg_poultry4 %>%
+  pivot_longer(
+    cols = !Month & !Year, 
+    names_to = c("Produce", "Amount", "ProduceType"), 
+    names_sep = "_",
+    values_to = "Price"
+  )
+
+paged_table(organic_egg_poultry5)
+```
+
+At this point the data is probably ready to arrange, filter, and summarize. I am going to arrange it by Produce Type (Eggs or Chicken). 
+
+```{r}
+organic_egg_poultry5 <- organic_egg_poultry5
+arrange(organic_egg_poultry5, ProduceType, desc(Price))
+```
+Something that is a little annoying about this is that I wanted to arrange it so that the "Eggs" section was at the top, but it seems to only do alphabetical. 
+
+Next, I am going to filter the data so we are only working with the Eggs data and then summarize.
+
+```{r}
+organic_egg_poultry6 <- organic_egg_poultry5
+filter(organic_egg_poultry6, ProduceType == "Eggs") %>%
+  group_by(Produce, Amount) %>%
+  summarise(mean = mean(Price), max = max(Price), min = min(Price))
+```
+
+
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

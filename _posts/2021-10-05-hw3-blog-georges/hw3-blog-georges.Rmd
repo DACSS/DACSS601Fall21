@@ -1,0 +1,84 @@
+---
+title: 'Homework 3: Basic Data Wrangling'
+description: |
+  Practice wrangling data with the Australian Marraige Law Excel document.
+author: Megan Georges
+date: 10-05-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(distill)
+library(tidyverse)
+library(dplyr)
+library(stringr)
+library(readxl)
+```
+
+# Read the data into R
+
+* Specified that I wanted Table 2 from the Excel file 
+* Skip the first 6 rows
+* Provided preview of first 10 lines of data
+
+```{r}
+ausmarraige <- read_excel("../../_data/australian_marriage_law_postal_survey_2017_-_response_final.xls", "Table 2", skip=6) 
+head(ausmarraige, 10)
+```
+
+# View column names
+
+```{r}
+colnames(ausmarraige)
+```
+
+# Select the columns that we want to keep and rename them
+
+The essential columns in this dataset are the cities, response clear yes, response clear no, response not clear, and non responding. 
+
+```{r}
+ausmarraige1 <- select(ausmarraige, "...1", "no....2", "no....4", "no....11", "no....13")%>%
+  rename(Cities=...1, Response_Clear_Yes=no....2, Response_Clear_No=no....4, Response_Not_Clear=no....11, Non_Response=no....13)%>%
+  drop_na(Cities)
+
+head(ausmarraige1)
+```
+
+# Remove division totals and footnotes
+
+```{r}
+ausmarraige1 <- ausmarraige1 %>%
+  filter(!str_detect(Cities, "Total"))%>%
+  filter(!str_starts(Cities, "\\("))%>%
+  filter(Cities != "Australia")%>%
+  filter(!str_starts(Cities, "\\©"))
+```
+
+# Create new column for the divisions
+
+```{r}
+ausmarraige1 <- ausmarraige1 %>%
+  mutate(Divisions = case_when(
+    str_ends(Cities, "Divisions") ~ Cities
+  ))
+ausmarraige2 <- ausmarraige1[, c("Divisions", "Cities", "Response_Clear_Yes", "Response_Clear_No", "Response_Not_Clear", "Non_Response")]
+head(ausmarraige2)
+```
+
+# Summarise the tidier (but still needs work) data
+
+```{r}
+summary(ausmarraige2)
+```
+
+# Arrange data in descending order of clear Yes responses
+
+```{r}
+arrange(ausmarraige2, desc(Response_Clear_Yes))
+```
+

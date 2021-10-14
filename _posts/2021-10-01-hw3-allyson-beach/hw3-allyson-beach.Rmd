@@ -1,0 +1,130 @@
+---
+title: HW3 with the Organic Poultry Dataset
+description: HW3
+author: Allyson Beach
+date: 10-01-2021
+output:
+  distill::distill_article:
+    self_contained: no
+draft: yes
+---
+
+
+```{r setup, include=TRUE}
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(rmarkdown)
+library(here)
+data_path <- paste(here(), "/_data/", sep="")
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r notes, include= FALSE}
+# Another one to try is the organiceggpoultry.xlsx - have to pivot (so maybe next week)
+# 
+# egg - what is the case? for product, year, the price per month?
+# so price is our value 
+# variables are year, month, product (amount[dozen/half] and size[large/xlarge])
+# SO, the case is year, month, size, and amount with the value of price
+# end product should have 5 columns 
+# 
+# for month, pivot longer 
+```
+
+
+## Read In Advance Dataset: Railroad 
+Below is the example we did in class with some extra notes. 
+
+```{r option1, include=TRUE}
+# OPTION 1: select names of column names that you want - not good for lots of data 
+trains_path <- paste(data_path, "StateCounty2012.xls", sep="")
+trains <- read_excel(trains_path, skip=3) %>% 
+  select(STATE, COUNTY, TOTAL)
+
+# further improvements - insert column names and call certain ones delete to remove later
+
+```
+
+Notes, select is for columns and filter is for rows 
+
+```{r option2}
+# OPTION 2: name columns to make it easy to delete them  - be sure to skip the old col names
+trains <- read_excel(trains_path, skip=4, 
+                     col_names = c("State", "D1", "County", "D2", "Total")) %>% 
+  select(!starts_with("d")) %>% 
+  filter(!str_detect(State, "[Tt]otal")) #will look for both cases Total or total
+trains
+
+```
+
+Now we want to take a unstructured dataset and convert it to "tidy" data. This example will use the organiceggpoultry.xlsx found in the "_data" folder. The first step is to define what the end result data should look like. We can figure this out by defining the case. A case encompasses the things that uniquely identify a value. For the Organic Poultry dataset, the case is the product, year, and month. For this particular dataset, it makes sense to further break down the product into two groups, chicken and egg products. The value for these two groups is the price for some quantity. 
+
+First let us read in the data by defining the data path from our base path, "C:/Users/ajb22/Documents/school/dacss_601/DACSS601Fall21/_data/". 
+
+
+```{r eggs_dirty}
+
+# here we 
+# 1. skip the empty rows and the inaccurate header row
+# 2. we rename the first column with the header "egg_month"
+eggs_path <- paste(data_path, "organiceggpoultry.xls", sep="")
+eggs_dirty <- read_excel(eggs_path, sheet=1, skip=4) %>%
+  rename(egg_month = 1) 
+# show the raw data 
+print(eggs_dirty, width = Inf)
+```
+
+After successfully reading in the data, it is time to start cleaning up the data. A good first step is to delete any unnecessary columns. First we will delete the columns that only contain "NA" as the data using the comparison of the amount of empty rows to the total number of rows. 
+
+
+```{r }
+# we then take out any columns that have only NA - compare #NA to #rows
+eggs_dirty <- eggs_dirty %>% select_if(!colSums(is.na(eggs_dirty)) == nrow(eggs_dirty))
+eggs_dirty
+```
+
+Next we make everything the same data type, so that we can pivot. Then we pivot the columns to make them longer and to contain the products as a variable. Then we replace any response that is not valid, such as "too few" with 0. 
+
+``` {r}
+# convert all types to characters so we can pivot, then we pivot the products to price and replace all of the "too few" responses in price to 0
+eggs_dirty <- eggs_dirty %>% mutate(across(where(is.double), as.character)) %>% 
+  pivot_longer(cols = contains("doz"), 
+               names_to = "egg products", 
+               values_to = "price per carton") %>% 
+  pivot_longer(cols=contains(c("whole", "breast", "leg", "thigh")), 
+               names_to = "chicken products", 
+               values_to = "price per lb") %>% 
+  mutate(`price per carton` = str_replace(`price per carton`, "[a-zA-Z ]+", "0")) %>% 
+  mutate(`price per lb`= str_replace(`price per lb`, "[a-zA-Z ]+", "0"))
+eggs_dirty
+
+```
+
+Now we separate out the month and the year within the first column to make it into two separate columns. 
+
+```{r}
+# take out any of the "/1" that got filled in instead of the year (month (o)year|/1) to (month (o)year), then separate the column egg_month to month and year  
+eggs_dirty <- eggs_dirty %>% 
+  mutate(egg_month = str_remove(egg_month, "/[0-9]+")) %>% 
+  separate(egg_month, c("month", "year"), 
+           extra = "drop", fill = "right")
+
+# filling in the year from the jan month to the rest of the months, default direction is down
+eggs_dirty <- eggs_dirty %>% fill(year) 
+eggs_dirty
+```
+
+Now we can return the value of price back to the double data type instead of a character. We can further process this data by breaking up the products. However, this might be excessive, since there is not a main pattern between the product types. 
+
+```{r}
+# further separate the products into type and amount?? not sure 
+eggs_clean <- eggs_dirty %>% 
+  mutate(`price per carton`, `price per carton`= as.double(`price per carton`)) %>% 
+  mutate(`price per lb`, `price per lb`= as.double(`price per lb`))
+
+# show the clean data 
+eggs_clean
+```
+
+
+
