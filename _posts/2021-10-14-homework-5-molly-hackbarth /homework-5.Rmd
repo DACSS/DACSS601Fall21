@@ -1,0 +1,171 @@
+---
+title: "Homework-5"
+description: |
+  Working with Hotel Booking
+author: Molly Hackbarth
+date: 10-14-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+draft: true
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(layout = "l-body-outset", echo = TRUE)
+library(tidyverse)
+library(here)
+library(readxl)
+library(stringr)
+library(rmarkdown)
+library(readr)
+library(knitr)
+library(DT)
+library(patchwork)
+library(zoo)
+library(lubridate)
+```
+
+# Reading in the Data 
+
+For this assignment I'm going to work with the cleaned poultry data. This will allow me to be able to focus on the visualization while also being able to try a new data set. First I will pull in the data and show it in a table. 
+
+```{r}
+poultry <- read_csv(here("_data", "poultry_tidy.csv"))
+
+datatable(poultry, options = list(
+  initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "}"),  title = 'Poultry by year and price',
+           width = '100%', options = list(scrollX = TRUE))) 
+
+class(poultry)
+```
+
+# Visualizing the Data
+
+## Creating a Year column
+
+Now my focus is how do I want to show this data off? After looking at the classes of my data I noticed that the year is not in a year format. Since we have a year and a month I'll go ahead and create a new date column. I think that the year and month columns separately are important as I may not want to do this from a time graph perspective, rather just by year or month. 
+
+```{r year column}
+poultry <- poultry %>% 
+ mutate(ym = case_when(
+    startsWith(Month, "January") ~ "-1", 
+   startsWith(Month, "February") ~ "-2", 
+    startsWith(Month, "March") ~ "-3",
+    startsWith(Month, "April") ~ "-4",
+   startsWith(Month, "May") ~ "-5", 
+   startsWith(Month, "June") ~ "-6", 
+    startsWith(Month, "July") ~ "-7",
+    startsWith(Month, "August") ~ "-8",
+   startsWith(Month, "September") ~ "-9", 
+   startsWith(Month, "October") ~ "-10", 
+    startsWith(Month, "November") ~ "-11",
+    startsWith(Month, "December") ~ "-12"
+)) %>% 
+  #Removing any NA's within the Price_Dollar Column
+  filter(!across(c(Price_Dollar), ~ is.na(.))) %>%
+  # Uniting the year and quarter columns back into one column 
+  unite('ym', Year, ym, remove = FALSE) %>%
+  # Removing the _ that was in the year quarter that made it look like this 2003_-1
+  mutate_at("ym", str_replace, "_", "")
+  # I used zoo to first change this into a date type column 
+  poultry$ym <- as.Date(as.yearmon(poultry$ym))
+  # and then change it into a year quarter one like before!
+  poultry$ym <- as.yearmon(poultry$ym, format = "%Y-%m-%d")
+  
+
+```
+
+
+## Thinking about Visulization Options
+
+Now I have a few options I could do. I could do a time line chart to show the product or price by each month of each year. I could also do a bar graph based on price as a y axis, year or month as an x axis and the legend be the type of chicken. 
+
+I will use a line graph for the time series and then bar graphs for ones that aren't time focused. The reason I'm choosing these types is I believe they're the easiest to read from a client perspective. I think a scatter graph with a line also could be a good choice, but I want to focus on showing off the differences in a clean and easy to understand way. I often find that simpler graphs can be beneficial to explaining items instead of spending time explaining how the graph works. 
+
+### Time Series and Poultry
+
+```{r visualizing time series poultry}
+
+p1 <- ggplot(poultry, aes(ym, Price_Dollar, colour = Product)) + 
+  geom_smooth() + 
+  ggtitle("Poultry's Price by Year") +
+  scale_x_yearmon(breaks = c(2004:2014), format = "%b%Y",  name="Year and Month") +
+  scale_y_continuous(name="Price in Dollars") + 
+  scale_color_brewer(palette = "Pastel1") + 
+   theme(axis.text.x = element_text(angle =45, hjust = 1))
+p1
+
+
+```
+This visualization demonstrates that overtime the B/S breasts seems to be the have the steepest curve out of the rest of the products. I also noticed that thighs had a price increase from 2005 to 2007 however overtime the price has gone down. Whole poultry seems to have increased in price very slowly and them stabilized. Interestingly the price of bone-in breast and whole legs seemed to have maintained their prices. 
+
+What would be more interesting is to see poultry prices over a longer time frame. It would be nice to see if bone-in breasts and whole legs have stabilized before this or have had the least amount of growth in price due to lack of purchase. 
+
+## Poultry Bargraphs
+
+I believe that for both of these bar graphs, the visualizations will be similar to the time-series one I did above. These are just different ways of graphing it. 
+
+### Poultry Price by Year (Bar graph)
+
+```{r poultry price by year}
+
+p2 <- ggplot(poultry, aes(x=Year, y=Price_Dollar, fill=Product)) +
+    geom_bar(stat='identity', position='dodge') + 
+  ggtitle("Poulty Price by Year") +
+  xlab("Year") + ylab("Price in Dollars") + 
+  scale_fill_brewer(palette = "Pastel1")
+p2
+
+```
+The year bargraph is very similar to the time-series bar graph I did above. This shows how the prices change over time and how the B/S has had the most price increase. However one thing I notice about this graph is that it seems to be less ideal to show compared to a line graph. Due to the smaller changes on the whole legs and bone-in breast, it's harder to notice any differences.
+
+### Poultry Price by Month 
+
+```{r poultry price by month}
+
+# This formula is used to put the months in the correct order for the ggplot
+poultry$Month<-factor(poultry$Month,levels=month.name)
+p3 <- 
+  ggplot(poultry, aes(x=Month, y=Price_Dollar, fill=Product)) +
+    geom_bar(stat='identity', position='dodge') + 
+  labs(title = "Poulty Price by Month", subtitle = "Months are between 2004-2013") + 
+  xlab("Month") + ylab("Price in Dollars") + 
+  scale_y_continuous(breaks = c(0:7)) + 
+  scale_fill_brewer(palette = "Pastel1") + 
+  theme(axis.text.x = element_text(angle =45, hjust = 1))
+p3
+
+```
+For the months graph I believe it doesn't show any useful information. The prices are very rarely changing month by month and thus the graph is just showing what looks to be the same bar graph repeated. Even with trying to change the axis to show all of the prices it doesn't seem to highlight anything besides that over the year the price does not see to change month by month at a significant amount. 
+
+
+```{r putting all the graphs together}
+
+# Using the patchwork package
+
+patchwork <- p1 + theme(axis.text.x = element_text(angle =45, hjust = 1), legend.position="none") | 
+  (p2 / p3 + theme(plot.subtitle = element_text(size= 7))) 
+
+patchwork +  plot_annotation(title = "Poultry Prices Over Various Years and Months") + 
+  plot_layout(guides = 'collect')
+```
+After being able to look at all the graphs side by side, I think for poultry the best graph is the line graph. This is because it gives a much easier visualization of the differences and the subtle changes of prices over time compared to the bar graphs. Additionally it's easier to understand the products compared to the bar graph where you have to look at each individual product crowded by the other products for each year or month where changes are harder to see over time. 
+
+ After doing this exercise I believe that bar graphs are more useful when you're using it for a count instead of using the "identity" for the bar. 
+
+
+
+# Constraints
+
+I do with the poultry had information on the count of poultry bought each year. It would have been really interesting to see if with prices going up cheaper cuts of poultry were bought more. Also I wish I knew why bone in breast and thighs prices were missing in 2004. Other poultry prices in 2004 are there so it made it a bit confusing that some of the data was missing.
+
+
+
+
