@@ -1,0 +1,193 @@
+---
+title: "Homework Three"
+description: Basic Data Wrangling
+author:
+  - name: Cynthia Hester 
+    
+date: 10-09-2021
+output: 
+  distill::distill_article:
+   self_contained: no
+draft: yes    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(stringr)
+library(tidyverse)
+library(readr)
+library(here)
+```
+
+
+
+
+
+## Introduction
+
+Let's start with what the heck is data wrangling? You can wrangle cattle, but wrangling data? Yes! After data is imported or read into the RStudio environment it needs to be maneuvered before it can be used for visualization or modeling.
+
+
+## First Steps
+
+
+First, I am going to import data into R- In this case the Railroad_2012 data set which is a CSV file. While this is an already cleaned data set, it can still provide insight.
+
+
+
+```{r}
+library(readr)
+railroad_2012_clean_county <- read_csv("_data/railroad_2012_clean_county.csv")
+View(railroad_2012_clean_county)
+```
+
+
+
+The railroad data set was checked out, starting with the **head** and **tail** functions, which displayed the first 5 and last 5 rows of the data set.
+
+
+
+```{r}
+head(railroad_2012_clean_county,5)   
+tail(railroad_2012_clean_county,5)
+```
+
+
+________________________________________________________________________________
+Then using **colnames** which takes a look at column names of the data set.
+
+
+
+```{r}
+colnames(railroad_2012_clean_county)
+```
+
+
+________________________________________________________________________________
+The  **glimpse**  function which is part of the dplyr package which provides a synopsis of data was used.
+
+
+
+```{r}
+glimpse(railroad_2012_clean_county)   
+```
+
+________________________________________________________________________________
+
+The  **pivot_wider** function was used to make the data set more manageable and readable, as well as filling in missing values from n/a to 0.
+
+
+
+```{r}
+railroad_2012_clean_county %>%
+  pivot_wider(names_from = state, values_from = total_employees,values_fill = 0)
+```  
+________________________________________________________________________________
+
+  
+## Next step - Some Data Wrangling
+
+
+I was interested in the railroad county that had the most employees so I started with the **arrange** function which ranked the number of employees in descending order.It shows, not surprisingly that Cook county in Illinois had the most number of employees.
+
+
+```{r}
+arrange(railroad_2012_clean_county,desc(total_employees))
+```
+
+
+The **arrange** function was also used to display the *total_employees* column.
+
+
+
+```{r}
+arrange(railroad_2012_clean_county,total_employees)
+```
+
+________________________________________________________________________________
+
+I was interested if there were any **na** values in the railroad data set. It shows there were none. Which makes sense because this was a clean data set.
+
+
+
+```{r}
+ railroad_2012_clean_county %>%
+  is.na() %>% 
+  sum()
+```
+________________________________________________________________________________
+
+The **select** function was used to determine the number of rows. In this data set there were 2930 rows.
+
+
+
+```{r}
+select(railroad_2012_clean_county)
+```
+
+
+The **select** function separates the *state* column from the rest of the data set.
+
+
+
+```{r}
+select(railroad_2012_clean_county,state)
+```
+________________________________________________________________________________
+
+The **filter** function was used to determine which rail stations had fewer than 2 employees. Yeah,I was curious about this. It turns out there were 145 stations with less than 2 employees.
+
+
+
+```{r}
+filter(railroad_2012_clean_county,total_employees < 2)
+```
+
+
+
+
+I was curious about the number of stations that had less than or equal to 2 employees, so I created a new object called *subset_employees*, that utilized the pipe operator, **group_by** function,and **filter** function to determine the stations with less than or equal to 2 employees.
+
+
+
+```{r}
+subset_employees<-railroad_2012_clean_county %>% 
+  group_by(total_employees) %>% 
+  filter(total_employees<=2)
+subset_employees
+
+```
+
+________________________________________________________________________________
+
+
+The **summarise** function was used to learn what the mean of the total employees in all states. As it turns out the mean was 87.17816.
+
+
+
+```{r}
+railroad_2012_clean_county %>% 
+  summarise(mean(total_employees))
+```
+________________________________________________________________________________  
+
+
+In this block  the **rename function** was used to change one of the column names, *from total_rail_ employees* to *number_of_employees*. This comes in handy if a column needs to be renamed.
+
+
+
+```{r}
+data<-railroad_2012_clean_county
+data<-rename(data,number_of_rail_employees = total_employees)
+data
+```
+
+
+
+
+
+_______________________________________________________________________________
+By doing this assignment I learned about the power of the tidyverse,which contains the dplyr package. A lot of insight can be gleaned from the railroad dataset with these tools,such as business, and municipal forcasting. For instance, stations with the fewest employees, such as the examples used of  2 or less could be analyzed for either expansion or closure depending on the geographic proximity to other local stations,jobs and housing.   
+
+
+
