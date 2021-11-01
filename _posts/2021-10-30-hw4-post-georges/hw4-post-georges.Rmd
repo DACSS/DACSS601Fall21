@@ -1,0 +1,184 @@
+---
+title: "HW4: Univariate Statistics"
+description: |
+  2017 Australian Marraige Law dataset: tidying/cleaning the data, discussing the variables, incorporating some visualizations (all for practice)
+author: Megan Georges
+date: 10-30-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(distill)
+library(tidyverse)
+library(dplyr)
+library(stringr)
+library(readxl)
+library(ggplot2)
+```
+
+# Description of the Dataset and Variables
+
+## 2017 Australian Marraige Law 
+
+A postal survey was sent to Australians asking the question: Should the law be changed to allow same-sex couples to marry? The data was reported by the Australian Bureau of Statistics using Excel.
+
+## Variables
+
+
+* Divisions (Australian States/Territories)
+* Cities (within the Divisions) 
+* Response_Clear_Yes: those who clearly selected Yes in support of the new marraige law
+* Response_Clear_No: those who clearly selected No to the new marraige law
+* Response_Not_Clear: those in which researchers could not determine which answer the respondent intended to select
+* Non_Response: those who did not return the survey or select any of the responses
+
+***
+
+# Tidying and Cleaning the Data
+
+## Read the data into R
+
+```{r}
+ausmarraige <- read_excel("../../_data/australian_marriage_law_postal_survey_2017_-_response_final.xls", "Table 2", skip=6) 
+head(ausmarraige, 10)
+```
+
+## View column names
+
+```{r}
+colnames(ausmarraige)
+```
+
+## Select the columns that we want to keep and rename them
+
+```{r}
+ausmarraige1 <- select(ausmarraige, "...1", "no....2", "no....4", "no....11", "no....13")%>%
+  rename(Cities=...1, Response_Clear_Yes=no....2, Response_Clear_No=no....4, Response_Not_Clear=no....11, Non_Response=no....13)%>%
+  drop_na(Cities)
+
+head(ausmarraige1)
+```
+
+## Remove division totals and footnotes
+
+```{r}
+ausmarraige1 <- ausmarraige1 %>%
+  filter(!str_detect(Cities, "Total"))%>%
+  filter(!str_starts(Cities, "\\("))%>%
+  filter(Cities != "Australia")%>%
+  filter(!str_starts(Cities, "\\©"))
+```
+
+## Create new column for the divisions
+
+```{r}
+ausmarraige1 <- ausmarraige1 %>%
+  mutate(Divisions = case_when(
+    str_ends(Cities, "Divisions") ~ Cities
+  ))
+ausmarraige2 <- ausmarraige1[, c("Divisions", "Cities", "Response_Clear_Yes", "Response_Clear_No", "Response_Not_Clear", "Non_Response")]
+head(ausmarraige2)
+```
+
+## Continue to fix the Divisions column using fill
+
+```{r}
+ausmarraige2 <- fill(ausmarraige2, Divisions, .direction = c("down"))
+```
+
+## Remove the Divisions from the Cities column using filter
+
+```{r}
+ausmarraige2 <- filter(ausmarraige2, !str_detect(Cities, "Divisions"))
+head(ausmarraige2)
+```
+
+## Create a column to show Totals for each City 
+
+```{r}
+austotals <- ausmarraige2 %>%
+  mutate(Total=rowsum(Response_Clear_Yes, Response_Clear_No, Response_Not_Clear, Non_Response))
+head (austotals)
+```
+
+***
+
+# Summary Descriptives of the Variables
+
+## Divisions and Cities
+
+Australia comprises of 6 states and 2 territories (thus, 8 Divisions). The number of Cities in each Division is displayed below:
+
+```{r}
+select(ausmarraige2, Divisions)%>%
+  table()
+```
+
+**The total number of eligible participants, by division:**
+
+```{r}
+divtotals <- select(austotals, Divisions, Total) 
+divtotals2 <- divtotals %>%
+  pivot_wider(names_from = Divisions, values_from = Total, values_fn = sum)
+head(divtotals2)
+```
+
+**A proportion table of the eligible participants based on Division:**
+
+```{r}
+prop.table(divtotals2)
+```
+
+## Participant Responses
+
+**Descriptive statistics for Response_Clear_Yes:**
+
+```{r}
+summarize(ausmarraige2, Mean = mean(Response_Clear_Yes), Median = median(Response_Clear_Yes), Min = min(Response_Clear_Yes), Max = max(Response_Clear_Yes), SD = sd(Response_Clear_Yes), Var = var(Response_Clear_Yes), IQR = IQR(Response_Clear_Yes))
+```
+
+**Descriptive statistics for Response_Clear_No:**
+
+
+```{r}
+summarize(ausmarraige2, Mean = mean(Response_Clear_No), Median = median(Response_Clear_No), Min = min(Response_Clear_No), Max = max(Response_Clear_No), SD = sd(Response_Clear_No), Var = var(Response_Clear_No), IQR = IQR(Response_Clear_No))
+```
+
+**Descriptive statistics for Response_Not_Clear:**
+
+```{r}
+summarize(ausmarraige2, Mean = mean(Response_Not_Clear), Median = median(Response_Not_Clear), Min = min(Response_Not_Clear), Max = max(Response_Not_Clear), SD = sd(Response_Not_Clear), Var = var(Response_Not_Clear), IQR = IQR(Response_Not_Clear))
+```
+
+**Descriptive statistics for Non_Response:**
+
+```{r}
+summarize(ausmarraige2, Mean = mean(Non_Response), Median = median(Non_Response), Min = min(Non_Response), Max = max(Non_Response), SD = sd(Non_Response), Var = var(Non_Response), IQR = IQR(Non_Response))
+```
+
+# Experimenting with a Visualization
+
+**Bar graph modeling the total number of each response:**
+
+```{r}
+responsetotals <- ausmarraige2 %>%
+  select(Response_Clear_Yes, Response_Clear_No, Response_Not_Clear, Non_Response)%>%
+  summarise(Yes=sum(Response_Clear_Yes), No=sum(Response_Clear_No), NotClear=sum(Response_Not_Clear), NonResponse=sum(Non_Response))
+rownames(responsetotals) <- c("Total")
+
+responsetotals <- pivot_longer(responsetotals, Yes:NonResponse, names_to = "Response", values_to = "Total")
+
+ggplot(data = responsetotals) +
+  geom_bar(mapping = aes(x = Response, y = Total), stat = "identity") +
+  labs(title = "Should Australian Law Change to Allow Same-Sex Marraige?", subtitle = "2017 postal survey of Australians", x = "Type of Response", y = "Total # of Responses")
+```
+
+
+
+
+
+
